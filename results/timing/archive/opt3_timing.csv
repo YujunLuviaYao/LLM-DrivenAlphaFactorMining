@@ -1,0 +1,2 @@
+method,seconds,n_factors,n_days,n_stocks
+opt3_numba_jit,0.13484737499999255,20,752,483

@@ -1,0 +1,217 @@
+rank,IC_mean,ICIR,Sharpe,MDD,Turnover,factor,score
+1,0.0169,0.142,1.0861,-0.183,0.7077,rank(vwap / close - 1) * rank(volume / adv20),0.7553
+2,0.018,0.1111,1.3615,-0.1408,0.685,-1 * zscore(returns) * rank(volume / adv20),0.7334
+3,0.0145,0.0881,1.9927,-0.073,0.5955,"-rank((close - ts_min(close, 10)) / (ts_max(close, 10) - ts_min(close, 10)))",0.7295
+4,0.0179,0.1031,1.3031,-0.1682,0.7146,"-1 * rank(power(returns, 3))",0.7248
+5,0.0154,0.0962,1.4001,-0.1833,0.7119,rank(open / close),0.7191
+6,0.0168,0.1052,1.0751,-0.1915,0.7295,"-1 * rank(ts_delta(close, 1) / ts_std(close, 10))",0.709
+7,0.0148,0.1006,1.2029,-0.1607,0.7889,-1 * rank((close - open) / (high - low + 0.0001)),0.6923
+8,0.0148,0.0898,1.1474,-0.1745,0.5982,-1 * rank((high - low) / close) * sign(returns),0.6903
+9,0.0145,0.0871,1.1678,-0.12,0.4292,"-1 * rank(ts_delta(close, 10) / ts_std(close, 20))",0.6805
+10,0.0133,0.0824,1.1734,-0.1343,0.4346,"rank(ts_std(returns, 10) * (volume / adv20))",0.6743
+11,0.0159,0.0973,0.9577,-0.1495,0.7481,"-1 * rank((close - ts_mean(close, 5)) / ts_std(close, 5))",0.6699
+12,0.0083,0.0946,1.2013,-0.0822,0.2197,"rank(ts_corr(abs(returns), volume / adv20, 15))",0.6675
+13,0.0156,0.086,0.8605,-0.1354,0.3406,"-1 * sign(close - ts_mean(close, 10)) * rank(abs(close - ts_mean(close, 10)) / close)",0.667
+14,0.0156,0.086,0.8605,-0.1354,0.3406,"-1 * zscore(close / ts_mean(close, 10) - 1)",0.667
+15,0.0153,0.0848,0.8144,-0.1349,0.3345,"rank((ts_mean(vwap, 10) - close) / close)",0.6604
+16,0.0054,0.0489,1.5503,-0.132,0.0564,"rank(ts_mean((high - close) / (high - low + 0.0001) * volume, 10))",0.6552
+17,0.0083,0.0958,1.1233,-0.0757,0.2953,"rank(ts_corr(abs(returns), volume, 10))",0.6551
+18,0.0139,0.0816,0.837,-0.1475,0.386,"-1 * rank((close - ts_mean(close, 20)) / ts_std(close, 20))",0.6532
+19,0.0139,0.0816,0.837,-0.1475,0.386,"rank((ts_mean(close, 20) - close) / ts_std(close, 20))",0.6532
+20,0.008,0.0928,0.8617,-0.1202,0.2101,"rank(ts_corr(power(returns, 2), volume, 15))",0.6466
+21,0.014,0.078,0.7343,-0.1313,0.3339,"rank(ts_mean(low, 10) / close - 1)",0.638
+22,0.0138,0.0748,0.6942,-0.1281,0.2403,"-1 * zscore((high + low + close) / 3 / ts_mean((high + low + close) / 3, 15) - 1)",0.6344
+23,0.0125,0.0809,0.952,-0.1376,0.7199,"-1 * rank(ts_delta(close / vwap, 5))",0.6322
+24,0.0116,0.0718,0.8542,-0.1152,0.2572,"-1 * rank(ts_delta(close, 5) + ts_delta(close, 10))",0.6303
+25,0.0087,0.0422,0.7862,-0.2658,0.2039,"zscore(ts_mean(abs(returns), 10))",0.6268
+26,0.0129,0.07,0.6973,-0.12,0.2054,"rank(ts_mean(vwap, 20) / vwap - 1)",0.6244
+27,0.0084,0.0455,0.8836,-0.2213,0.1969,"zscore(ts_std(open - close, 10) / ts_mean(close, 10))",0.6244
+28,0.0093,0.0518,0.7994,-0.2052,0.2004,"rank(ts_std(returns, 10) * ts_mean(volume, 10) / adv20)",0.6232
+29,0.0093,0.0537,1.0879,-0.2084,0.6922,rank(log(high / low)),0.6212
+30,0.0114,0.0734,0.8321,-0.1716,0.7041,-1 * rank(close / vwap - 1),0.6194
+31,0.0128,0.0772,0.7163,-0.1311,0.5597,"rank((ts_max(high, 10) - close) / (ts_max(high, 10) - ts_min(low, 10) + 0.001))",0.6159
+32,0.0124,0.0683,0.7558,-0.1452,0.4957,"-1 * rank(ts_delta(close, 3) / close)",0.6151
+33,0.0097,0.0737,0.77,-0.1284,0.3565,"-1 * rank(ts_max(volume, 10) / adv20) * rank(close / ts_max(close, 10))",0.615
+34,0.0073,0.0327,0.8123,-0.2606,0.1288,"rank(ts_mean(log(high / low), 10))",0.6143
+35,0.0124,0.0682,0.7358,-0.1403,0.4952,"-1 * rank(ts_mean(returns, 3))",0.6117
+36,0.0103,0.0895,0.2999,-0.149,0.2737,"rank(ts_corr(returns, volume, 10)) * -1",0.6075
+37,0.0056,0.0264,0.7525,-0.3057,0.1924,"rank(ts_mean(abs(returns) / (volume / adv20 + 0.0001), 10))",0.6043
+38,0.009,0.0729,0.8274,-0.1146,0.4723,"-1 * rank(ts_delta(close, 10)) * (1 - rank(ts_delta(volume, 10)))",0.6043
+39,0.0111,0.0646,0.6299,-0.1552,0.3913,"rank(ts_mean(returns, 20) - ts_mean(returns, 5))",0.6035
+40,0.0071,0.0376,0.8354,-0.214,0.2059,"rank(ts_mean(abs(close - vwap), 10) / ts_mean(close, 10))",0.6016
+41,0.0059,0.0308,0.5879,-0.2976,0.1016,"zscore(ts_max(returns, 20) - ts_min(returns, 20))",0.5996
+42,0.0043,0.0616,1.0625,-0.0963,0.2615,"rank(ts_std(returns * volume, 10) / (ts_std(returns, 10) * ts_std(volume, 10) + 0.0001))",0.5984
+43,0.0117,0.0699,0.5164,-0.1476,0.4537,"rank((ts_max(high, 20) - close) / (ts_max(high, 20) - ts_min(low, 20)))",0.5962
+44,0.0056,0.0634,0.7789,-0.1198,0.1758,"rank(ts_corr(abs(returns), volume / adv20, 20))",0.594
+45,0.0052,0.0243,0.7543,-0.2573,0.0665,"rank(ts_min(ts_std(returns, 10), 20))",0.5924
+46,0.0089,0.0555,0.7352,-0.1138,0.1939,"-1 * rank(ts_delta(ts_mean(close, 5), 5))",0.5912
+47,0.0063,0.0555,0.8255,-0.1201,0.2072,"rank(ts_delta(ts_std(returns, 20), 10))",0.5893
+48,0.0044,0.0218,0.9221,-0.2493,0.2111,"rank(ts_mean((high - low) / vwap, 5) / ts_mean(volume / adv20, 5))",0.5891
+49,0.009,0.0595,0.7801,-0.1068,0.3638,"-1 * rank(ts_max(close, 10) / close - 1) * sign(ts_delta(close, 10))",0.5876
+50,0.0134,0.08,-0.0799,-0.2198,0.4742,"-1 * rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",0.5851
+51,0.008,0.0412,0.6208,-0.1803,0.163,"-1 * rank(ts_delta(close, 20) / close) * rank(1 / ts_std(returns, 20))",0.5827
+52,0.0042,0.0202,0.5724,-0.3011,0.1069,"rank(ts_std(vwap / close, 20))",0.5784
+53,0.0042,0.0201,0.5836,-0.2971,0.1073,"rank(ts_std(close / vwap, 20))",0.578
+54,0.008,0.0414,0.6946,-0.1418,0.1929,"rank(ts_mean(close, 50) / close - 1) * rank(ts_std(returns, 10))",0.5751
+55,0.0094,0.0567,0.3412,-0.1843,0.3982,"-1 * rank(ts_delta(vwap, 5) / ts_std(vwap, 20))",0.5696
+56,0.0091,0.0503,0.4753,-0.1596,0.3492,"rank(ts_mean(open, 10) / open - 1)",0.5673
+57,0.0034,0.0431,0.9076,-0.1002,0.3035,"rank(ts_corr((high - low) / close, volume / adv20, 10))",0.5561
+58,0.0096,0.0745,0.1582,-0.1552,0.5855,"rank(ts_delta(volume, 5) / adv20) * sign(-ts_delta(close, 5))",0.5552
+59,0.0049,0.0449,0.1706,-0.27,0.333,"zscore(ts_mean(high - low, 5) / ts_mean(high - low, 60))",0.5522
+60,0.0072,0.0572,0.5893,-0.1491,0.7092,-1 * rank(close - open) * rank(abs(returns)),0.5518
+61,0.0071,0.061,0.3585,-0.1867,0.7252,"rank(ts_delta(log(high / low), 5))",0.5468
+62,0.004,0.0217,0.4657,-0.2606,0.2692,"rank(ts_min(low, 20) / close - 1) * -1 + rank(1 - close / ts_max(high, 20))",0.5465
+63,0.0039,0.0176,0.1411,-0.3183,0.1122,"zscore(ts_mean(high / low, 20)) * rank(-ts_std(returns, 20))",0.5407
+64,0.0075,0.0402,0.2382,-0.1666,0.1977,"rank(ts_mean(returns, 20)) * -1",0.5385
+65,0.0026,0.0304,0.6095,-0.155,0.1761,"rank(ts_corr(high - low, volume, 20))",0.536
+66,0.005,0.0588,0.3139,-0.1221,0.3794,"rank(ts_delta(close, 5)) * sign(ts_delta(volume, 5))",0.532
+67,0.0055,0.0281,0.4881,-0.1445,0.2556,"rank(1 - close / ts_max(close, 60))",0.5262
+68,0.0042,0.0407,0.1853,-0.2157,0.3591,"rank(ts_mean(high - low, 5) / ts_mean(high - low, 20))",0.526
+69,0.0044,0.0499,0.5233,-0.0945,0.4483,"rank(ts_corr(close, volume, 20)) - rank(ts_corr(close, volume, 5))",0.5236
+70,0.0009,0.006,0.843,-0.1426,0.0863,"rank(ts_max(high, 20) - ts_min(low, 20)) / ts_mean(close, 20)",0.5205
+71,0.0019,0.0154,0.6478,-0.1532,0.1787,"rank(ts_std(returns, 10) - ts_std(returns, 60))",0.5168
+72,0.0066,0.0408,0.2124,-0.1462,0.4225,"-1 * rank(ts_delta(high, 5) / ts_std(high, 20))",0.5123
+73,0.0061,0.0539,0.1227,-0.1418,0.5492,"rank(adv20 / volume) * sign(ts_mean(close, 10) - close)",0.5092
+74,0.0058,0.0508,0.253,-0.1146,0.5149,"rank(ts_mean((close - vwap) / vwap, 10)) * rank(volume / adv20)",0.5089
+75,0.0024,0.026,0.4556,-0.142,0.2572,"rank(ts_std(high - low, 10) / ts_mean(high - low, 10))",0.5065
+76,0.0029,0.0298,0.0833,-0.2322,0.3158,"zscore(ts_delta(ts_mean(high - low, 5), 5))",0.5058
+77,0.0023,0.0208,0.5144,-0.1324,0.214,"rank(ts_std(returns, 10)) - rank(ts_std(returns, 60))",0.5044
+78,0.0038,0.052,-0.1263,-0.173,0.2624,"rank(ts_mean(close * volume, 5) / ts_mean(close * volume, 20))",0.503
+79,0.0031,0.0456,0.2793,-0.0952,0.3233,"-1 * rank(ts_corr(rank(close), rank(volume), 10))",0.4991
+80,0.0041,0.0402,0.2784,-0.177,0.7791,"rank((high - low) / ts_mean(high - low, 20))",0.4941
+81,0.0037,0.0255,0.1821,-0.1689,0.3744,"-1 * rank(ts_delta(close, 5)) * rank(ts_std(returns, 5))",0.4884
+82,0.0041,0.0445,0.0236,-0.1191,0.3037,"rank(ts_corr(vwap - close, volume, 10))",0.4882
+83,0.0022,0.0222,-0.1028,-0.2447,0.3431,"rank(ts_delta(ts_mean(abs(close - open), 5), 5))",0.4789
+84,0.0017,0.0166,0.1527,-0.2081,0.3885,"rank(ts_mean(abs(returns), 5) / ts_mean(abs(returns), 60))",0.4778
+85,-0.0017,-0.0107,0.2571,-0.3041,0.3151,"rank(ts_max(returns, 5))",0.474
+86,0.0034,0.0223,0.0859,-0.1604,0.3948,"-1 * rank(ts_mean(returns, 5)) * rank(ts_std(returns, 5))",0.4704
+87,-0.0009,-0.0082,0.8351,-0.0769,0.1328,"rank(ts_mean(volume, 5) / ts_std(close, 5))",0.47
+88,0.0017,0.0168,-0.1395,-0.2599,0.3712,"zscore(ts_std(returns, 5) / ts_std(returns, 60))",0.4699
+89,0.0017,0.0168,-0.1395,-0.2599,0.3712,"rank(ts_std(returns, 5) / ts_std(returns, 60))",0.4699
+90,0.0021,0.0319,0.261,-0.1097,0.5046,"-1 * zscore(close / ts_mean(close, 20) - 1) * zscore(volume / adv20)",0.4692
+91,0.0017,0.0084,0.0688,-0.1801,0.1323,"rank(ts_mean(close, 60) / close - 1)",0.4672
+92,0.002,0.0195,-0.2211,-0.254,0.3883,"rank(ts_std(returns, 5) / ts_std(returns, 20))",0.4643
+93,-0.0017,-0.0084,-0.0688,-0.2563,0.1323,"rank(log(close) - log(ts_mean(close, 60)))",0.444
+94,0.001,0.0078,0.0838,-0.1699,0.4342,"rank(ts_delta(close, 40)) * rank(ts_delta(volume, 10))",0.4423
+95,0.0012,0.0084,-0.0741,-0.184,0.3154,"zscore(ts_mean(high - close, 10) / ts_mean(close - low, 10))",0.442
+96,0.0025,0.0222,0.0288,-0.1251,0.5602,"-1 * rank(ts_delta(close, 5)) * rank(ts_delta(volume, 5) / adv20)",0.4394
+97,0.0012,0.0166,-0.0777,-0.1484,0.3758,"-1 * zscore(ts_delta(close, 2)) * zscore(ts_delta(close, 2) - ts_delta(close, 5))",0.4366
+98,-0.0004,-0.0044,0.5519,-0.1154,0.6365,"rank(log(volume / adv20) * sign(ts_delta(close, 5)))",0.4323
+99,-0.0045,-0.0226,-0.6566,-0.4587,0.1255,"rank(close / (ts_max(high, 20) - ts_min(low, 20)))",0.4278
+100,0.0031,0.0284,-0.4858,-0.1972,0.6052,"-1 * rank(ts_corr(close, volume, 5)) * rank(abs(ts_delta(close, 5)) / close)",0.4244
+101,0.0007,0.0057,0.2087,-0.1197,0.6067,"-rank(ts_delta(close, 3) / ts_std(close, 20)) * rank(volume / adv20)",0.4223
+102,-0.0057,-0.0268,-0.7279,-0.4794,0.1084,"-rank(power(ts_std(returns, 20), 2))",0.4188
+103,-0.0057,-0.0268,-0.7279,-0.4794,0.1084,"rank(-ts_std(returns, 20))",0.4188
+104,-0.0057,-0.0268,-0.7279,-0.4794,0.1084,"rank(-1 * ts_std(returns, 20))",0.4188
+105,-0.0059,-0.0275,-0.6895,-0.4697,0.1063,"-rank(ts_mean(power(returns, 2), 20))",0.4175
+106,0.0009,0.0071,-0.4627,-0.2709,0.6008,"-1 * rank(ts_delta(volume, 5) * ts_delta(close, 5)) * sign(ts_delta(close, 5))",0.4145
+107,-0.0056,-0.0264,-0.7525,-0.4669,0.1924,"-1 * rank(ts_mean(abs(returns) / (volume / adv20 + 0.0001), 10))",0.4082
+108,-0.0003,-0.005,-0.0849,-0.1608,0.3735,"zscore(ts_mean(returns, 5)) * zscore(ts_mean(volume, 5) / adv20)",0.4065
+109,-0.0073,-0.0328,-0.8063,-0.5095,0.1286,"rank(-1 * ts_mean((high - low) / close, 10))",0.4059
+110,0.0013,0.0126,-0.2013,-0.1605,0.7089,"rank((close - vwap) / (ts_std(close, 20) + 0.0001)) * rank(volume / adv20)",0.4038
+111,-0.002,-0.0125,-0.0036,-0.1221,0.0867,"rank(ts_mean(close, 40) - close) / rank(ts_std(close, 40))",0.4027
+112,-0.0006,-0.0087,-0.0322,-0.1192,0.242,"zscore(ts_std(volume, 10) / ts_mean(volume, 10))",0.4002
+113,-0.0025,-0.0186,-0.3678,-0.2606,0.2018,"rank(ts_mean((close - vwap) * volume, 10))",0.3981
+114,-0.0014,-0.0147,-0.0123,-0.1433,0.2898,"rank(ts_corr(close, log(volume), 10)) - rank(ts_corr(close, log(volume), 30))",0.3957
+115,-0.0029,-0.0269,0.2672,-0.1183,0.2502,"rank(ts_corr(vwap, volume, 15))",0.3933
+116,-0.0016,-0.0243,-0.0097,-0.1507,0.1723,"zscore(ts_std(returns, 20)) * zscore(-ts_delta(close, 20) / close)",0.3929
+117,-0.0028,-0.019,-0.2055,-0.2143,0.2895,"rank(ts_mean(close / vwap, 10))",0.3902
+118,-0.0055,-0.0281,-0.4881,-0.3511,0.2556,"rank(close / ts_max(close, 60))",0.3885
+119,-0.0033,-0.0222,-0.4011,-0.2942,0.4034,"rank(ts_mean(close / vwap, 5))",0.3853
+120,-0.0023,-0.0148,-0.4717,-0.2321,0.2265,"rank(close - ts_min(low, 20))",0.3836
+121,-0.0059,-0.0329,-0.744,-0.3969,0.0915,"-rank(ts_max(abs(returns), 20))",0.3832
+122,-0.004,-0.0286,0.2127,-0.155,0.5029,"power(rank(ts_delta(close, 5)), 2) * sign(ts_delta(close, 5))",0.3775
+123,-0.0079,-0.0416,-0.6675,-0.4382,0.2053,"zscore(ts_min(low, 10) / ts_max(high, 10))",0.3767
+124,-0.0081,-0.0392,-0.6029,-0.4109,0.1936,"-1 * rank(ts_mean(high / close - 1, 10))",0.3765
+125,-0.0032,-0.0347,0.2886,-0.1455,0.5187,"-rank(ts_std(returns, 5) / ts_mean(abs(returns), 5))",0.3759
+126,-0.0012,-0.0145,-0.369,-0.1419,0.1617,"rank(ts_std(volume, 20) / adv20) * sign(-ts_delta(ts_std(returns, 10), 5))",0.3727
+127,-0.0029,-0.0293,0.0755,-0.1269,0.4145,"rank(ts_delta(ts_corr(close, volume, 10), 5))",0.3656
+128,-0.0097,-0.0464,-0.7579,-0.4655,0.2259,"-zscore(ts_mean(high - low, 5) / close)",0.3624
+129,-0.0082,-0.0437,-0.3125,-0.3047,0.1974,"rank(ts_delta(close, 20) / close)",0.3616
+130,-0.001,-0.009,-0.2916,-0.1435,0.6878,"rank((high - low) / (ts_max(high, 10) - ts_min(low, 10) + 0.001))",0.3546
+131,-0.0059,-0.0369,-0.1349,-0.2064,0.3914,"rank(ts_mean(returns, 5)) - rank(ts_mean(returns, 20))",0.3517
+132,-0.0051,-0.0351,-0.2572,-0.186,0.2207,"rank(ts_mean(volume * sign(returns), 20) / ts_mean(volume, 20))",0.3507
+133,-0.004,-0.034,-0.3004,-0.1857,0.2833,"rank(ts_delta(close, 10)) * rank(ts_mean(volume, 5) / ts_mean(volume, 20))",0.3488
+134,-0.0051,-0.0343,-0.3675,-0.2053,0.22,"rank(ts_mean(sign(returns) * log(volume / adv20 + 1), 20))",0.3481
+135,-0.008,-0.0448,-0.1294,-0.2091,0.2233,"rank(ts_mean(returns, 20) / ts_std(returns, 20))",0.3448
+136,-0.0096,-0.0514,-0.4143,-0.3129,0.1327,"rank(ts_mean(close, 5) / ts_mean(close, 20) - 1)",0.3437
+137,-0.0091,-0.0528,-0.5637,-0.3527,0.314,"zscore(ts_mean(returns, 10)) * rank(ts_corr(close, volume, 10))",0.3321
+138,-0.011,-0.0639,-0.0682,-0.2799,0.3111,"rank(close / ts_min(close, 20))",0.3308
+139,-0.0115,-0.0615,-0.4892,-0.3851,0.2785,"rank(close / ts_mean(close, 10)) * rank(close / ts_mean(close, 40))",0.3303
+140,-0.0117,-0.0629,-0.5378,-0.3976,0.244,"rank(ts_delta(vwap, 10) / vwap)",0.3296
+141,-0.007,-0.0481,-0.6829,-0.3297,0.3223,"rank(ts_mean(close - open, 5))",0.3284
+142,-0.0069,-0.0429,-0.2619,-0.2092,0.4244,"rank(close - ts_mean(close, 5)) - rank(close - ts_mean(close, 40))",0.3274
+143,-0.0081,-0.0499,-0.792,-0.355,0.2198,"rank(ts_delta(high, 10))",0.3264
+144,-0.0087,-0.0528,-0.5004,-0.2691,0.1139,"rank(ts_mean(close, 5) - ts_mean(close, 20))",0.3251
+145,-0.0085,-0.0517,-0.1507,-0.192,0.2487,"ts_delta(close, 20) / (ts_std(close, 60) + 0.001)",0.3249
+146,-0.0051,-0.0537,-0.2029,-0.2084,0.4656,"rank(ts_delta(volume, 5) * ts_delta(close, 5))",0.3239
+147,-0.0118,-0.0688,-0.6224,-0.4206,0.2329,"zscore(ts_mean(returns * volume, 10) / ts_mean(volume, 10))",0.3224
+148,-0.0114,-0.0673,-0.6173,-0.4035,0.2191,"rank(ts_mean(returns * (volume / adv20), 10))",0.3218
+149,-0.0084,-0.0505,-0.415,-0.2816,0.4451,"rank(ts_delta(ts_delta(close, 5), 5) / close)",0.3199
+150,-0.0104,-0.0673,-0.1164,-0.2611,0.2928,"rank(ts_std(returns, 5)) * sign(ts_delta(close, 5))",0.3199
+151,-0.0116,-0.0683,-0.6441,-0.4064,0.2242,"rank(ts_mean(returns * volume, 10) / (adv20 + 0.001))",0.3179
+152,-0.0088,-0.0554,-0.5039,-0.287,0.2908,"rank(ts_delta(high, 5) + ts_delta(low, 5))",0.3156
+153,-0.0102,-0.0584,-0.1888,-0.2341,0.3355,"rank(ts_mean(returns, 5)) - rank(ts_mean(returns, 60))",0.314
+154,-0.0093,-0.0571,-0.7431,-0.3474,0.2535,"rank(ts_delta(vwap, 10) * (volume / adv20))",0.312
+155,-0.0129,-0.07,-0.6973,-0.4227,0.2054,"rank(vwap / ts_mean(vwap, 20))",0.3119
+156,-0.0049,-0.0466,-1.372,-0.379,0.0532,"-1 * rank(ts_mean((close - low) / (high - low + 0.0001) * volume, 10))",0.3109
+157,-0.0114,-0.0687,-0.7751,-0.4298,0.2998,"ts_delta(rank(close), 10)",0.3094
+158,-0.0085,-0.0592,-0.476,-0.2767,0.3335,"ts_mean(sign(returns), 10)",0.3086
+159,-0.0068,-0.056,-0.5321,-0.2749,0.4616,"rank(ts_delta(close, 10)) * rank(ts_delta(volume, 10))",0.3062
+160,-0.0117,-0.0681,-0.6773,-0.3978,0.3239,"ts_mean(sign(returns) * rank(abs(returns)), 10)",0.3056
+161,-0.0096,-0.0582,-0.5631,-0.2736,0.1909,"zscore(ts_delta(close, 10)) + zscore(ts_delta(close, 20))",0.3054
+162,-0.0113,-0.0727,-0.569,-0.3829,0.3707,"ts_delta(rank(vwap), 5)",0.3034
+163,-0.0125,-0.0731,-0.6185,-0.4056,0.3301,"rank(ts_mean(returns * (volume / adv20), 5))",0.3033
+164,-0.0059,-0.0511,-0.8889,-0.2623,0.1943,"rank(ts_max(volume, 20) / adv20) * rank(ts_delta(close, 20))",0.2972
+165,-0.012,-0.0775,-0.5682,-0.3513,0.1828,"zscore(ts_mean(returns * power(volume / adv20, 2), 10))",0.2961
+166,-0.0114,-0.0734,-0.8321,-0.4999,0.7041,rank(close / vwap),0.2955
+167,-0.0115,-0.0771,-0.5877,-0.3444,0.1819,"rank(ts_mean((vwap - open) / (open + 0.0001) * volume, 10))",0.2949
+168,-0.0124,-0.0801,-0.6151,-0.4318,0.485,rank(returns * volume) ,0.2939
+169,-0.0105,-0.0645,-0.5823,-0.2998,0.3029,"ts_delta(ts_mean(close, 5), 5) / ts_std(close, 20)",0.2933
+170,-0.0113,-0.0748,-0.9847,-0.5357,0.6869,zscore((close - vwap) / close * log(volume / adv20 + 1)),0.2932
+171,-0.0029,-0.0376,-1.0992,-0.2325,0.3511,"rank(ts_corr(low, volume, 10)) - rank(ts_corr(high, volume, 10))",0.2887
+172,-0.0109,-0.0708,-0.6297,-0.3387,0.3919,"ts_delta(close, 5) * rank(volume / adv20)",0.2864
+173,-0.011,-0.0694,-0.6213,-0.3172,0.323,"sign(ts_delta(close, 5)) * rank(abs(ts_delta(close, 5)))",0.2859
+174,-0.0088,-0.0612,-0.4361,-0.2089,0.36,"ts_delta(ts_delta(close, 5), 5)",0.2847
+175,-0.0113,-0.0651,-0.5951,-0.3356,0.578,"ts_delta(close, 3) / (ts_max(high, 10) - ts_min(low, 10) + 0.001)",0.2822
+176,-0.012,-0.0726,-0.5685,-0.298,0.2612,"rank(ts_delta(close, 10)) - rank(ts_delta(close, 60))",0.28
+177,-0.0117,-0.067,-0.7387,-0.3695,0.5294,"rank(ts_mean(returns, 3) / (ts_std(returns, 20) + 0.001))",0.2794
+178,-0.0092,-0.0752,-0.345,-0.2013,0.2534,"rank(ts_std(volume, 10) / ts_mean(volume, 10)) * sign(ts_delta(close, 5))",0.2778
+179,-0.0047,-0.0755,-0.321,-0.2152,0.6627,"zscore(ts_delta(volume / adv20, 5)) * sign(ts_delta(close, 5))",0.2774
+180,-0.0131,-0.0755,-1.2348,-0.5025,0.3039,"rank(ts_delta(close, 5)) * rank(1 / (ts_std(returns, 10) + 0.001))",0.2759
+181,-0.0062,-0.082,-0.4146,-0.2156,0.3312,"rank(ts_corr(rank(returns), rank(volume), 10))",0.2756
+182,-0.0124,-0.0735,-0.3959,-0.2727,0.4003,"rank(ts_min(close, 10) / close - 1) * -1",0.2756
+183,-0.014,-0.0811,-0.7772,-0.4222,0.3832,"rank(ts_delta(close, 5) / close) - rank(ts_std(returns, 5))",0.2747
+184,-0.0108,-0.0751,-0.7267,-0.3248,0.3081,"rank(ts_mean(volume * sign(returns), 10) / adv20)",0.2736
+185,-0.0088,-0.076,-0.22,-0.1621,0.3086,"rank(ts_mean(volume, 20) / ts_mean(volume, 5) - 1) * sign(ts_delta(close, 5))",0.2734
+186,-0.0109,-0.0927,-0.3371,-0.2565,0.2756,"rank(ts_corr(returns, volume / adv20, 10))",0.2657
+187,-0.0096,-0.0718,-1.0343,-0.3998,0.5388,rank((close - vwap) * (volume / adv20)),0.2652
+188,-0.0074,-0.0743,-0.5908,-0.2554,0.5491,"rank(ts_corr(close, volume, 5))",0.2635
+189,-0.0125,-0.0734,-0.6223,-0.325,0.5487,"ts_delta(close, 10) / (ts_max(close, 10) - ts_min(close, 10) + 0.001)",0.2626
+190,-0.013,-0.079,-0.8836,-0.3679,0.268,"rank(ts_delta(close, 3) + ts_delta(close, 6) + ts_delta(close, 12))",0.2618
+191,-0.0134,-0.08,0.0799,-0.1467,0.4742,"rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",0.26
+192,-0.0079,-0.0782,-0.8835,-0.376,0.7023,rank(log(volume / adv20) * returns),0.2598
+193,-0.013,-0.0769,-0.6502,-0.3295,0.528,"ts_delta(close, 10) / ts_std(close, 10)",0.2564
+194,-0.0101,-0.0778,-0.9407,-0.3917,0.6473,"rank(ts_min(volume, 10) / ts_max(volume, 10)) * rank(returns)",0.2543
+195,-0.0134,-0.0805,-0.3668,-0.2442,0.4657,"rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20) + 0.001))",0.2517
+196,-0.0141,-0.0857,-0.881,-0.3792,0.3205,"rank(ts_mean(volume * returns, 10) / ts_std(volume * returns, 10))",0.2493
+197,-0.0141,-0.0842,-1.1714,-0.4537,0.3788,"rank(ts_delta(vwap, 10) / ts_std(close, 20))",0.2457
+198,-0.0127,-0.0908,-0.5262,-0.2032,0.2195,"rank(close - ts_mean(close, 10)) / (ts_std(close, 10) + 0.001)",0.2298
+199,-0.0111,-0.082,-1.1112,-0.4194,0.7872,zscore((close - vwap) / (high - low + 0.0001)),0.2297
+200,-0.0138,-0.0975,-1.1469,-0.4192,0.6755,"rank((close - low) / (high - low + 0.001)) * rank(ts_delta(close, 5))",0.2025
+201,-0.0171,-0.1096,-1.206,-0.5024,0.6373,"rank(close / open) * rank(ts_delta(close, 10))",0.1973
+202,-0.0165,-0.1269,-1.3314,-0.4379,0.5467,"rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20) + 0.0001)) - rank((volume - ts_min(volume, 20)) / (ts_max(volume, 20) - ts_min(volume, 20) + 0.0001))",0.1518
+203,-0.0096,-0.1364,-0.9703,-0.2692,0.7047,"rank(log(ts_mean(volume, 5)) - log(volume))",0.1368
+204,,0.0,0.0,,0.0,"rank(ts_corr(ts_delta(close, 1), ts_delta(volume, 1), 20))",
+205,,0.0,0.0,,0.0,"rank(-ts_corr(ts_delta(close, 5), ts_mean(volume, 5) - volume, 10))",
+206,,0.0,0.0,,0.0,"rank(ts_std(close / ts_mean(close, 10), 20))",
+207,,0.0,0.0,,0.0,"rank(ts_std(ts_std(returns, 5), 20))",
+208,,0.0,0.0,,0.0,"-1 * rank(ts_corr(ts_mean(close, 5), ts_mean(volume, 5), 20))",
+209,,0.0,0.0,,,"-1 * rank(ts_mean(ts_delta(volume, 1) * ts_delta(close, 1), 10))",
+210,,0.0,0.0,,0.0,"-rank(ts_std(ts_std(returns, 10), 20))",
+211,,0.0,0.0,,0.0,"rank(ts_corr(ts_std(returns, 5), volume, 20))",
+212,,0.0,0.0,,0.0,"rank(ts_corr(ts_std(returns, 5), ts_delta(close, 5), 20))",
+213,,0.0,0.0,,0.0,"rank(ts_corr(returns, ts_std(returns, 5), 20))",
+214,,0.0,0.0,,0.0,"rank(ts_std(close - ts_mean(close, 5), 20))",
+215,,0.0,0.0,,0.0,"rank(ts_corr(ts_std(returns, 10), adv20, 20))",
+216,,0.0,0.0,,,"-rank(ts_mean(power(returns - ts_mean(returns, 20), 2), 20))",
