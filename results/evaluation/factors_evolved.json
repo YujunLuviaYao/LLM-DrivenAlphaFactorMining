@@ -1,0 +1,6599 @@
+[
+  {
+    "factor": "rank(volume / adv20) * rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20))) * rank(ts_corr(volume, abs(returns), 15)) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.9376,
+    "IC_mean": 0.0186,
+    "ICIR": 0.1863,
+    "Sharpe": 2.2255,
+    "MDD": -0.0795,
+    "Turnover": 0.5022
+  },
+  {
+    "factor": "rank(vwap / close - 1) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 5) * ts_std(log(volume / adv20), 10)) * rank(ts_corr(volume, abs(returns), 20))",
+    "score": 0.9038,
+    "IC_mean": 0.0187,
+    "ICIR": 0.2029,
+    "Sharpe": 1.9468,
+    "MDD": -0.1441,
+    "Turnover": 0.6595
+  },
+  {
+    "factor": "rank(vwap / close - 1) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 5)) * rank(ts_corr(volume, abs(returns), 20))",
+    "score": 0.9024,
+    "IC_mean": 0.0187,
+    "ICIR": 0.2028,
+    "Sharpe": 1.9352,
+    "MDD": -0.1455,
+    "Turnover": 0.6597
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (ts_std(returns, 20) * ts_std(volume, 20))) * rank(ts_corr(volume, abs(returns), 10))",
+    "score": 0.8952,
+    "IC_mean": 0.0187,
+    "ICIR": 0.154,
+    "Sharpe": 2.2109,
+    "MDD": -0.0856,
+    "Turnover": 0.6527
+  },
+  {
+    "factor": "rank(vwap / close - 1) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 5)) * rank(ts_corr(volume, abs(returns), 20)) * (1 - abs(rank(ts_delta(close, 1)) - 0.5))",
+    "score": 0.8891,
+    "IC_mean": 0.0182,
+    "ICIR": 0.1976,
+    "Sharpe": 1.8737,
+    "MDD": -0.1532,
+    "Turnover": 0.6558
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (ts_std(returns, 20) * ts_std(volume, 20))) * rank(ts_corr(volume, abs(returns), 10)) * rank(ts_mean(volume, 5) / adv20)",
+    "score": 0.8713,
+    "IC_mean": 0.018,
+    "ICIR": 0.1753,
+    "Sharpe": 1.7495,
+    "MDD": -0.1261,
+    "Turnover": 0.5708
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(ts_max(close, 20) / close) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 5))",
+    "score": 0.8661,
+    "IC_mean": 0.0205,
+    "ICIR": 0.1742,
+    "Sharpe": 1.5969,
+    "MDD": -0.1104,
+    "Turnover": 0.6725
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) * (rank(vwap / close - 1) + rank(ts_max(close, 20) / close)) / (1 + ts_std(returns, 5) * ts_std(log(volume / adv20), 10))",
+    "score": 0.8651,
+    "IC_mean": 0.0177,
+    "ICIR": 0.1881,
+    "Sharpe": 1.489,
+    "MDD": -0.0972,
+    "Turnover": 0.6499
+  },
+  {
+    "factor": "rank(vwap / close - 1 + log(volume / adv20)) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 7)) * rank(ts_corr(volume, abs(returns), 20))",
+    "score": 0.865,
+    "IC_mean": 0.0143,
+    "ICIR": 0.2001,
+    "Sharpe": 1.4759,
+    "MDD": -0.0985,
+    "Turnover": 0.5981
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5)) * rank(ts_corr(volume, abs(returns), 10))",
+    "score": 0.8646,
+    "IC_mean": 0.0182,
+    "ICIR": 0.157,
+    "Sharpe": 1.8703,
+    "MDD": -0.1176,
+    "Turnover": 0.6012
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20))) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 5))",
+    "score": 0.8642,
+    "IC_mean": 0.0197,
+    "ICIR": 0.1733,
+    "Sharpe": 1.6416,
+    "MDD": -0.1163,
+    "Turnover": 0.6679
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(ts_max(close, 20) / close) / (1 + ts_std(log(volume / adv20), 10)) * rank(volume / adv20)",
+    "score": 0.8599,
+    "IC_mean": 0.0181,
+    "ICIR": 0.1524,
+    "Sharpe": 1.7685,
+    "MDD": -0.1243,
+    "Turnover": 0.4554
+  },
+  {
+    "factor": "rank(volume / adv20) * rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20))) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.8587,
+    "IC_mean": 0.0182,
+    "ICIR": 0.1578,
+    "Sharpe": 1.6163,
+    "MDD": -0.0847,
+    "Turnover": 0.5483
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) * rank(ts_corr(volume, abs(returns), 20))",
+    "score": 0.8584,
+    "IC_mean": 0.0142,
+    "ICIR": 0.1979,
+    "Sharpe": 1.3972,
+    "MDD": -0.096,
+    "Turnover": 0.5809
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * (rank(ts_std(returns, 5)) + 0.5 * rank(ts_std(returns, 20))) * rank(ts_corr(volume, abs(returns), 10))",
+    "score": 0.8568,
+    "IC_mean": 0.0183,
+    "ICIR": 0.1522,
+    "Sharpe": 1.8474,
+    "MDD": -0.1247,
+    "Turnover": 0.6014
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * (rank(ts_std(returns, 5)) + rank(ts_std(returns, 20))) * rank(ts_corr(volume, abs(returns), 5) + ts_corr(volume, abs(returns), 20))",
+    "score": 0.8469,
+    "IC_mean": 0.0181,
+    "ICIR": 0.1488,
+    "Sharpe": 1.8652,
+    "MDD": -0.147,
+    "Turnover": 0.6179
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) * rank(ts_corr(volume, abs(returns), 20)) * (1 - abs(rank(ts_delta(close, 5)) - 0.5))",
+    "score": 0.8454,
+    "IC_mean": 0.0138,
+    "ICIR": 0.1951,
+    "Sharpe": 1.2558,
+    "MDD": -0.0863,
+    "Turnover": 0.5933
+  },
+  {
+    "factor": "rank(ts_max(close, 20) / close) * power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.8386,
+    "IC_mean": 0.0178,
+    "ICIR": 0.1655,
+    "Sharpe": 1.3571,
+    "MDD": -0.0959,
+    "Turnover": 0.5913
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5)) / power(1 + ts_std(returns, 5), 0.5) * sign(ts_corr(volume, abs(returns), 20))",
+    "score": 0.8356,
+    "IC_mean": 0.0166,
+    "ICIR": 0.1509,
+    "Sharpe": 1.617,
+    "MDD": -0.1267,
+    "Turnover": 0.5283
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10)) - 0.3 * ts_corr(returns, ts_delta(volume, 1), 10))",
+    "score": 0.8356,
+    "IC_mean": 0.0146,
+    "ICIR": 0.1166,
+    "Sharpe": 1.8821,
+    "MDD": -0.0977,
+    "Turnover": 0.3545
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20))) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.8346,
+    "IC_mean": 0.0137,
+    "ICIR": 0.1184,
+    "Sharpe": 1.8411,
+    "MDD": -0.0845,
+    "Turnover": 0.35
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 3) - close) * ts_mean(abs(returns), 5)) * zscore(volume / adv20) + 0.5 * rank(sign(ts_mean(close, 20) - close) * ts_std(returns, 30))",
+    "score": 0.8313,
+    "IC_mean": 0.0164,
+    "ICIR": 0.1737,
+    "Sharpe": 1.2423,
+    "MDD": -0.0848,
+    "Turnover": 0.6502
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(vwap / close - 1) * rank(volume / adv20) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.8288,
+    "IC_mean": 0.0185,
+    "ICIR": 0.1762,
+    "Sharpe": 1.4168,
+    "MDD": -0.1809,
+    "Turnover": 0.6416
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20))) / (1 + ts_std(log(volume / adv20), 10)) * rank(ts_corr(high - low, volume, 15))",
+    "score": 0.8276,
+    "IC_mean": 0.0125,
+    "ICIR": 0.1233,
+    "Sharpe": 1.8398,
+    "MDD": -0.1127,
+    "Turnover": 0.3326
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 5) + ts_corr(volume, abs(returns), 40)) * rank(vwap / close - 1) * rank(volume / adv20) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.8269,
+    "IC_mean": 0.0165,
+    "ICIR": 0.1579,
+    "Sharpe": 1.6729,
+    "MDD": -0.1605,
+    "Turnover": 0.6755
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5) / ts_max(abs(returns), 5)) * zscore(volume) + 0.3 * rank(ts_mean(returns, 60) / ts_max(abs(returns), 60)) * rank(ts_std(volume, 10))",
+    "score": 0.8251,
+    "IC_mean": 0.0119,
+    "ICIR": 0.1098,
+    "Sharpe": 1.924,
+    "MDD": -0.1069,
+    "Turnover": 0.2666
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * (rank(ts_std(returns, 5)) + 0.5 * rank(ts_std(returns, 20)))",
+    "score": 0.8234,
+    "IC_mean": 0.0187,
+    "ICIR": 0.147,
+    "Sharpe": 1.6397,
+    "MDD": -0.161,
+    "Turnover": 0.6647
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10) * rank(volume / adv20)) - 0.4 * zscore(rank(ts_mean(returns, 20)) * ts_std(returns, 10)) + 0.2 * zscore(ts_delta(vwap / close, 5))",
+    "score": 0.8223,
+    "IC_mean": 0.0157,
+    "ICIR": 0.1461,
+    "Sharpe": 1.4603,
+    "MDD": -0.1035,
+    "Turnover": 0.5279
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5))",
+    "score": 0.8216,
+    "IC_mean": 0.0182,
+    "ICIR": 0.1503,
+    "Sharpe": 1.5555,
+    "MDD": -0.1502,
+    "Turnover": 0.6569
+  },
+  {
+    "factor": "(rank(ts_max(close, 5) / close) * rank(ts_max(close, 20) / close) * power(rank(volume / adv20), 2)) / (1 + ts_std(log(volume / adv20), 5) + ts_std(log(volume / adv20), 20))",
+    "score": 0.8204,
+    "IC_mean": 0.0187,
+    "ICIR": 0.1464,
+    "Sharpe": 1.3985,
+    "MDD": -0.1225,
+    "Turnover": 0.5868
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10)))",
+    "score": 0.8184,
+    "IC_mean": 0.0126,
+    "ICIR": 0.0963,
+    "Sharpe": 1.9005,
+    "MDD": -0.0732,
+    "Turnover": 0.335
+  },
+  {
+    "factor": "power(rank(volume / adv20) * rank(vwap / close - 1), 2) / (1 + ts_std(returns, 5) + ts_std(log(volume / adv20), 10)) * rank(ts_corr(volume, abs(returns), 20))",
+    "score": 0.8156,
+    "IC_mean": 0.019,
+    "ICIR": 0.1677,
+    "Sharpe": 1.3737,
+    "MDD": -0.1831,
+    "Turnover": 0.6929
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * (rank(ts_std(returns, 5)) + rank(ts_std(returns, 20))) / 2",
+    "score": 0.8145,
+    "IC_mean": 0.0188,
+    "ICIR": 0.1449,
+    "Sharpe": 1.5837,
+    "MDD": -0.1726,
+    "Turnover": 0.6626
+  },
+  {
+    "factor": "rank(vwap / close - 1) * power(rank(volume / adv20), 1.5) * rank(ts_std(returns, 5)) / (1 + ts_corr(volume, abs(returns), 15))",
+    "score": 0.812,
+    "IC_mean": 0.0175,
+    "ICIR": 0.1592,
+    "Sharpe": 1.3429,
+    "MDD": -0.1447,
+    "Turnover": 0.6661
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) - ts_corr(close, volume, 10) * ts_std(returns, 10))",
+    "score": 0.8113,
+    "IC_mean": 0.0145,
+    "ICIR": 0.101,
+    "Sharpe": 1.6723,
+    "MDD": -0.0921,
+    "Turnover": 0.2791
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10) * rank(volume / adv20)) - 0.4 * zscore(rank(ts_mean(returns, 20)) * ts_std(returns, 10)) * sign(ts_corr(volume, abs(returns), 15))",
+    "score": 0.8111,
+    "IC_mean": 0.0149,
+    "ICIR": 0.1423,
+    "Sharpe": 1.3586,
+    "MDD": -0.1005,
+    "Turnover": 0.4908
+  },
+  {
+    "factor": "0.6 * (zscore(ts_mean(abs(returns), 10) * rank(volume / adv20)) - 0.4 * zscore(rank(ts_mean(returns, 20)) * ts_std(returns, 10))) + 0.4 * zscore(ts_mean(abs(returns), 3) * rank(volume / adv20))",
+    "score": 0.8095,
+    "IC_mean": 0.0142,
+    "ICIR": 0.1396,
+    "Sharpe": 1.4591,
+    "MDD": -0.1106,
+    "Turnover": 0.5086
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)))",
+    "score": 0.8094,
+    "IC_mean": 0.0145,
+    "ICIR": 0.1011,
+    "Sharpe": 1.6459,
+    "MDD": -0.0919,
+    "Turnover": 0.2793
+  },
+  {
+    "factor": "rank(ts_max(close, 20) / close) * zscore(log(volume / ts_mean(volume, 15)))",
+    "score": 0.8087,
+    "IC_mean": 0.0123,
+    "ICIR": 0.1685,
+    "Sharpe": 1.0939,
+    "MDD": -0.0727,
+    "Turnover": 0.5564
+  },
+  {
+    "factor": "power(rank(vwap / close - 1) * rank(volume / adv20), 2) * rank(ts_std(returns, 5)) / (1 + abs(ts_corr(volume, abs(returns), 15)))",
+    "score": 0.8058,
+    "IC_mean": 0.0184,
+    "ICIR": 0.1575,
+    "Sharpe": 1.3293,
+    "MDD": -0.165,
+    "Turnover": 0.6874
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume)",
+    "score": 0.8033,
+    "IC_mean": 0.012,
+    "ICIR": 0.0992,
+    "Sharpe": 1.7755,
+    "MDD": -0.1231,
+    "Turnover": 0.2132
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume, 5) + ts_corr(abs(returns), volume, 20)) - rank(ts_corr(returns, ts_delta(volume, 1), 5) + ts_corr(returns, ts_delta(volume, 1), 20))",
+    "score": 0.8006,
+    "IC_mean": 0.0121,
+    "ICIR": 0.1338,
+    "Sharpe": 1.3826,
+    "MDD": -0.0997,
+    "Turnover": 0.395
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume, 10)) - rank(ts_corr(returns, ts_delta(volume, 1), 10))",
+    "score": 0.8004,
+    "IC_mean": 0.0134,
+    "ICIR": 0.1497,
+    "Sharpe": 0.9818,
+    "MDD": -0.0886,
+    "Turnover": 0.2848
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (ts_std(returns, 20) * ts_std(volume, 20)))",
+    "score": 0.798,
+    "IC_mean": 0.0188,
+    "ICIR": 0.1174,
+    "Sharpe": 1.6271,
+    "MDD": -0.1423,
+    "Turnover": 0.7029
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) * rank(ts_corr(volume, abs(returns), 20)) - 0.3 * rank(ts_corr(close, ts_mean(close, 20), 10))",
+    "score": 0.7964,
+    "IC_mean": 0.0113,
+    "ICIR": 0.1385,
+    "Sharpe": 1.5009,
+    "MDD": -0.1228,
+    "Turnover": 0.5159
+  },
+  {
+    "factor": "rank(log(volume / adv20))",
+    "score": 0.7961,
+    "IC_mean": 0.0126,
+    "ICIR": 0.1757,
+    "Sharpe": 0.8878,
+    "MDD": -0.0702,
+    "Turnover": 0.6401
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10) * rank(volume / adv20)) - 0.4 * zscore(rank(ts_mean(returns, 20)) * ts_std(returns, 10))",
+    "score": 0.7957,
+    "IC_mean": 0.0143,
+    "ICIR": 0.1364,
+    "Sharpe": 1.2509,
+    "MDD": -0.1002,
+    "Turnover": 0.4836
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (ts_std(returns, 20) * ts_std(volume, 20))) - 0.4 * rank(ts_delta(close, 20) / ts_mean(close, 20))",
+    "score": 0.7949,
+    "IC_mean": 0.0199,
+    "ICIR": 0.123,
+    "Sharpe": 1.4499,
+    "MDD": -0.1268,
+    "Turnover": 0.7561
+  },
+  {
+    "factor": "zscore(volume / adv20) * rank(-(close - vwap) / ts_std(close, 20))",
+    "score": 0.7945,
+    "IC_mean": 0.0115,
+    "ICIR": 0.1601,
+    "Sharpe": 1.1773,
+    "MDD": -0.0682,
+    "Turnover": 0.7207
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(vwap / close - 1) * rank(volume / adv20) / (1 + ts_std(log(volume / adv20), 10)) - 0.3 * rank(ts_corr(close, ts_mean(close, 20), 10))",
+    "score": 0.7942,
+    "IC_mean": 0.0137,
+    "ICIR": 0.1305,
+    "Sharpe": 1.4064,
+    "MDD": -0.0973,
+    "Turnover": 0.5797
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume) * sign(ts_corr(volume, abs(returns), 10))",
+    "score": 0.7934,
+    "IC_mean": 0.0064,
+    "ICIR": 0.0743,
+    "Sharpe": 2.0191,
+    "MDD": -0.0618,
+    "Turnover": 0.2207
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(sign(ts_mean(close, 5) - close)) * rank(volume / adv20) / (1 + ts_std(returns, 5) * ts_std(log(volume / adv20), 10))",
+    "score": 0.793,
+    "IC_mean": 0.0187,
+    "ICIR": 0.1446,
+    "Sharpe": 1.2586,
+    "MDD": -0.1465,
+    "Turnover": 0.7151
+  },
+  {
+    "factor": "rank(-close / open) * rank(ts_std(returns, 10))",
+    "score": 0.7898,
+    "IC_mean": 0.018,
+    "ICIR": 0.1133,
+    "Sharpe": 1.6516,
+    "MDD": -0.1809,
+    "Turnover": 0.5867
+  },
+  {
+    "factor": "rank(volume / adv20) * rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20))) * rank(-ts_corr(close, volume, 10)) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.7896,
+    "IC_mean": 0.0154,
+    "ICIR": 0.1271,
+    "Sharpe": 1.185,
+    "MDD": -0.0875,
+    "Turnover": 0.4883
+  },
+  {
+    "factor": "rank(log(volume / adv20)) - 0.3 * rank(ts_delta(vwap, 5))",
+    "score": 0.7884,
+    "IC_mean": 0.0141,
+    "ICIR": 0.1647,
+    "Sharpe": 0.8688,
+    "MDD": -0.0837,
+    "Turnover": 0.6116
+  },
+  {
+    "factor": "-1 * zscore(returns) * rank(volume / adv20) * (1 - abs(ts_corr(high, low, 10))) * rank(ts_std(vwap, 5) / ts_mean(vwap, 20))",
+    "score": 0.7882,
+    "IC_mean": 0.0187,
+    "ICIR": 0.1191,
+    "Sharpe": 1.4532,
+    "MDD": -0.1644,
+    "Turnover": 0.5751
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5)) - 0.4 * rank(ts_corr(close, ts_mean(close, 20), 10)) * rank(ts_std(volume, 10))",
+    "score": 0.7875,
+    "IC_mean": 0.0141,
+    "ICIR": 0.1287,
+    "Sharpe": 1.4394,
+    "MDD": -0.1375,
+    "Turnover": 0.5467
+  },
+  {
+    "factor": "-1 * zscore(returns) * rank(volume / adv20) * (1 - abs(ts_corr(high, low, 10)))",
+    "score": 0.7854,
+    "IC_mean": 0.0185,
+    "ICIR": 0.1159,
+    "Sharpe": 1.4379,
+    "MDD": -0.1505,
+    "Turnover": 0.603
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (ts_std(returns, 20) * ts_std(volume, 20))) * rank(ts_corr(volume, abs(returns), 10)) * rank(ts_corr(close, vwap, 10))",
+    "score": 0.7852,
+    "IC_mean": 0.0138,
+    "ICIR": 0.1189,
+    "Sharpe": 1.5384,
+    "MDD": -0.1287,
+    "Turnover": 0.5767
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (ts_std(returns, 5) * ts_std(volume, 5))) + 0.3 * rank(-power(returns, 3) / (ts_std(returns, 60) * ts_std(volume, 60)))",
+    "score": 0.7841,
+    "IC_mean": 0.0178,
+    "ICIR": 0.1124,
+    "Sharpe": 1.6077,
+    "MDD": -0.153,
+    "Turnover": 0.7161
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(volume / adv20) * rank(abs(close - ts_mean(close, 20))) / (1 + ts_std(log(volume / adv20), 10) + ts_std(returns, 5))",
+    "score": 0.7834,
+    "IC_mean": 0.0138,
+    "ICIR": 0.1404,
+    "Sharpe": 1.3244,
+    "MDD": -0.1708,
+    "Turnover": 0.4823
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * ts_mean(abs(returns), 10)) * zscore(volume / adv20) - 0.3 * rank(ts_delta(vwap, 10) * sign(close - vwap))",
+    "score": 0.7826,
+    "IC_mean": 0.0111,
+    "ICIR": 0.1568,
+    "Sharpe": 1.0579,
+    "MDD": -0.0821,
+    "Turnover": 0.6347
+  },
+  {
+    "factor": "rank(log(volume / adv20)) - 0.3 * rank(ts_corr(close, ts_mean(close, 10), 20))",
+    "score": 0.7823,
+    "IC_mean": 0.0123,
+    "ICIR": 0.1657,
+    "Sharpe": 0.8186,
+    "MDD": -0.0714,
+    "Turnover": 0.6059
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * ts_mean(abs(returns), 10)) * zscore(volume / adv20)",
+    "score": 0.7808,
+    "IC_mean": 0.0113,
+    "ICIR": 0.1619,
+    "Sharpe": 0.965,
+    "MDD": -0.0851,
+    "Turnover": 0.6262
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5) / ts_max(abs(returns), 5)) * zscore(volume) + 0.3 * rank(ts_mean(returns, 60) / ts_max(abs(returns), 60))",
+    "score": 0.7805,
+    "IC_mean": 0.0119,
+    "ICIR": 0.0887,
+    "Sharpe": 1.642,
+    "MDD": -0.1183,
+    "Turnover": 0.2718
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10) * rank(volume / adv20))",
+    "score": 0.7775,
+    "IC_mean": 0.0137,
+    "ICIR": 0.1262,
+    "Sharpe": 1.2832,
+    "MDD": -0.1212,
+    "Turnover": 0.5274
+  },
+  {
+    "factor": "0.7 * rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5)) + 0.3 * rank(ts_delta(vwap, 20)) * rank(ts_mean(volume / adv20, 10))",
+    "score": 0.7769,
+    "IC_mean": 0.0128,
+    "ICIR": 0.1219,
+    "Sharpe": 1.4543,
+    "MDD": -0.1322,
+    "Turnover": 0.5738
+  },
+  {
+    "factor": "-1 * (0.7 * zscore(returns) * rank(volume / adv20) + 0.3 * zscore(ts_delta(returns, 5)) * rank(ts_mean(volume, 10) / adv20))",
+    "score": 0.7768,
+    "IC_mean": 0.018,
+    "ICIR": 0.1112,
+    "Sharpe": 1.4008,
+    "MDD": -0.131,
+    "Turnover": 0.6773
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) * (rank(ts_corr(volume, abs(returns), 5)) + 0.5 * rank(ts_corr(volume, abs(returns), 60)))",
+    "score": 0.7755,
+    "IC_mean": 0.0125,
+    "ICIR": 0.1769,
+    "Sharpe": 0.8744,
+    "MDD": -0.1486,
+    "Turnover": 0.6158
+  },
+  {
+    "factor": "(ts_delta(rank(volume / adv20), 5) + 0.5 * ts_delta(rank(volume / adv20), 20)) / (1 + abs(ts_corr(volume, close, 10)) + abs(ts_corr(volume, close, 30)))",
+    "score": 0.7744,
+    "IC_mean": 0.0117,
+    "ICIR": 0.1721,
+    "Sharpe": 0.97,
+    "MDD": -0.1328,
+    "Turnover": 0.6948
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5)) - rank(ts_delta(close, 20)) * 0.3",
+    "score": 0.7735,
+    "IC_mean": 0.0157,
+    "ICIR": 0.108,
+    "Sharpe": 1.4052,
+    "MDD": -0.1285,
+    "Turnover": 0.5601
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5) / ts_max(abs(returns), 5)) * zscore(volume) + 0.3 * rank(ts_mean(returns, 60) / ts_max(abs(returns), 60)) - 0.15 * rank(ts_corr(close, vwap, 10))",
+    "score": 0.772,
+    "IC_mean": 0.0117,
+    "ICIR": 0.0907,
+    "Sharpe": 1.6228,
+    "MDD": -0.1456,
+    "Turnover": 0.2791
+  },
+  {
+    "factor": "0.7 * (rank(vwap / close - 1) * power(rank(volume / adv20), 2) / (1 + ts_std(returns, 5)) * rank(ts_corr(volume, abs(returns), 20))) + 0.3 * rank(ts_corr(vwap / close, volume / adv20, 60))",
+    "score": 0.7715,
+    "IC_mean": 0.011,
+    "ICIR": 0.1236,
+    "Sharpe": 1.1921,
+    "MDD": -0.0807,
+    "Turnover": 0.4886
+  },
+  {
+    "factor": "-1 * zscore(returns) * rank(volume / adv20)",
+    "score": 0.7714,
+    "IC_mean": 0.018,
+    "ICIR": 0.1111,
+    "Sharpe": 1.3745,
+    "MDD": -0.1408,
+    "Turnover": 0.6849
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume, 10)) - rank(ts_corr(returns, ts_delta(volume, 1), 10)) + rank(ts_corr(close, ts_mean(close, 10), 15))",
+    "score": 0.7707,
+    "IC_mean": 0.0111,
+    "ICIR": 0.114,
+    "Sharpe": 1.1746,
+    "MDD": -0.0974,
+    "Turnover": 0.2795
+  },
+  {
+    "factor": "power(rank(volume / adv20) * rank(vwap / close - 1), 2) / (1 + ts_std(returns, 5) + ts_std(log(volume / adv20), 10))",
+    "score": 0.7702,
+    "IC_mean": 0.0175,
+    "ICIR": 0.1468,
+    "Sharpe": 1.1289,
+    "MDD": -0.1842,
+    "Turnover": 0.7102
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.7686,
+    "IC_mean": 0.0124,
+    "ICIR": 0.1712,
+    "Sharpe": 0.6683,
+    "MDD": -0.0875,
+    "Turnover": 0.6556
+  },
+  {
+    "factor": "sign(ts_mean(abs(ts_delta(close, 5)), 10)) * rank(volume / ts_max(volume, 20))",
+    "score": 0.7665,
+    "IC_mean": 0.0101,
+    "ICIR": 0.1461,
+    "Sharpe": 0.9793,
+    "MDD": -0.0987,
+    "Turnover": 0.5068
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * rank(vwap / close - 1) * rank(volume / adv20) / (1 + ts_std(log(volume / adv20), 10)) * rank(ts_corr(returns, ts_delta(volume, 5), 15))",
+    "score": 0.7622,
+    "IC_mean": 0.0142,
+    "ICIR": 0.1374,
+    "Sharpe": 1.1284,
+    "MDD": -0.1577,
+    "Turnover": 0.6145
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20)",
+    "score": 0.7608,
+    "IC_mean": 0.0169,
+    "ICIR": 0.142,
+    "Sharpe": 1.0862,
+    "MDD": -0.1826,
+    "Turnover": 0.7077
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) * rank(ts_std(returns, 5)) - 0.3 * rank(ts_corr(close, ts_mean(close, 10), 20))",
+    "score": 0.7606,
+    "IC_mean": 0.0139,
+    "ICIR": 0.1206,
+    "Sharpe": 1.3298,
+    "MDD": -0.1708,
+    "Turnover": 0.5602
+  },
+  {
+    "factor": "ts_delta(rank(volume / adv20), 5) / (1 + abs(ts_corr(volume, close, 10))) - 0.3 * rank(ts_corr(close, ts_mean(close, 10), 20))",
+    "score": 0.7599,
+    "IC_mean": 0.0108,
+    "ICIR": 0.1422,
+    "Sharpe": 1.1352,
+    "MDD": -0.1217,
+    "Turnover": 0.6769
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10)) - 0.3 * rank(ts_corr(returns, ts_mean(returns, 10), 15)))",
+    "score": 0.7584,
+    "IC_mean": 0.0087,
+    "ICIR": 0.0752,
+    "Sharpe": 1.5967,
+    "MDD": -0.0735,
+    "Turnover": 0.3643
+  },
+  {
+    "factor": "rank(-returns / ts_std(returns, 20) + ts_mean(volume, 5) / ts_mean(volume, 20))",
+    "score": 0.7553,
+    "IC_mean": 0.0168,
+    "ICIR": 0.1064,
+    "Sharpe": 1.2878,
+    "MDD": -0.1252,
+    "Turnover": 0.759
+  },
+  {
+    "factor": "rank((vwap / close - 1) / ts_std(returns, 20)) * rank(volume / adv20) * sign(-power(returns, 3)) * rank(ts_corr(volume, abs(returns), 12))",
+    "score": 0.7542,
+    "IC_mean": 0.0145,
+    "ICIR": 0.1173,
+    "Sharpe": 1.1621,
+    "MDD": -0.1312,
+    "Turnover": 0.6214
+  },
+  {
+    "factor": "-1 * zscore(returns) * rank(volume / adv20) + 0.4 * sign(ts_mean(returns, 20)) * rank(ts_std(returns, 10))",
+    "score": 0.7538,
+    "IC_mean": 0.0161,
+    "ICIR": 0.1085,
+    "Sharpe": 1.2547,
+    "MDD": -0.1361,
+    "Turnover": 0.6841
+  },
+  {
+    "factor": "ts_corr(rank(close - open), rank(high - open), 15) * rank(volume)",
+    "score": 0.7534,
+    "IC_mean": 0.007,
+    "ICIR": 0.0715,
+    "Sharpe": 1.5964,
+    "MDD": -0.0941,
+    "Turnover": 0.1996
+  },
+  {
+    "factor": "ts_delta(rank(volume / adv20), 5) / (1 + abs(ts_corr(volume, close, 10)))",
+    "score": 0.7532,
+    "IC_mean": 0.0101,
+    "ICIR": 0.1449,
+    "Sharpe": 1.0961,
+    "MDD": -0.1284,
+    "Turnover": 0.7005
+  },
+  {
+    "factor": "rank(ts_max(close, 5) / close + ts_max(close, 60) / close) * zscore(log(volume / ts_mean(volume, 15)))",
+    "score": 0.7529,
+    "IC_mean": 0.011,
+    "ICIR": 0.1544,
+    "Sharpe": 0.6003,
+    "MDD": -0.0736,
+    "Turnover": 0.5532
+  },
+  {
+    "factor": "rank(-power(returns, 3) / (power(ts_std(returns, 20), 3) + ts_mean(abs(returns), 5)))",
+    "score": 0.7521,
+    "IC_mean": 0.0178,
+    "ICIR": 0.1042,
+    "Sharpe": 1.3505,
+    "MDD": -0.1603,
+    "Turnover": 0.7588
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5) / ts_max(abs(returns), 5)) * rank(ts_mean(returns, 30) / ts_max(abs(returns), 30)) * zscore(volume) * sign(ts_corr(volume, abs(returns), 10))",
+    "score": 0.7501,
+    "IC_mean": 0.0047,
+    "ICIR": 0.0547,
+    "Sharpe": 1.8134,
+    "MDD": -0.0596,
+    "Turnover": 0.2728
+  },
+  {
+    "factor": "rank(log(volume / adv20)) - 0.3 * rank(ts_corr(close, ts_mean(close, 10), 20)) + 0.2 * rank(ts_corr(returns, ts_delta(log(volume), 1), 10))",
+    "score": 0.7497,
+    "IC_mean": 0.0107,
+    "ICIR": 0.1472,
+    "Sharpe": 0.8656,
+    "MDD": -0.1167,
+    "Turnover": 0.6065
+  },
+  {
+    "factor": "-1 * rank(power(returns, 3))",
+    "score": 0.7495,
+    "IC_mean": 0.0179,
+    "ICIR": 0.1031,
+    "Sharpe": 1.3149,
+    "MDD": -0.1682,
+    "Turnover": 0.7145
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5) / ts_max(abs(returns), 5)) * zscore(volume) + 0.3 * rank(ts_mean(returns, 60) / ts_max(abs(returns), 60)) + 0.2 * rank(ts_corr(returns, volume, 20))",
+    "score": 0.7478,
+    "IC_mean": 0.0087,
+    "ICIR": 0.0675,
+    "Sharpe": 1.5612,
+    "MDD": -0.1014,
+    "Turnover": 0.2565
+  },
+  {
+    "factor": "rank(ts_max(close, 20) / close) * power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) - 0.3 * rank(ts_mean(close, 5) / ts_mean(close, 20))",
+    "score": 0.7453,
+    "IC_mean": 0.0172,
+    "ICIR": 0.1081,
+    "Sharpe": 0.7717,
+    "MDD": -0.1084,
+    "Turnover": 0.433
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume, 10))",
+    "score": 0.744,
+    "IC_mean": 0.0083,
+    "ICIR": 0.0958,
+    "Sharpe": 1.1236,
+    "MDD": -0.0757,
+    "Turnover": 0.2954
+  },
+  {
+    "factor": "-rank((close - ts_min(close, 10)) / (ts_max(close, 10) - ts_min(close, 10)))",
+    "score": 0.7432,
+    "IC_mean": 0.0145,
+    "ICIR": 0.0882,
+    "Sharpe": 1.2655,
+    "MDD": -0.1203,
+    "Turnover": 0.5431
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 10) / ts_std(close, 20))",
+    "score": 0.7424,
+    "IC_mean": 0.0145,
+    "ICIR": 0.0872,
+    "Sharpe": 1.1678,
+    "MDD": -0.12,
+    "Turnover": 0.4293
+  },
+  {
+    "factor": "ts_delta(rank(volume / adv20), 5) / (1 + abs(ts_corr(volume, close, 10))) * (1 + zscore(ts_std(returns, 20)))",
+    "score": 0.7396,
+    "IC_mean": 0.0072,
+    "ICIR": 0.102,
+    "Sharpe": 1.4299,
+    "MDD": -0.1312,
+    "Turnover": 0.5015
+  },
+  {
+    "factor": "ts_corr(rank(vwap), rank(close), 20) * sign(ts_delta(volume, 3))",
+    "score": 0.7391,
+    "IC_mean": 0.0061,
+    "ICIR": 0.102,
+    "Sharpe": 1.0565,
+    "MDD": -0.0756,
+    "Turnover": 0.2495
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) * rank(abs(close - ts_mean(close, 20))) / (1 + abs(ts_mean(close, 5) - close))",
+    "score": 0.7384,
+    "IC_mean": 0.0122,
+    "ICIR": 0.165,
+    "Sharpe": 0.5377,
+    "MDD": -0.1392,
+    "Turnover": 0.6443
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume) * sign(ts_corr(volume, abs(returns), 10)) - 0.3 * rank(ts_corr(close, ts_mean(close, 20), 15))",
+    "score": 0.7362,
+    "IC_mean": 0.0053,
+    "ICIR": 0.0592,
+    "Sharpe": 1.6391,
+    "MDD": -0.0908,
+    "Turnover": 0.249
+  },
+  {
+    "factor": "rank(open / close)",
+    "score": 0.7357,
+    "IC_mean": 0.0154,
+    "ICIR": 0.0962,
+    "Sharpe": 1.4001,
+    "MDD": -0.1833,
+    "Turnover": 0.7119
+  },
+  {
+    "factor": "rank((sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) + sign(ts_mean(close, 20) - close) * abs(close - ts_mean(close, 60))) * (1 - ts_corr(close, vwap, 10)))",
+    "score": 0.735,
+    "IC_mean": 0.0091,
+    "ICIR": 0.0658,
+    "Sharpe": 1.37,
+    "MDD": -0.0919,
+    "Turnover": 0.2704
+  },
+  {
+    "factor": "rank(ts_corr(close / ts_mean(close, 15), power(volume / adv20, 0.5), 20)) - zscore(returns)",
+    "score": 0.7347,
+    "IC_mean": 0.0156,
+    "ICIR": 0.0937,
+    "Sharpe": 1.2728,
+    "MDD": -0.1435,
+    "Turnover": 0.7252
+  },
+  {
+    "factor": "rank(zscore((high - low) / close) - zscore((close - open) / close))",
+    "score": 0.7333,
+    "IC_mean": 0.0162,
+    "ICIR": 0.1005,
+    "Sharpe": 1.4304,
+    "MDD": -0.2132,
+    "Turnover": 0.7644
+  },
+  {
+    "factor": "rank(ts_mean(abs(ts_corr(returns, volume, 5)), 15)) / (1 + ts_std(returns, 20))",
+    "score": 0.7324,
+    "IC_mean": 0.0048,
+    "ICIR": 0.0717,
+    "Sharpe": 1.3549,
+    "MDD": -0.0802,
+    "Turnover": 0.1705
+  },
+  {
+    "factor": "zscore(log(volume / ts_mean(volume, 15))) * rank(ts_corr(volume, abs(returns), 20)) / (1 + rank(ts_max(close, 20) / close))",
+    "score": 0.732,
+    "IC_mean": 0.0105,
+    "ICIR": 0.1458,
+    "Sharpe": 0.6622,
+    "MDD": -0.1295,
+    "Turnover": 0.553
+  },
+  {
+    "factor": "sign(volume - ts_mean(volume, 10)) * rank(ts_corr(ts_delta(volume, 3), ts_delta(close, 3), 15))",
+    "score": 0.7311,
+    "IC_mean": 0.0078,
+    "ICIR": 0.0959,
+    "Sharpe": 1.089,
+    "MDD": -0.109,
+    "Turnover": 0.2818
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20) - 0.4 * rank(ts_corr(close, volume, 10)) * rank(abs(returns))",
+    "score": 0.7311,
+    "IC_mean": 0.0161,
+    "ICIR": 0.1361,
+    "Sharpe": 0.6656,
+    "MDD": -0.1418,
+    "Turnover": 0.7146
+  },
+  {
+    "factor": "ts_corr(rank(close - open), rank(high - open), 15) * rank(volume) - 0.4 * rank(ts_corr(close, ts_mean(close, 20), 10))",
+    "score": 0.7299,
+    "IC_mean": 0.0062,
+    "ICIR": 0.0627,
+    "Sharpe": 1.5113,
+    "MDD": -0.1057,
+    "Turnover": 0.2369
+  },
+  {
+    "factor": "rank(ts_std(returns, 10) * (volume / adv20))",
+    "score": 0.7293,
+    "IC_mean": 0.0133,
+    "ICIR": 0.0824,
+    "Sharpe": 1.1734,
+    "MDD": -0.1343,
+    "Turnover": 0.4347
+  },
+  {
+    "factor": "rank(ts_corr((open - low) / (high - low), volume, 10))",
+    "score": 0.7292,
+    "IC_mean": 0.0101,
+    "ICIR": 0.1052,
+    "Sharpe": 0.8057,
+    "MDD": -0.0904,
+    "Turnover": 0.3307
+  },
+  {
+    "factor": "rank(-ts_delta(close, 5)) * rank(ts_std(returns, 10))",
+    "score": 0.7291,
+    "IC_mean": 0.0139,
+    "ICIR": 0.0789,
+    "Sharpe": 1.213,
+    "MDD": -0.1712,
+    "Turnover": 0.3131
+  },
+  {
+    "factor": "ts_corr(returns, ts_delta(vwap / close, 5), 15) * zscore(close / ts_mean(close, 20))",
+    "score": 0.7286,
+    "IC_mean": 0.0151,
+    "ICIR": 0.085,
+    "Sharpe": 0.8274,
+    "MDD": -0.1217,
+    "Turnover": 0.2443
+  },
+  {
+    "factor": "-1 * rank(ts_delta(vwap, 10)) * rank((close - ts_mean(low, 15)) / ts_std(low, 15))",
+    "score": 0.7283,
+    "IC_mean": 0.0137,
+    "ICIR": 0.0821,
+    "Sharpe": 0.9832,
+    "MDD": -0.1138,
+    "Turnover": 0.3376
+  },
+  {
+    "factor": "rank(ts_corr(ts_mean(close, 3), volume, 15)) * zscore(ts_std(volume, 10))",
+    "score": 0.7273,
+    "IC_mean": 0.0056,
+    "ICIR": 0.0569,
+    "Sharpe": 1.4542,
+    "MDD": -0.0884,
+    "Turnover": 0.1657
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 10) / ts_std(close, 20)) + 0.3 * rank(ts_mean(close, 20) / close - 1)",
+    "score": 0.7266,
+    "IC_mean": 0.015,
+    "ICIR": 0.0872,
+    "Sharpe": 0.9424,
+    "MDD": -0.131,
+    "Turnover": 0.393
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume) - 0.4 * rank(ts_delta(close, 20) / ts_std(close, 20))",
+    "score": 0.7264,
+    "IC_mean": 0.0115,
+    "ICIR": 0.0795,
+    "Sharpe": 1.2529,
+    "MDD": -0.1717,
+    "Turnover": 0.2643
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) * rank(ts_corr(volume, abs(returns), 20)) * (1 - rank(ts_std(returns, 5)))",
+    "score": 0.7258,
+    "IC_mean": 0.0115,
+    "ICIR": 0.1264,
+    "Sharpe": 0.6336,
+    "MDD": -0.0848,
+    "Turnover": 0.5901
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume) * sign(ts_corr(volume, abs(returns), 10)) * rank(ts_std(vwap, 20))",
+    "score": 0.7258,
+    "IC_mean": 0.0033,
+    "ICIR": 0.0409,
+    "Sharpe": 1.7364,
+    "MDD": -0.079,
+    "Turnover": 0.1913
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) * sign(ts_mean(close, 5) - close) * (1 - ts_corr(close, vwap, 10)) / ts_std(returns, 20)",
+    "score": 0.7253,
+    "IC_mean": 0.0102,
+    "ICIR": 0.0816,
+    "Sharpe": 1.1434,
+    "MDD": -0.0813,
+    "Turnover": 0.4915
+  },
+  {
+    "factor": "log(1 + abs(ts_delta(close, 5))) * rank(ts_mean(volume / adv20, 3))",
+    "score": 0.7249,
+    "IC_mean": 0.0108,
+    "ICIR": 0.1125,
+    "Sharpe": 0.8998,
+    "MDD": -0.142,
+    "Turnover": 0.4307
+  },
+  {
+    "factor": "-1 * zscore(close / ts_mean(close, 10) - 1)",
+    "score": 0.7242,
+    "IC_mean": 0.0156,
+    "ICIR": 0.086,
+    "Sharpe": 0.8636,
+    "MDD": -0.1354,
+    "Turnover": 0.3376
+  },
+  {
+    "factor": "-1 * sign(close - ts_mean(close, 10)) * rank(abs(close - ts_mean(close, 10)) / close)",
+    "score": 0.7238,
+    "IC_mean": 0.0156,
+    "ICIR": 0.086,
+    "Sharpe": 0.8604,
+    "MDD": -0.1354,
+    "Turnover": 0.3407
+  },
+  {
+    "factor": "-1 * rank((close - open) / (high - low + 0.0001))",
+    "score": 0.7237,
+    "IC_mean": 0.0148,
+    "ICIR": 0.1006,
+    "Sharpe": 1.2029,
+    "MDD": -0.1607,
+    "Turnover": 0.7889
+  },
+  {
+    "factor": "rank((sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10))) - 0.5 * sign(ts_corr(close, ts_mean(close, 40), 15)))",
+    "score": 0.7232,
+    "IC_mean": 0.0082,
+    "ICIR": 0.0727,
+    "Sharpe": 1.3369,
+    "MDD": -0.0964,
+    "Turnover": 0.4374
+  },
+  {
+    "factor": "rank(ts_max(close, 15) / close) - rank(close / ts_min(close, 15))",
+    "score": 0.7218,
+    "IC_mean": 0.0153,
+    "ICIR": 0.0874,
+    "Sharpe": 0.8661,
+    "MDD": -0.1291,
+    "Turnover": 0.406
+  },
+  {
+    "factor": "rank(ts_mean((high - close) / (high - low + 0.0001) * volume, 10))",
+    "score": 0.7214,
+    "IC_mean": 0.0054,
+    "ICIR": 0.0489,
+    "Sharpe": 1.5503,
+    "MDD": -0.132,
+    "Turnover": 0.0564
+  },
+  {
+    "factor": "zscore(ts_delta(rank(volume), 3) * ts_mean(high / low, 15))",
+    "score": 0.721,
+    "IC_mean": 0.0089,
+    "ICIR": 0.1334,
+    "Sharpe": 0.6606,
+    "MDD": -0.0828,
+    "Turnover": 0.6475
+  },
+  {
+    "factor": "0.6 * (rank(log(volume / adv20)) - 0.3 * rank(ts_corr(close, ts_mean(close, 10), 20))) + 0.4 * (rank(log(volume / adv20)) - 0.3 * rank(ts_corr(close, ts_mean(close, 50), 60)))",
+    "score": 0.7206,
+    "IC_mean": 0.0114,
+    "ICIR": 0.1586,
+    "Sharpe": 0.3518,
+    "MDD": -0.1257,
+    "Turnover": 0.6186
+  },
+  {
+    "factor": "rank(ts_std(close, 5) / ts_mean(close, 15)) * sign(ts_mean(close, 3) - close)",
+    "score": 0.7197,
+    "IC_mean": 0.0145,
+    "ICIR": 0.0901,
+    "Sharpe": 0.8534,
+    "MDD": -0.1356,
+    "Turnover": 0.3856
+  },
+  {
+    "factor": "-1 * rank((high - low) / close) * sign(returns)",
+    "score": 0.7191,
+    "IC_mean": 0.0148,
+    "ICIR": 0.0898,
+    "Sharpe": 1.1598,
+    "MDD": -0.1745,
+    "Turnover": 0.5979
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * ts_mean(abs(returns), 10)) * zscore(volume / adv20) * rank(ts_corr(close, volume, 20))",
+    "score": 0.7186,
+    "IC_mean": 0.0099,
+    "ICIR": 0.1453,
+    "Sharpe": 0.5043,
+    "MDD": -0.1196,
+    "Turnover": 0.5744
+  },
+  {
+    "factor": "rank((ts_mean(vwap, 10) - close) / close)",
+    "score": 0.7185,
+    "IC_mean": 0.0153,
+    "ICIR": 0.0848,
+    "Sharpe": 0.8144,
+    "MDD": -0.1349,
+    "Turnover": 0.3346
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) - 0.5 * rank(ts_corr(close, ts_mean(close, 20), 15))",
+    "score": 0.7184,
+    "IC_mean": 0.011,
+    "ICIR": 0.1313,
+    "Sharpe": 0.7266,
+    "MDD": -0.1511,
+    "Turnover": 0.5685
+  },
+  {
+    "factor": "sign(ts_mean(abs(ts_delta(close, 5)), 10)) * rank(volume / ts_max(volume, 20)) - 0.3 * sign(ts_corr(close, volume, 10)) * rank(ts_delta(vwap, 5))",
+    "score": 0.7169,
+    "IC_mean": 0.0103,
+    "ICIR": 0.135,
+    "Sharpe": 0.4442,
+    "MDD": -0.0902,
+    "Turnover": 0.5343
+  },
+  {
+    "factor": "sign(ts_mean(abs(ts_delta(close, 3)), 5) + ts_mean(abs(ts_delta(close, 10)), 20)) * rank((volume + ts_mean(volume, 5)) / ts_max(volume, 40))",
+    "score": 0.7168,
+    "IC_mean": 0.0069,
+    "ICIR": 0.0966,
+    "Sharpe": 0.795,
+    "MDD": -0.0582,
+    "Turnover": 0.3315
+  },
+  {
+    "factor": "rank(ts_corr(power(returns, 2), volume, 15))",
+    "score": 0.7132,
+    "IC_mean": 0.008,
+    "ICIR": 0.0928,
+    "Sharpe": 0.8611,
+    "MDD": -0.1202,
+    "Turnover": 0.2103
+  },
+  {
+    "factor": "-1 * zscore(ts_delta(close, 3)) * rank(ts_max(high, 15) - close)",
+    "score": 0.7122,
+    "IC_mean": 0.0115,
+    "ICIR": 0.0779,
+    "Sharpe": 0.9449,
+    "MDD": -0.1105,
+    "Turnover": 0.3621
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 3) - close) * abs(close - ts_mean(close, 10)) + sign(ts_mean(close, 20) - close) * abs(close - ts_mean(close, 60)))",
+    "score": 0.7122,
+    "IC_mean": 0.0099,
+    "ICIR": 0.0644,
+    "Sharpe": 1.063,
+    "MDD": -0.1047,
+    "Turnover": 0.2363
+  },
+  {
+    "factor": "rank(power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10)) + power(rank(ts_mean(volume / adv20, 5)), 2) / (1 + ts_std(log(ts_mean(volume / adv20, 5)), 30)))",
+    "score": 0.712,
+    "IC_mean": 0.01,
+    "ICIR": 0.1373,
+    "Sharpe": 0.2911,
+    "MDD": -0.0819,
+    "Turnover": 0.4817
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 5) * rank(volume / adv20)) + 0.3 * zscore(ts_mean(abs(returns), 30) * rank(ts_mean(volume, 20) / adv20))",
+    "score": 0.7119,
+    "IC_mean": 0.0125,
+    "ICIR": 0.0809,
+    "Sharpe": 1.2015,
+    "MDD": -0.1775,
+    "Turnover": 0.4798
+  },
+  {
+    "factor": "rank(ts_mean(vwap - close, 10) / ts_std(close, 20)) * rank(log(volume / adv20))",
+    "score": 0.7114,
+    "IC_mean": 0.011,
+    "ICIR": 0.1052,
+    "Sharpe": 0.8921,
+    "MDD": -0.1434,
+    "Turnover": 0.5295
+  },
+  {
+    "factor": "power(ts_corr(close, vwap, 10), 2) * rank(ts_delta(volume, 3))",
+    "score": 0.7114,
+    "IC_mean": 0.0084,
+    "ICIR": 0.1083,
+    "Sharpe": 0.8575,
+    "MDD": -0.1193,
+    "Turnover": 0.4799
+  },
+  {
+    "factor": "rank(ts_min(vwap / close, 15)) * zscore(ts_max(volume, 10) - ts_min(volume, 10))",
+    "score": 0.71,
+    "IC_mean": 0.0057,
+    "ICIR": 0.045,
+    "Sharpe": 1.3647,
+    "MDD": -0.0975,
+    "Turnover": 0.124
+  },
+  {
+    "factor": "zscore(ts_delta(volume, 5) / adv20)",
+    "score": 0.7097,
+    "IC_mean": 0.0112,
+    "ICIR": 0.1535,
+    "Sharpe": 0.4081,
+    "MDD": -0.1483,
+    "Turnover": 0.6706
+  },
+  {
+    "factor": "zscore(abs(close - ts_mean(close, 20)) * ts_mean(abs(returns), 10) * rank(volume / adv20))",
+    "score": 0.7093,
+    "IC_mean": 0.0132,
+    "ICIR": 0.1048,
+    "Sharpe": 0.7879,
+    "MDD": -0.1694,
+    "Turnover": 0.455
+  },
+  {
+    "factor": "log(abs(ts_corr(ts_mean(close, 3), ts_std(vwap, 10), 15)) + 1) * zscore(volume)",
+    "score": 0.7078,
+    "IC_mean": 0.0066,
+    "ICIR": 0.0736,
+    "Sharpe": 1.1444,
+    "MDD": -0.132,
+    "Turnover": 0.2147
+  },
+  {
+    "factor": "power(zscore(returns), 2) * sign(ts_delta(volume / ts_mean(volume, 20), 3))",
+    "score": 0.7061,
+    "IC_mean": 0.0069,
+    "ICIR": 0.107,
+    "Sharpe": 1.2769,
+    "MDD": -0.1747,
+    "Turnover": 0.7017
+  },
+  {
+    "factor": "sign(ts_delta(volume / adv20, 5)) * rank(abs(ts_delta(close, 3)) / ts_mean(abs(returns), 20))",
+    "score": 0.7058,
+    "IC_mean": 0.009,
+    "ICIR": 0.12,
+    "Sharpe": 0.4467,
+    "MDD": -0.0849,
+    "Turnover": 0.4385
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 5) + ts_delta(close, 10))",
+    "score": 0.7058,
+    "IC_mean": 0.0116,
+    "ICIR": 0.0718,
+    "Sharpe": 0.8565,
+    "MDD": -0.1152,
+    "Turnover": 0.2571
+  },
+  {
+    "factor": "rank((ts_mean(close, 20) - close) / ts_std(close, 20))",
+    "score": 0.7049,
+    "IC_mean": 0.0139,
+    "ICIR": 0.0816,
+    "Sharpe": 0.837,
+    "MDD": -0.1475,
+    "Turnover": 0.3861
+  },
+  {
+    "factor": "-1 * rank((close - ts_mean(close, 20)) / ts_std(close, 20))",
+    "score": 0.7049,
+    "IC_mean": 0.0139,
+    "ICIR": 0.0816,
+    "Sharpe": 0.837,
+    "MDD": -0.1475,
+    "Turnover": 0.3861
+  },
+  {
+    "factor": "rank(-1 * (close - ts_mean(close, 20)) / ts_std(close, 20))",
+    "score": 0.7049,
+    "IC_mean": 0.0139,
+    "ICIR": 0.0816,
+    "Sharpe": 0.837,
+    "MDD": -0.1475,
+    "Turnover": 0.3861
+  },
+  {
+    "factor": "-1 * rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",
+    "score": 0.7044,
+    "IC_mean": 0.0134,
+    "ICIR": 0.08,
+    "Sharpe": 0.9434,
+    "MDD": -0.147,
+    "Turnover": 0.4667
+  },
+  {
+    "factor": "-1 * (0.6 * zscore(returns) * rank(volume / adv20) * (1 - abs(ts_corr(high, low, 5))) + 0.4 * ts_mean(zscore(returns) * rank(volume / adv20), 20))",
+    "score": 0.7044,
+    "IC_mean": 0.0126,
+    "ICIR": 0.0895,
+    "Sharpe": 0.8219,
+    "MDD": -0.1238,
+    "Turnover": 0.5113
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 3)) * rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",
+    "score": 0.7037,
+    "IC_mean": 0.0137,
+    "ICIR": 0.0821,
+    "Sharpe": 0.8842,
+    "MDD": -0.1481,
+    "Turnover": 0.4506
+  },
+  {
+    "factor": "zscore(volume / adv20) * rank(returns) / (ts_std(returns, 20) + 0.0001)",
+    "score": 0.7034,
+    "IC_mean": 0.0104,
+    "ICIR": 0.1477,
+    "Sharpe": 0.3622,
+    "MDD": -0.12,
+    "Turnover": 0.7026
+  },
+  {
+    "factor": "-1 * zscore((high + low + close) / 3 / ts_mean((high + low + close) / 3, 15) - 1)",
+    "score": 0.7029,
+    "IC_mean": 0.0138,
+    "ICIR": 0.0748,
+    "Sharpe": 0.6995,
+    "MDD": -0.1281,
+    "Turnover": 0.237
+  },
+  {
+    "factor": "rank(ts_mean(low, 10) / close - 1)",
+    "score": 0.7021,
+    "IC_mean": 0.014,
+    "ICIR": 0.078,
+    "Sharpe": 0.7343,
+    "MDD": -0.1313,
+    "Turnover": 0.3339
+  },
+  {
+    "factor": "power(ts_mean(sign(ts_delta(close, 1)), 10), 2) * rank(volume / adv20)",
+    "score": 0.7016,
+    "IC_mean": 0.0074,
+    "ICIR": 0.091,
+    "Sharpe": 0.8116,
+    "MDD": -0.0635,
+    "Turnover": 0.5091
+  },
+  {
+    "factor": "ts_delta(log((high - close) / (close - low + 0.01)), 5)",
+    "score": 0.7008,
+    "IC_mean": 0.0105,
+    "ICIR": 0.081,
+    "Sharpe": 1.1397,
+    "MDD": -0.0998,
+    "Turnover": 0.7901
+  },
+  {
+    "factor": "rank(ts_mean(vwap, 20) / vwap - 1)",
+    "score": 0.6991,
+    "IC_mean": 0.0129,
+    "ICIR": 0.07,
+    "Sharpe": 0.6967,
+    "MDD": -0.12,
+    "Turnover": 0.2055
+  },
+  {
+    "factor": "zscore(log(volume / adv20)) * rank(ts_delta(close, 3) / ts_mean(abs(ts_delta(close, 1)), 10))",
+    "score": 0.6967,
+    "IC_mean": 0.0093,
+    "ICIR": 0.1351,
+    "Sharpe": 0.3205,
+    "MDD": -0.0956,
+    "Turnover": 0.6177
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * ts_corr(volume, abs(returns), 20)) * power(rank(volume / adv20), 2) / ts_std(close, 10)",
+    "score": 0.6965,
+    "IC_mean": 0.0084,
+    "ICIR": 0.0814,
+    "Sharpe": 0.8786,
+    "MDD": -0.077,
+    "Turnover": 0.531
+  },
+  {
+    "factor": "sign(ts_max(returns, 20) - ts_min(returns, 20)) * rank(ts_delta(volume / adv20, 3))",
+    "score": 0.6963,
+    "IC_mean": 0.0088,
+    "ICIR": 0.1249,
+    "Sharpe": 0.5494,
+    "MDD": -0.106,
+    "Turnover": 0.6689
+  },
+  {
+    "factor": "ts_corr(rank(returns), rank(volume), 10) * sign(ts_delta(close, 7) - ts_delta(vwap, 7))",
+    "score": 0.6954,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0713,
+    "Sharpe": 1.0468,
+    "MDD": -0.0781,
+    "Turnover": 0.339
+  },
+  {
+    "factor": "rank(power(abs(close - vwap) / ts_std(close, 10), 3)) * sign(ts_mean(close, 20) - close)",
+    "score": 0.6929,
+    "IC_mean": 0.0099,
+    "ICIR": 0.0859,
+    "Sharpe": 0.8316,
+    "MDD": -0.0818,
+    "Turnover": 0.6636
+  },
+  {
+    "factor": "rank(power(ts_corr(abs(returns), volume, 5), 2)) - rank(ts_delta(close, 10))",
+    "score": 0.6915,
+    "IC_mean": 0.0086,
+    "ICIR": 0.0722,
+    "Sharpe": 1.0012,
+    "MDD": -0.11,
+    "Turnover": 0.4901
+  },
+  {
+    "factor": "zscore(vwap / ts_mean(vwap, 15)) - zscore(close / ts_mean(close, 15))",
+    "score": 0.6913,
+    "IC_mean": 0.0131,
+    "ICIR": 0.0904,
+    "Sharpe": 1.0358,
+    "MDD": -0.194,
+    "Turnover": 0.7016
+  },
+  {
+    "factor": "-1 * rank(power(ts_mean(returns, 5), 3) + 0.5 * power(ts_mean(returns, 20), 3))",
+    "score": 0.6904,
+    "IC_mean": 0.0144,
+    "ICIR": 0.0794,
+    "Sharpe": 0.6244,
+    "MDD": -0.1444,
+    "Turnover": 0.373
+  },
+  {
+    "factor": "rank(log(ts_std(vwap / ts_mean(vwap, 10), 20)) * sign(ts_corr(high, volume, 5)))",
+    "score": 0.6903,
+    "IC_mean": 0.0044,
+    "ICIR": 0.0564,
+    "Sharpe": 0.9259,
+    "MDD": -0.0626,
+    "Turnover": 0.149
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume)",
+    "score": 0.6902,
+    "IC_mean": 0.0063,
+    "ICIR": 0.0615,
+    "Sharpe": 1.2928,
+    "MDD": -0.1532,
+    "Turnover": 0.3751
+  },
+  {
+    "factor": "zscore(ts_delta(volume / adv20, 3)) / (1 + abs(returns))",
+    "score": 0.6892,
+    "IC_mean": 0.0084,
+    "ICIR": 0.119,
+    "Sharpe": 0.5837,
+    "MDD": -0.1111,
+    "Turnover": 0.6873
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close / vwap, 5))",
+    "score": 0.6883,
+    "IC_mean": 0.0125,
+    "ICIR": 0.0809,
+    "Sharpe": 0.952,
+    "MDD": -0.1376,
+    "Turnover": 0.7199
+  },
+  {
+    "factor": "rank(ts_std(returns * volume, 10) / (ts_std(returns, 10) * ts_std(volume, 10) + 0.0001))",
+    "score": 0.6883,
+    "IC_mean": 0.0043,
+    "ICIR": 0.0616,
+    "Sharpe": 1.0625,
+    "MDD": -0.0963,
+    "Turnover": 0.2615
+  },
+  {
+    "factor": "rank(ts_corr(volume, abs(returns), 20)) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10)) / ts_std(close, 10)",
+    "score": 0.6863,
+    "IC_mean": 0.0079,
+    "ICIR": 0.0953,
+    "Sharpe": 0.6121,
+    "MDD": -0.1037,
+    "Turnover": 0.4315
+  },
+  {
+    "factor": "sign(ts_max(close, 5) + ts_min(close, 5) - 2 * close) * rank(ts_std(vwap, 10) / ts_mean(vwap, 10))",
+    "score": 0.6854,
+    "IC_mean": 0.0107,
+    "ICIR": 0.0667,
+    "Sharpe": 0.6378,
+    "MDD": -0.098,
+    "Turnover": 0.2609
+  },
+  {
+    "factor": "rank(ts_mean(vwap / close - 1, 3)) * rank(volume / adv20) + 0.3 * rank(ts_mean(vwap / close - 1, 20)) * rank(ts_mean(volume / adv20, 20))",
+    "score": 0.6835,
+    "IC_mean": 0.0109,
+    "ICIR": 0.0873,
+    "Sharpe": 0.6365,
+    "MDD": -0.1096,
+    "Turnover": 0.5423
+  },
+  {
+    "factor": "-1 * rank(ts_max(volume, 10) / adv20) * rank(close / ts_max(close, 10))",
+    "score": 0.6835,
+    "IC_mean": 0.0097,
+    "ICIR": 0.0737,
+    "Sharpe": 0.7726,
+    "MDD": -0.1284,
+    "Turnover": 0.3566
+  },
+  {
+    "factor": "rank(abs(close - ts_mean(close, 20)) * ts_mean(returns, 15)) / (ts_max(abs(returns), 15) * zscore(volume))",
+    "score": 0.6807,
+    "IC_mean": 0.0096,
+    "ICIR": 0.0858,
+    "Sharpe": 0.483,
+    "MDD": -0.12,
+    "Turnover": 0.2653
+  },
+  {
+    "factor": "rank((ts_max(high, 10) - close) / (ts_max(high, 10) - ts_min(low, 10) + 0.001))",
+    "score": 0.6805,
+    "IC_mean": 0.0128,
+    "ICIR": 0.0772,
+    "Sharpe": 0.7163,
+    "MDD": -0.1311,
+    "Turnover": 0.5599
+  },
+  {
+    "factor": "rank(0.6 * (sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10))) + 0.4 * (sign(ts_mean(close, 20) - close) * abs(close - ts_mean(close, 60))))",
+    "score": 0.6804,
+    "IC_mean": 0.0075,
+    "ICIR": 0.0482,
+    "Sharpe": 0.8388,
+    "MDD": -0.0882,
+    "Turnover": 0.1597
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 10)) * (1 - rank(ts_delta(volume, 10)))",
+    "score": 0.6804,
+    "IC_mean": 0.009,
+    "ICIR": 0.0729,
+    "Sharpe": 0.8277,
+    "MDD": -0.1146,
+    "Turnover": 0.4724
+  },
+  {
+    "factor": "zscore(volume) * rank(ts_corr(volume, abs(returns), 20)) / (1 + abs(ts_mean(returns, 15) / ts_max(abs(returns), 15)))",
+    "score": 0.6788,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0457,
+    "Sharpe": 1.2165,
+    "MDD": -0.1318,
+    "Turnover": 0.1842
+  },
+  {
+    "factor": "zscore(ts_min(close, 10) / close)",
+    "score": 0.6761,
+    "IC_mean": 0.0124,
+    "ICIR": 0.0735,
+    "Sharpe": 0.549,
+    "MDD": -0.1221,
+    "Turnover": 0.3952
+  },
+  {
+    "factor": "rank(ts_std(power(returns, 3), 15)) * rank(ts_delta(volume, 10) / adv20)",
+    "score": 0.6758,
+    "IC_mean": 0.0093,
+    "ICIR": 0.0688,
+    "Sharpe": 0.948,
+    "MDD": -0.1494,
+    "Turnover": 0.4934
+  },
+  {
+    "factor": "-1 * rank(ts_delta(ts_mean(close, 5), 5))",
+    "score": 0.6753,
+    "IC_mean": 0.0089,
+    "ICIR": 0.0555,
+    "Sharpe": 0.735,
+    "MDD": -0.1138,
+    "Turnover": 0.194
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume) - 0.4 * zscore(ts_std(returns, 20) / vwap)",
+    "score": 0.6753,
+    "IC_mean": 0.0122,
+    "ICIR": 0.0885,
+    "Sharpe": 0.3552,
+    "MDD": -0.1759,
+    "Turnover": 0.1541
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 20)) * zscore(ts_std(returns, 10))",
+    "score": 0.6744,
+    "IC_mean": 0.009,
+    "ICIR": 0.0489,
+    "Sharpe": 1.1267,
+    "MDD": -0.204,
+    "Turnover": 0.1895
+  },
+  {
+    "factor": "-1 * rank(ts_max(close, 10) / close - 1) * sign(ts_delta(close, 10))",
+    "score": 0.6743,
+    "IC_mean": 0.009,
+    "ICIR": 0.0595,
+    "Sharpe": 0.7917,
+    "MDD": -0.1075,
+    "Turnover": 0.3647
+  },
+  {
+    "factor": "zscore(log((high - low) / abs(open - close))) * rank(ts_delta(vwap, 5))",
+    "score": 0.6741,
+    "IC_mean": 0.0092,
+    "ICIR": 0.0822,
+    "Sharpe": 0.3695,
+    "MDD": -0.1018,
+    "Turnover": 0.2366
+  },
+  {
+    "factor": "rank(ts_corr(low / close, returns, 10)) * rank(ts_delta(vwap / close, 3))",
+    "score": 0.6741,
+    "IC_mean": 0.011,
+    "ICIR": 0.0891,
+    "Sharpe": 0.7532,
+    "MDD": -0.1557,
+    "Turnover": 0.6559
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 3) / close)",
+    "score": 0.6739,
+    "IC_mean": 0.0124,
+    "ICIR": 0.0683,
+    "Sharpe": 0.7558,
+    "MDD": -0.1452,
+    "Turnover": 0.4958
+  },
+  {
+    "factor": "-1 * rank(ts_mean(returns, 3))",
+    "score": 0.6737,
+    "IC_mean": 0.0124,
+    "ICIR": 0.0682,
+    "Sharpe": 0.7358,
+    "MDD": -0.1403,
+    "Turnover": 0.4953
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(-power(returns, 3) / ts_std(returns, 20)) / (1 + ts_std(volume, 10)) * rank(ts_corr(volume, abs(returns), 15))",
+    "score": 0.6734,
+    "IC_mean": 0.0118,
+    "ICIR": 0.0938,
+    "Sharpe": 0.6429,
+    "MDD": -0.1557,
+    "Turnover": 0.6529
+  },
+  {
+    "factor": "-1 * rank(power(returns, 3)) + 0.3 * rank(ts_delta(close, 10) / ts_std(close, 10))",
+    "score": 0.6734,
+    "IC_mean": 0.0151,
+    "ICIR": 0.0874,
+    "Sharpe": 0.6987,
+    "MDD": -0.1742,
+    "Turnover": 0.7449
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume / adv20, 20))",
+    "score": 0.6725,
+    "IC_mean": 0.0056,
+    "ICIR": 0.0634,
+    "Sharpe": 0.7777,
+    "MDD": -0.1198,
+    "Turnover": 0.1759
+  },
+  {
+    "factor": "zscore(ts_corr(ts_std(returns, 5), rank(volume), 15)) / ts_std(returns, 20)",
+    "score": 0.6717,
+    "IC_mean": 0.0031,
+    "ICIR": 0.0528,
+    "Sharpe": 0.8616,
+    "MDD": -0.0632,
+    "Turnover": 0.2266
+  },
+  {
+    "factor": "rank((close - ts_max(close, 15)) / ts_max(close, 15)) * sign(ts_delta(volume, 5))",
+    "score": 0.6707,
+    "IC_mean": 0.01,
+    "ICIR": 0.1033,
+    "Sharpe": 0.4473,
+    "MDD": -0.1609,
+    "Turnover": 0.4727
+  },
+  {
+    "factor": "-1 * rank(power(returns, 3)) * rank(ts_corr(volume, abs(returns), 10))",
+    "score": 0.6703,
+    "IC_mean": 0.0092,
+    "ICIR": 0.0698,
+    "Sharpe": 0.9425,
+    "MDD": -0.1355,
+    "Turnover": 0.6385
+  },
+  {
+    "factor": "rank(ts_delta(ts_std(returns, 20), 10))",
+    "score": 0.6694,
+    "IC_mean": 0.0063,
+    "ICIR": 0.0555,
+    "Sharpe": 0.8255,
+    "MDD": -0.1201,
+    "Turnover": 0.2072
+  },
+  {
+    "factor": "rank(power(volume / adv20, 0.5) * ts_std(returns, 10)) - rank(ts_mean(volume / adv20, 15))",
+    "score": 0.6687,
+    "IC_mean": 0.0077,
+    "ICIR": 0.0484,
+    "Sharpe": 1.1214,
+    "MDD": -0.1834,
+    "Turnover": 0.2734
+  },
+  {
+    "factor": "rank(ts_std(vwap - close, 20)) * rank(volume / adv20)",
+    "score": 0.6686,
+    "IC_mean": 0.0124,
+    "ICIR": 0.1225,
+    "Sharpe": 0.2343,
+    "MDD": -0.2108,
+    "Turnover": 0.4611
+  },
+  {
+    "factor": "-rank((close - ts_min(close, 5)) / (ts_max(close, 5) - ts_min(close, 5)) + (close - ts_min(close, 30)) / (ts_max(close, 30) - ts_min(close, 30)))",
+    "score": 0.6684,
+    "IC_mean": 0.0118,
+    "ICIR": 0.069,
+    "Sharpe": 0.77,
+    "MDD": -0.1618,
+    "Turnover": 0.4997
+  },
+  {
+    "factor": "ts_corr(rank(close - open), rank(high - open), 5) * rank(volume) + 0.3 * ts_corr(rank(close - open), rank(high - open), 30) * rank(adv20)",
+    "score": 0.6677,
+    "IC_mean": 0.0043,
+    "ICIR": 0.0459,
+    "Sharpe": 1.0876,
+    "MDD": -0.1159,
+    "Turnover": 0.2993
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 5) / ts_delta(close, 5)) * sign(volume - adv20)",
+    "score": 0.6669,
+    "IC_mean": 0.0063,
+    "ICIR": 0.0922,
+    "Sharpe": 0.7024,
+    "MDD": -0.0771,
+    "Turnover": 0.8044
+  },
+  {
+    "factor": "ts_mean(abs(vwap - close), 5) * rank(volume / ts_std(volume, 20))",
+    "score": 0.6652,
+    "IC_mean": 0.0106,
+    "ICIR": 0.0984,
+    "Sharpe": 0.2657,
+    "MDD": -0.1647,
+    "Turnover": 0.2976
+  },
+  {
+    "factor": "sign(ts_delta(volume, 3)) * rank(abs(returns))",
+    "score": 0.665,
+    "IC_mean": 0.007,
+    "ICIR": 0.0895,
+    "Sharpe": 0.9815,
+    "MDD": -0.1783,
+    "Turnover": 0.7291
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(close, 5), volume, 10)) * zscore(ts_std(returns, 20) / ts_mean(abs(returns), 20))",
+    "score": 0.6647,
+    "IC_mean": 0.0046,
+    "ICIR": 0.0553,
+    "Sharpe": 0.8248,
+    "MDD": -0.1063,
+    "Turnover": 0.2324
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume, 10)) * -1",
+    "score": 0.6643,
+    "IC_mean": 0.0103,
+    "ICIR": 0.0895,
+    "Sharpe": 0.2999,
+    "MDD": -0.149,
+    "Turnover": 0.2738
+  },
+  {
+    "factor": "ts_corr(rank(close), rank(ts_mean(close, 20)), 10) * rank(power(ts_std(returns, 5), 2)) / ts_std(volume, 15)",
+    "score": 0.664,
+    "IC_mean": 0.0025,
+    "ICIR": 0.0441,
+    "Sharpe": 0.8841,
+    "MDD": -0.0522,
+    "Turnover": 0.2587
+  },
+  {
+    "factor": "rank(ts_std((high - low) / vwap, 15)) * rank(close / ts_mean(close, 20) - 1) * sign(-returns)",
+    "score": 0.6634,
+    "IC_mean": 0.0088,
+    "ICIR": 0.0645,
+    "Sharpe": 0.6782,
+    "MDD": -0.1396,
+    "Turnover": 0.321
+  },
+  {
+    "factor": "-1 * rank(ts_corr(vwap / close, power(volume / adv20, 2), 20)) * rank(ts_delta(returns, 5))",
+    "score": 0.6628,
+    "IC_mean": 0.0095,
+    "ICIR": 0.0748,
+    "Sharpe": 0.6068,
+    "MDD": -0.0971,
+    "Turnover": 0.6168
+  },
+  {
+    "factor": "rank(ts_corr((close - open) / vwap, volume, 10) * -1)",
+    "score": 0.6618,
+    "IC_mean": 0.0086,
+    "ICIR": 0.0844,
+    "Sharpe": 0.2842,
+    "MDD": -0.1074,
+    "Turnover": 0.2967
+  },
+  {
+    "factor": "-rank(close / open) * rank(ts_delta(volume, 5) / adv20)",
+    "score": 0.6609,
+    "IC_mean": 0.0059,
+    "ICIR": 0.0496,
+    "Sharpe": 1.1848,
+    "MDD": -0.1003,
+    "Turnover": 0.7278
+  },
+  {
+    "factor": "rank(ts_mean((open - close) / ts_std(close, 10), 5))",
+    "score": 0.6601,
+    "IC_mean": 0.0098,
+    "ICIR": 0.0649,
+    "Sharpe": 0.6128,
+    "MDD": -0.1189,
+    "Turnover": 0.4489
+  },
+  {
+    "factor": "rank(ts_mean(returns, 20) - ts_mean(returns, 5))",
+    "score": 0.6599,
+    "IC_mean": 0.0111,
+    "ICIR": 0.0646,
+    "Sharpe": 0.6307,
+    "MDD": -0.1552,
+    "Turnover": 0.3914
+  },
+  {
+    "factor": "-1 * rank(close / vwap - 1)",
+    "score": 0.6594,
+    "IC_mean": 0.0114,
+    "ICIR": 0.0734,
+    "Sharpe": 0.8321,
+    "MDD": -0.1716,
+    "Turnover": 0.7041
+  },
+  {
+    "factor": "ts_corr(vwap, close, 5) - ts_corr(vwap, volume, 5)",
+    "score": 0.6588,
+    "IC_mean": 0.007,
+    "ICIR": 0.0704,
+    "Sharpe": 0.7106,
+    "MDD": -0.1022,
+    "Turnover": 0.5635
+  },
+  {
+    "factor": "rank(ts_std(close, 20) / ts_mean(close, 20)) * sign(-ts_corr(returns, volume, 10))",
+    "score": 0.6588,
+    "IC_mean": 0.0085,
+    "ICIR": 0.0673,
+    "Sharpe": 0.4286,
+    "MDD": -0.1411,
+    "Turnover": 0.1182
+  },
+  {
+    "factor": "sign(ts_delta(volume, 5) - ts_delta(volume, 20))",
+    "score": 0.6583,
+    "IC_mean": 0.0028,
+    "ICIR": 0.0463,
+    "Sharpe": 0.8874,
+    "MDD": -0.0458,
+    "Turnover": 0.4252
+  },
+  {
+    "factor": "ts_delta(log(volume), 10) / ts_std(log(volume), 20)",
+    "score": 0.6579,
+    "IC_mean": 0.0076,
+    "ICIR": 0.1032,
+    "Sharpe": 0.3736,
+    "MDD": -0.0976,
+    "Turnover": 0.7074
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * (1 - ts_corr(close, vwap, 10)) * zscore(volume / adv20))",
+    "score": 0.6576,
+    "IC_mean": 0.0049,
+    "ICIR": 0.0776,
+    "Sharpe": 0.5903,
+    "MDD": -0.0939,
+    "Turnover": 0.4549
+  },
+  {
+    "factor": "rank(ts_std(close, 20) / ts_mean(close, 20)) * sign(ts_corr(volume, abs(returns), 10))",
+    "score": 0.6567,
+    "IC_mean": 0.0044,
+    "ICIR": 0.0299,
+    "Sharpe": 0.9862,
+    "MDD": -0.1004,
+    "Turnover": 0.1951
+  },
+  {
+    "factor": "rank((ts_max(high, 20) - close) / (ts_max(high, 20) - ts_min(low, 20)))",
+    "score": 0.6565,
+    "IC_mean": 0.0117,
+    "ICIR": 0.0699,
+    "Sharpe": 0.5164,
+    "MDD": -0.1476,
+    "Turnover": 0.454
+  },
+  {
+    "factor": "power(rank((ts_min(low, 20) - close) / (ts_max(high, 20) - ts_min(low, 20))), 2)",
+    "score": 0.6565,
+    "IC_mean": 0.0117,
+    "ICIR": 0.0699,
+    "Sharpe": 0.5164,
+    "MDD": -0.1476,
+    "Turnover": 0.454
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * zscore(volume / adv20))",
+    "score": 0.6559,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0605,
+    "Sharpe": 0.7859,
+    "MDD": -0.0883,
+    "Turnover": 0.4304
+  },
+  {
+    "factor": "-rank((close - ts_min(close, 10)) / (ts_max(close, 10) - ts_min(close, 10))) + rank(ts_corr(close, vwap, 10))",
+    "score": 0.654,
+    "IC_mean": 0.0082,
+    "ICIR": 0.0624,
+    "Sharpe": 0.8467,
+    "MDD": -0.1722,
+    "Turnover": 0.4548
+  },
+  {
+    "factor": "zscore((vwap - open) / (high - low)) * ts_corr(returns, volume, 5)",
+    "score": 0.6533,
+    "IC_mean": 0.005,
+    "ICIR": 0.0728,
+    "Sharpe": 0.8956,
+    "MDD": -0.1207,
+    "Turnover": 0.6978
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 5), volume, 20))",
+    "score": 0.653,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0521,
+    "Sharpe": 0.6634,
+    "MDD": -0.0941,
+    "Turnover": 0.188
+  },
+  {
+    "factor": "rank(ts_std(returns, 10) * ts_mean(volume, 10) / adv20)",
+    "score": 0.6524,
+    "IC_mean": 0.0093,
+    "ICIR": 0.0518,
+    "Sharpe": 0.7994,
+    "MDD": -0.2052,
+    "Turnover": 0.2003
+  },
+  {
+    "factor": "rank(ts_corr((high - low) / close, volume / adv20, 10))",
+    "score": 0.6516,
+    "IC_mean": 0.0034,
+    "ICIR": 0.0431,
+    "Sharpe": 0.9028,
+    "MDD": -0.1002,
+    "Turnover": 0.3035
+  },
+  {
+    "factor": "abs(rank(ts_corr(open, close, 10)) - 0.5) * ts_delta(log(volume + 1), 3)",
+    "score": 0.6508,
+    "IC_mean": 0.0074,
+    "ICIR": 0.1066,
+    "Sharpe": 0.2696,
+    "MDD": -0.1174,
+    "Turnover": 0.6476
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(close, 5), ts_delta(volume, 5), 10)) * zscore(vwap / close)",
+    "score": 0.6504,
+    "IC_mean": 0.0109,
+    "ICIR": 0.0741,
+    "Sharpe": 0.665,
+    "MDD": -0.1753,
+    "Turnover": 0.6127
+  },
+  {
+    "factor": "ts_corr(power(ts_std(close, 3), 2), power(ts_std(volume, 3), 2), 15) * rank(abs(ts_delta(close, 5)))",
+    "score": 0.6492,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0511,
+    "Sharpe": 0.6823,
+    "MDD": -0.0788,
+    "Turnover": 0.3198
+  },
+  {
+    "factor": "rank(power(abs((close - vwap) / vwap), 2)) + rank(ts_max(returns, 10)) - rank(ts_min(returns, 10))",
+    "score": 0.6487,
+    "IC_mean": 0.0094,
+    "ICIR": 0.0517,
+    "Sharpe": 1.144,
+    "MDD": -0.2345,
+    "Turnover": 0.5341
+  },
+  {
+    "factor": "rank(ts_mean(close, 50) / close - 1) * rank(ts_std(returns, 10))",
+    "score": 0.648,
+    "IC_mean": 0.008,
+    "ICIR": 0.0414,
+    "Sharpe": 0.6964,
+    "MDD": -0.1418,
+    "Turnover": 0.193
+  },
+  {
+    "factor": "rank(ts_std(high / low, 5)) - rank(ts_corr(returns, log(volume), 15))",
+    "score": 0.6467,
+    "IC_mean": 0.0072,
+    "ICIR": 0.0556,
+    "Sharpe": 0.6876,
+    "MDD": -0.1516,
+    "Turnover": 0.3135
+  },
+  {
+    "factor": "zscore(ts_std(open - close, 10) / ts_mean(close, 10))",
+    "score": 0.6454,
+    "IC_mean": 0.0084,
+    "ICIR": 0.0455,
+    "Sharpe": 0.8859,
+    "MDD": -0.2213,
+    "Turnover": 0.1957
+  },
+  {
+    "factor": "ts_delta(power(ts_std(close, 5), 2), 3) / (ts_std(power(returns, 2), 10) + 0.001)",
+    "score": 0.6454,
+    "IC_mean": 0.0052,
+    "ICIR": 0.0513,
+    "Sharpe": 0.6275,
+    "MDD": -0.1019,
+    "Turnover": 0.2951
+  },
+  {
+    "factor": "-1 * rank((ts_delta(close, 5) / ts_std(close, 10)) + 0.5 * (ts_delta(close, 20) / ts_std(close, 40)))",
+    "score": 0.6452,
+    "IC_mean": 0.0113,
+    "ICIR": 0.067,
+    "Sharpe": 0.5829,
+    "MDD": -0.1819,
+    "Turnover": 0.4925
+  },
+  {
+    "factor": "rank(abs(ts_corr(close, volume, 5) - ts_corr(close, volume, 20))) * zscore(volume / vwap)",
+    "score": 0.6441,
+    "IC_mean": 0.0021,
+    "ICIR": 0.0254,
+    "Sharpe": 1.17,
+    "MDD": -0.1105,
+    "Turnover": 0.3554
+  },
+  {
+    "factor": "rank(ts_corr((high - low) / close, volume, 10)) * rank(-ts_delta(close, 3) / ts_std(close, 10))",
+    "score": 0.6437,
+    "IC_mean": 0.0079,
+    "ICIR": 0.0625,
+    "Sharpe": 0.711,
+    "MDD": -0.1593,
+    "Turnover": 0.4936
+  },
+  {
+    "factor": "rank(log(high / low))",
+    "score": 0.6428,
+    "IC_mean": 0.0093,
+    "ICIR": 0.0537,
+    "Sharpe": 1.0879,
+    "MDD": -0.2084,
+    "Turnover": 0.6923
+  },
+  {
+    "factor": "ts_corr(rank(close - open), rank(high - open), 15) * rank(volume) * (1 - abs(zscore(ts_std(returns, 10))))",
+    "score": 0.6426,
+    "IC_mean": 0.0066,
+    "ICIR": 0.0836,
+    "Sharpe": 0.1485,
+    "MDD": -0.1245,
+    "Turnover": 0.2295
+  },
+  {
+    "factor": "ts_corr((high + low) / 2 - open, close - open, 5)",
+    "score": 0.642,
+    "IC_mean": 0.0042,
+    "ICIR": 0.05,
+    "Sharpe": 0.7644,
+    "MDD": -0.088,
+    "Turnover": 0.4865
+  },
+  {
+    "factor": "rank(abs(close - ts_mean(close, 20)) * ts_max(close, 20) / close) * zscore(ts_delta(volume, 5))",
+    "score": 0.6419,
+    "IC_mean": 0.0059,
+    "ICIR": 0.0738,
+    "Sharpe": 0.5965,
+    "MDD": -0.1479,
+    "Turnover": 0.4769
+  },
+  {
+    "factor": "zscore(ts_max(close, 5) / close - 1) + zscore(close / ts_min(close, 5) - 1)",
+    "score": 0.6408,
+    "IC_mean": 0.0099,
+    "ICIR": 0.0689,
+    "Sharpe": 0.7359,
+    "MDD": -0.2398,
+    "Turnover": 0.4327
+  },
+  {
+    "factor": "ts_delta(close, 5) / ts_delta(close, 20) * rank(ts_mean(volume, 3))",
+    "score": 0.6408,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0447,
+    "Sharpe": 0.8321,
+    "MDD": -0.1068,
+    "Turnover": 0.4103
+  },
+  {
+    "factor": "rank(ts_std(ts_std(returns, 5), 20))",
+    "score": 0.6406,
+    "IC_mean": 0.006,
+    "ICIR": 0.0377,
+    "Sharpe": 0.7688,
+    "MDD": -0.1701,
+    "Turnover": 0.0965
+  },
+  {
+    "factor": "sign(ts_std(returns, 3) - ts_mean(ts_std(returns, 3), 15))",
+    "score": 0.639,
+    "IC_mean": 0.0021,
+    "ICIR": 0.0231,
+    "Sharpe": 0.9439,
+    "MDD": -0.0621,
+    "Turnover": 0.3446
+  },
+  {
+    "factor": "rank(power(ts_max(abs(returns), 10) / ts_mean(abs(returns), 10), 2))",
+    "score": 0.6386,
+    "IC_mean": 0.0019,
+    "ICIR": 0.0239,
+    "Sharpe": 1.0447,
+    "MDD": -0.1002,
+    "Turnover": 0.3049
+  },
+  {
+    "factor": "ts_delta(ts_std(close, 5), 3) * rank(abs(returns))",
+    "score": 0.6366,
+    "IC_mean": 0.0062,
+    "ICIR": 0.0572,
+    "Sharpe": 0.6489,
+    "MDD": -0.1278,
+    "Turnover": 0.4866
+  },
+  {
+    "factor": "zscore(ts_mean((close - low) / (high - low + 0.001), 20)) - zscore(ts_mean(returns, 5))",
+    "score": 0.6361,
+    "IC_mean": 0.0092,
+    "ICIR": 0.0638,
+    "Sharpe": 0.2995,
+    "MDD": -0.1362,
+    "Turnover": 0.327
+  },
+  {
+    "factor": "rank(abs(ts_delta(ts_std(close, 10), 5))) / zscore(ts_std(returns, 20))",
+    "score": 0.634,
+    "IC_mean": 0.0022,
+    "ICIR": 0.0191,
+    "Sharpe": 0.7943,
+    "MDD": -0.0553,
+    "Turnover": 0.2256
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 20) / close) * rank(1 / ts_std(returns, 20))",
+    "score": 0.6332,
+    "IC_mean": 0.008,
+    "ICIR": 0.0412,
+    "Sharpe": 0.6192,
+    "MDD": -0.1801,
+    "Turnover": 0.163
+  },
+  {
+    "factor": "rank(ts_max(volume / adv20, 5) - ts_mean(volume / adv20, 5))",
+    "score": 0.6323,
+    "IC_mean": 0.0048,
+    "ICIR": 0.074,
+    "Sharpe": 0.3462,
+    "MDD": -0.1205,
+    "Turnover": 0.3882
+  },
+  {
+    "factor": "rank(-close / open) * rank(ts_std(returns, 20)) / rank(volume)",
+    "score": 0.6317,
+    "IC_mean": 0.0091,
+    "ICIR": 0.0639,
+    "Sharpe": 0.5234,
+    "MDD": -0.1783,
+    "Turnover": 0.4688
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * (ts_max(close, 20) / close) * abs(log(volume / ts_mean(volume, 15))))",
+    "score": 0.6308,
+    "IC_mean": 0.0085,
+    "ICIR": 0.0684,
+    "Sharpe": 0.4566,
+    "MDD": -0.1285,
+    "Turnover": 0.6453
+  },
+  {
+    "factor": "rank(ts_mean(abs(close - vwap), 10) / ts_mean(close, 10))",
+    "score": 0.6304,
+    "IC_mean": 0.0071,
+    "ICIR": 0.0376,
+    "Sharpe": 0.8354,
+    "MDD": -0.214,
+    "Turnover": 0.206
+  },
+  {
+    "factor": "rank(ts_mean(open, 10) / open - 1)",
+    "score": 0.6285,
+    "IC_mean": 0.0091,
+    "ICIR": 0.0503,
+    "Sharpe": 0.4753,
+    "MDD": -0.1596,
+    "Turnover": 0.3492
+  },
+  {
+    "factor": "rank(ts_corr(abs(ts_delta(close, 1)), ts_std(volume, 5), 10)) * power(rank(ts_std(returns, 15)), 2)",
+    "score": 0.6276,
+    "IC_mean": 0.0074,
+    "ICIR": 0.0431,
+    "Sharpe": 0.7316,
+    "MDD": -0.2124,
+    "Turnover": 0.2318
+  },
+  {
+    "factor": "ts_corr(rank(close / ts_mean(close, 15)), rank(ts_std(returns, 5)), 10)",
+    "score": 0.6264,
+    "IC_mean": 0.0013,
+    "ICIR": 0.0173,
+    "Sharpe": 0.8511,
+    "MDD": -0.0658,
+    "Turnover": 0.2833
+  },
+  {
+    "factor": "rank(ts_std(close - ts_mean(close, 5), 20))",
+    "score": 0.6261,
+    "IC_mean": 0.0064,
+    "ICIR": 0.0448,
+    "Sharpe": 0.3555,
+    "MDD": -0.1515,
+    "Turnover": 0.0441
+  },
+  {
+    "factor": "ts_corr(ts_delta(vwap, 1), ts_delta(close, 1), 20) * sign(vwap - close)",
+    "score": 0.6258,
+    "IC_mean": 0.0056,
+    "ICIR": 0.051,
+    "Sharpe": 0.5648,
+    "MDD": -0.1563,
+    "Turnover": 0.3097
+  },
+  {
+    "factor": "ts_corr(rank(vwap), rank(close), 10) - 0.5",
+    "score": 0.6253,
+    "IC_mean": 0.0017,
+    "ICIR": 0.0286,
+    "Sharpe": 0.6846,
+    "MDD": -0.0776,
+    "Turnover": 0.2415
+  },
+  {
+    "factor": "rank(ts_corr(close, volume, 20)) - rank(ts_corr(close, volume, 5))",
+    "score": 0.6249,
+    "IC_mean": 0.0044,
+    "ICIR": 0.0499,
+    "Sharpe": 0.5273,
+    "MDD": -0.0964,
+    "Turnover": 0.448
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 5)) * sign(ts_corr(returns, volume / adv20, 10))",
+    "score": 0.6247,
+    "IC_mean": 0.0035,
+    "ICIR": 0.0448,
+    "Sharpe": 0.7797,
+    "MDD": -0.142,
+    "Turnover": 0.4219
+  },
+  {
+    "factor": "rank(ts_mean((open - close) / (high - low), 5))",
+    "score": 0.6239,
+    "IC_mean": 0.0067,
+    "ICIR": 0.0438,
+    "Sharpe": 0.5608,
+    "MDD": -0.1212,
+    "Turnover": 0.4469
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10))",
+    "score": 0.6232,
+    "IC_mean": 0.0087,
+    "ICIR": 0.0422,
+    "Sharpe": 0.7887,
+    "MDD": -0.2658,
+    "Turnover": 0.2024
+  },
+  {
+    "factor": "rank(ts_std((open + close) / 2 / vwap, 10)) * zscore((high - low) / close)",
+    "score": 0.6232,
+    "IC_mean": 0.0062,
+    "ICIR": 0.0439,
+    "Sharpe": 0.9902,
+    "MDD": -0.196,
+    "Turnover": 0.6063
+  },
+  {
+    "factor": "rank(ts_max(close, 10) / ts_min(close, 10)) / (1 + rank(ts_std(sign(returns), 20)))",
+    "score": 0.6214,
+    "IC_mean": 0.0057,
+    "ICIR": 0.0352,
+    "Sharpe": 0.7943,
+    "MDD": -0.1908,
+    "Turnover": 0.2779
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 10), adv20, 20))",
+    "score": 0.6199,
+    "IC_mean": 0.003,
+    "ICIR": 0.0437,
+    "Sharpe": 0.404,
+    "MDD": -0.1057,
+    "Turnover": 0.1705
+  },
+  {
+    "factor": "rank(abs(returns) / ts_std(returns, 20)) * sign(ts_delta(volume, 3))",
+    "score": 0.6198,
+    "IC_mean": 0.0054,
+    "ICIR": 0.0764,
+    "Sharpe": 0.5428,
+    "MDD": -0.1417,
+    "Turnover": 0.7844
+  },
+  {
+    "factor": "rank(log(ts_std(volume, 5) / ts_std(volume, 20))) * rank(ts_delta(close, 3) / ts_delta(close, 20))",
+    "score": 0.6197,
+    "IC_mean": 0.0061,
+    "ICIR": 0.0777,
+    "Sharpe": 0.2397,
+    "MDD": -0.1395,
+    "Turnover": 0.505
+  },
+  {
+    "factor": "ts_mean(rank(abs(returns)), 10) - rank(ts_corr(vwap / close, adv20, 15))",
+    "score": 0.6183,
+    "IC_mean": 0.0043,
+    "ICIR": 0.0394,
+    "Sharpe": 0.641,
+    "MDD": -0.1346,
+    "Turnover": 0.362
+  },
+  {
+    "factor": "rank(power(ts_std(returns, 10), 2) / power(ts_std(returns, 20), 2))",
+    "score": 0.6182,
+    "IC_mean": 0.0034,
+    "ICIR": 0.0344,
+    "Sharpe": 0.6383,
+    "MDD": -0.1231,
+    "Turnover": 0.2852
+  },
+  {
+    "factor": "sign(ts_mean(returns, 3)) * zscore(ts_delta(close, 15))",
+    "score": 0.6177,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0429,
+    "Sharpe": 0.503,
+    "MDD": -0.1342,
+    "Turnover": 0.2521
+  },
+  {
+    "factor": "zscore(ts_corr(returns, ts_delta(vwap, 5), 15)) - rank(abs(close - open) / close)",
+    "score": 0.6173,
+    "IC_mean": 0.0031,
+    "ICIR": 0.0282,
+    "Sharpe": 0.7797,
+    "MDD": -0.095,
+    "Turnover": 0.4769
+  },
+  {
+    "factor": "rank(ts_mean(log(high / low), 10))",
+    "score": 0.6169,
+    "IC_mean": 0.0073,
+    "ICIR": 0.0327,
+    "Sharpe": 0.8123,
+    "MDD": -0.2606,
+    "Turnover": 0.1288
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10))",
+    "score": 0.6168,
+    "IC_mean": 0.0051,
+    "ICIR": 0.0508,
+    "Sharpe": 0.5676,
+    "MDD": -0.1163,
+    "Turnover": 0.5877
+  },
+  {
+    "factor": "rank(ts_delta(close, 5)) * sign(ts_delta(volume, 5))",
+    "score": 0.6168,
+    "IC_mean": 0.005,
+    "ICIR": 0.0588,
+    "Sharpe": 0.3163,
+    "MDD": -0.122,
+    "Turnover": 0.3792
+  },
+  {
+    "factor": "-1 * rank(ts_mean(ts_delta(volume, 1) * ts_delta(close, 1), 10))",
+    "score": 0.6162,
+    "IC_mean": 0.0083,
+    "ICIR": 0.069,
+    "Sharpe": 0.0222,
+    "MDD": -0.1779,
+    "Turnover": 0.1517
+  },
+  {
+    "factor": "zscore(ts_mean(vwap, 3) / ts_mean(vwap, 15)) - zscore(ts_mean(close, 3) / ts_mean(close, 15))",
+    "score": 0.6156,
+    "IC_mean": 0.0064,
+    "ICIR": 0.0443,
+    "Sharpe": 0.6437,
+    "MDD": -0.1547,
+    "Turnover": 0.5155
+  },
+  {
+    "factor": "-1 * rank(close - open) * rank(abs(returns))",
+    "score": 0.6153,
+    "IC_mean": 0.0072,
+    "ICIR": 0.0572,
+    "Sharpe": 0.588,
+    "MDD": -0.1491,
+    "Turnover": 0.7094
+  },
+  {
+    "factor": "zscore(ts_corr(ts_mean(high / low, 3), log(volume / ts_min(volume, 20)), 15))",
+    "score": 0.6152,
+    "IC_mean": 0.0021,
+    "ICIR": 0.0269,
+    "Sharpe": 0.5997,
+    "MDD": -0.0928,
+    "Turnover": 0.2322
+  },
+  {
+    "factor": "-1 * rank(ts_delta(vwap, 5) / ts_std(vwap, 20))",
+    "score": 0.615,
+    "IC_mean": 0.0094,
+    "ICIR": 0.0567,
+    "Sharpe": 0.3366,
+    "MDD": -0.1843,
+    "Turnover": 0.3985
+  },
+  {
+    "factor": "rank(ts_delta(volume, 5) / adv20) * sign(-ts_delta(close, 5))",
+    "score": 0.6146,
+    "IC_mean": 0.0096,
+    "ICIR": 0.0745,
+    "Sharpe": 0.1586,
+    "MDD": -0.1552,
+    "Turnover": 0.5854
+  },
+  {
+    "factor": "rank(ts_corr(close / open, volume, 20)) * rank(-ts_delta(vwap, 5))",
+    "score": 0.6145,
+    "IC_mean": 0.0026,
+    "ICIR": 0.0224,
+    "Sharpe": 0.6879,
+    "MDD": -0.0967,
+    "Turnover": 0.2945
+  },
+  {
+    "factor": "rank(ts_std(log(volume / adv20), 10) * abs(ts_delta(close, 5))) / (1 + rank(ts_mean(volume / adv20, 20)))",
+    "score": 0.6128,
+    "IC_mean": 0.0063,
+    "ICIR": 0.0523,
+    "Sharpe": 0.5259,
+    "MDD": -0.1652,
+    "Turnover": 0.4837
+  },
+  {
+    "factor": "rank(ts_mean((close - vwap) / ts_std(close, 20), 5) * sign(volume - adv20))",
+    "score": 0.6125,
+    "IC_mean": 0.0021,
+    "ICIR": 0.0268,
+    "Sharpe": 0.697,
+    "MDD": -0.0807,
+    "Turnover": 0.4353
+  },
+  {
+    "factor": "-1 * zscore(returns) * rank(volume / adv20) * (1 - abs(ts_corr(high, low, 10))) + 0.3 * rank(ts_corr(returns, ts_delta(volume, 1), 15))",
+    "score": 0.6118,
+    "IC_mean": 0.0038,
+    "ICIR": 0.0334,
+    "Sharpe": 0.8374,
+    "MDD": -0.136,
+    "Turnover": 0.5679
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume, 10) * sign(ts_delta(close, 5)))",
+    "score": 0.6114,
+    "IC_mean": 0.0033,
+    "ICIR": 0.0418,
+    "Sharpe": 0.511,
+    "MDD": -0.1244,
+    "Turnover": 0.3352
+  },
+  {
+    "factor": "rank(volume / vwap) / ts_corr(close, ts_mean(close, 20), 15)",
+    "score": 0.6111,
+    "IC_mean": 0.0016,
+    "ICIR": 0.0225,
+    "Sharpe": 0.6219,
+    "MDD": -0.0724,
+    "Turnover": 0.315
+  },
+  {
+    "factor": "sign(ts_corr(high - low, volume, 10)) * rank(ts_std(returns, 15))",
+    "score": 0.6107,
+    "IC_mean": 0.0053,
+    "ICIR": 0.0298,
+    "Sharpe": 0.6764,
+    "MDD": -0.1901,
+    "Turnover": 0.2062
+  },
+  {
+    "factor": "sign(ts_std(returns, 20) - ts_mean(ts_std(returns, 5), 15)) * rank(volume / ts_std(volume, 10))",
+    "score": 0.6105,
+    "IC_mean": 0.0046,
+    "ICIR": 0.0601,
+    "Sharpe": 0.1868,
+    "MDD": -0.0985,
+    "Turnover": 0.4207
+  },
+  {
+    "factor": "rank(vwap / close) - rank(ts_mean(vwap / close, 5))",
+    "score": 0.61,
+    "IC_mean": 0.0069,
+    "ICIR": 0.0478,
+    "Sharpe": 0.7246,
+    "MDD": -0.1489,
+    "Turnover": 0.7978
+  },
+  {
+    "factor": "rank(abs(returns) * log(volume / adv20)) / (1 + abs(ts_delta(close, 10) / ts_std(close, 10)))",
+    "score": 0.6099,
+    "IC_mean": 0.0054,
+    "ICIR": 0.0677,
+    "Sharpe": 0.3443,
+    "MDD": -0.1168,
+    "Turnover": 0.6885
+  },
+  {
+    "factor": "rank(1 - close / ts_max(close, 60))",
+    "score": 0.6088,
+    "IC_mean": 0.0055,
+    "ICIR": 0.0281,
+    "Sharpe": 0.5313,
+    "MDD": -0.1445,
+    "Turnover": 0.2492
+  },
+  {
+    "factor": "rank(ts_corr(close / open, volume, 20)) * rank(ts_std(returns, 10))",
+    "score": 0.6085,
+    "IC_mean": 0.0032,
+    "ICIR": 0.0218,
+    "Sharpe": 0.6874,
+    "MDD": -0.1445,
+    "Turnover": 0.2086
+  },
+  {
+    "factor": "rank(ts_min(returns, 10) / ts_mean(returns, 10))",
+    "score": 0.6081,
+    "IC_mean": 0.0032,
+    "ICIR": 0.0359,
+    "Sharpe": 0.5919,
+    "MDD": -0.0886,
+    "Turnover": 0.5419
+  },
+  {
+    "factor": "rank(ts_corr(high - low, volume, 20))",
+    "score": 0.6074,
+    "IC_mean": 0.0026,
+    "ICIR": 0.0304,
+    "Sharpe": 0.6098,
+    "MDD": -0.155,
+    "Turnover": 0.1761
+  },
+  {
+    "factor": "rank(ts_mean(abs(returns), 10)) * sign(ts_mean(close, 5) - close) * zscore(volume / adv20)",
+    "score": 0.6067,
+    "IC_mean": 0.0042,
+    "ICIR": 0.0621,
+    "Sharpe": 0.2475,
+    "MDD": -0.1017,
+    "Turnover": 0.5396
+  },
+  {
+    "factor": "sign(ts_mean(close, 20) - close) * rank(ts_corr(high - low, volume, 10))",
+    "score": 0.6061,
+    "IC_mean": 0.0088,
+    "ICIR": 0.0696,
+    "Sharpe": -0.1505,
+    "MDD": -0.1515,
+    "Turnover": 0.2569
+  },
+  {
+    "factor": "-1 * rank(ts_corr(rank(close), rank(volume), 10))",
+    "score": 0.6056,
+    "IC_mean": 0.0031,
+    "ICIR": 0.0457,
+    "Sharpe": 0.2793,
+    "MDD": -0.0952,
+    "Turnover": 0.3232
+  },
+  {
+    "factor": "rank(ts_max(high, 20) - ts_min(low, 20)) / ts_mean(close, 20)",
+    "score": 0.6052,
+    "IC_mean": 0.0009,
+    "ICIR": 0.006,
+    "Sharpe": 0.843,
+    "MDD": -0.1426,
+    "Turnover": 0.0863
+  },
+  {
+    "factor": "zscore((ts_max(high, 10) - ts_min(low, 10)) / close) * rank(-abs(returns))",
+    "score": 0.6047,
+    "IC_mean": 0.008,
+    "ICIR": 0.0444,
+    "Sharpe": 0.5804,
+    "MDD": -0.1942,
+    "Turnover": 0.5368
+  },
+  {
+    "factor": "rank(abs(ts_delta(close, 3) - ts_delta(close, 15)))",
+    "score": 0.6043,
+    "IC_mean": 0.0063,
+    "ICIR": 0.0491,
+    "Sharpe": 0.4326,
+    "MDD": -0.1812,
+    "Turnover": 0.392
+  },
+  {
+    "factor": "zscore(abs(returns) / ts_std(returns, 20)) * rank(ts_mean(close, 10) / close)",
+    "score": 0.604,
+    "IC_mean": 0.0041,
+    "ICIR": 0.039,
+    "Sharpe": 0.7212,
+    "MDD": -0.1403,
+    "Turnover": 0.6314
+  },
+  {
+    "factor": "rank(ts_mean(returns, 20)) * -1",
+    "score": 0.6028,
+    "IC_mean": 0.0075,
+    "ICIR": 0.0402,
+    "Sharpe": 0.2382,
+    "MDD": -0.1666,
+    "Turnover": 0.1978
+  },
+  {
+    "factor": "rank(ts_min(ts_std(returns, 10), 20))",
+    "score": 0.6015,
+    "IC_mean": 0.0052,
+    "ICIR": 0.0243,
+    "Sharpe": 0.7543,
+    "MDD": -0.2573,
+    "Turnover": 0.0664
+  },
+  {
+    "factor": "sign(ts_delta(close, 3) - ts_delta(close, 10)) * rank(ts_mean(volume, 5) / adv20)",
+    "score": 0.6012,
+    "IC_mean": 0.0051,
+    "ICIR": 0.0403,
+    "Sharpe": 0.2187,
+    "MDD": -0.1171,
+    "Turnover": 0.2688
+  },
+  {
+    "factor": "rank(ts_std(ts_corr(log(close / open), log(volume / ts_mean(volume, 3)), 5), 10)) / (1 + abs(ts_corr(high, low, 15)))",
+    "score": 0.6012,
+    "IC_mean": 0.0011,
+    "ICIR": 0.0188,
+    "Sharpe": 0.659,
+    "MDD": -0.1087,
+    "Turnover": 0.2713
+  },
+  {
+    "factor": "rank(ts_max((close - open) / (high - low), 10)) - rank(ts_min((close - open) / (high - low), 10))",
+    "score": 0.6012,
+    "IC_mean": 0.0013,
+    "ICIR": 0.0159,
+    "Sharpe": 0.6403,
+    "MDD": -0.1014,
+    "Turnover": 0.2518
+  },
+  {
+    "factor": "rank(ts_mean((close - vwap) / vwap, 10)) * rank(volume / adv20)",
+    "score": 0.6009,
+    "IC_mean": 0.0058,
+    "ICIR": 0.0508,
+    "Sharpe": 0.2532,
+    "MDD": -0.1145,
+    "Turnover": 0.5149
+  },
+  {
+    "factor": "rank(ts_mean((high - low) / vwap, 5) / ts_mean(volume / adv20, 5))",
+    "score": 0.6009,
+    "IC_mean": 0.0044,
+    "ICIR": 0.0218,
+    "Sharpe": 0.9159,
+    "MDD": -0.25,
+    "Turnover": 0.2113
+  },
+  {
+    "factor": "zscore(ts_corr((vwap - close) / close, ts_delta(volume, 5), 10))",
+    "score": 0.5999,
+    "IC_mean": 0.0037,
+    "ICIR": 0.0417,
+    "Sharpe": 0.3128,
+    "MDD": -0.123,
+    "Turnover": 0.309
+  },
+  {
+    "factor": "rank(ts_mean(volume, 5) / ts_std(close, 5))",
+    "score": 0.5997,
+    "IC_mean": -0.0009,
+    "ICIR": -0.0082,
+    "Sharpe": 0.8351,
+    "MDD": -0.0769,
+    "Turnover": 0.1328
+  },
+  {
+    "factor": "rank(ts_mean(volume, 5) / ts_mean(volume, 20)) * zscore(ts_delta(close, 3) - ts_delta(close, 10))",
+    "score": 0.5993,
+    "IC_mean": 0.0051,
+    "ICIR": 0.0348,
+    "Sharpe": 0.3426,
+    "MDD": -0.1361,
+    "Turnover": 0.2834
+  },
+  {
+    "factor": "rank(log(volume / adv20) / (1 + abs(close - ts_mean(close, 20))) * sign(ts_mean(close, 5) - close))",
+    "score": 0.5985,
+    "IC_mean": 0.0038,
+    "ICIR": 0.0436,
+    "Sharpe": 0.43,
+    "MDD": -0.1095,
+    "Turnover": 0.5557
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 10) / ts_std(close, 20)) * rank(ts_corr(volume, abs(returns), 10))",
+    "score": 0.5985,
+    "IC_mean": 0.0042,
+    "ICIR": 0.0323,
+    "Sharpe": 0.3349,
+    "MDD": -0.0958,
+    "Turnover": 0.368
+  },
+  {
+    "factor": "zscore(high / vwap) * rank(ts_delta(volume, 5) / ts_std(volume, 10))",
+    "score": 0.5984,
+    "IC_mean": 0.0085,
+    "ICIR": 0.0534,
+    "Sharpe": 0.8485,
+    "MDD": -0.2875,
+    "Turnover": 0.7023
+  },
+  {
+    "factor": "rank(ts_delta(high / low, 10)) / (rank(ts_corr(returns, volume, 5)) + 0.1)",
+    "score": 0.5983,
+    "IC_mean": 0.0072,
+    "ICIR": 0.065,
+    "Sharpe": 0.3163,
+    "MDD": -0.1701,
+    "Turnover": 0.6754
+  },
+  {
+    "factor": "rank(abs(close - ts_mean(close, 20)) * power(volume / adv20, sign(ts_mean(close, 5) - close)))",
+    "score": 0.5979,
+    "IC_mean": 0.0083,
+    "ICIR": 0.0639,
+    "Sharpe": 0.1204,
+    "MDD": -0.1867,
+    "Turnover": 0.4345
+  },
+  {
+    "factor": "rank(ts_min(close, 10) / close) + rank(ts_std(returns, 3) / ts_std(returns, 15))",
+    "score": 0.5977,
+    "IC_mean": 0.008,
+    "ICIR": 0.0595,
+    "Sharpe": 0.1007,
+    "MDD": -0.1444,
+    "Turnover": 0.5136
+  },
+  {
+    "factor": "rank(ts_std(close / ts_mean(close, 10), 20))",
+    "score": 0.5969,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0213,
+    "Sharpe": 0.7659,
+    "MDD": -0.2419,
+    "Turnover": 0.1076
+  },
+  {
+    "factor": "rank(ts_corr(high / close, volume / ts_max(volume, 15), 10)) / (1 + ts_std(returns, 20))",
+    "score": 0.5961,
+    "IC_mean": 0.0042,
+    "ICIR": 0.048,
+    "Sharpe": 0.1406,
+    "MDD": -0.1088,
+    "Turnover": 0.347
+  },
+  {
+    "factor": "rank(ts_max(ts_corr(returns, volume / ts_mean(volume, 5), 3), 15)) - rank(ts_min(ts_corr(returns, volume, 10), 20))",
+    "score": 0.5951,
+    "IC_mean": 0.0019,
+    "ICIR": 0.0272,
+    "Sharpe": 0.3966,
+    "MDD": -0.1274,
+    "Turnover": 0.1481
+  },
+  {
+    "factor": "zscore(ts_mean(high / low, 10)) / rank(abs(ts_delta(volume, 20)))",
+    "score": 0.5951,
+    "IC_mean": 0.0051,
+    "ICIR": 0.0253,
+    "Sharpe": 0.6792,
+    "MDD": -0.1682,
+    "Turnover": 0.4652
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) * rank(ts_delta(vwap, 5))",
+    "score": 0.5949,
+    "IC_mean": 0.004,
+    "ICIR": 0.0433,
+    "Sharpe": 0.418,
+    "MDD": -0.1122,
+    "Turnover": 0.5933
+  },
+  {
+    "factor": "rank(ts_std(returns, 10)) - rank(ts_std(returns, 60))",
+    "score": 0.5948,
+    "IC_mean": 0.0023,
+    "ICIR": 0.0208,
+    "Sharpe": 0.522,
+    "MDD": -0.1314,
+    "Turnover": 0.214
+  },
+  {
+    "factor": "rank(ts_std(returns, 10) - ts_std(returns, 60))",
+    "score": 0.594,
+    "IC_mean": 0.0019,
+    "ICIR": 0.0154,
+    "Sharpe": 0.6486,
+    "MDD": -0.1532,
+    "Turnover": 0.1788
+  },
+  {
+    "factor": "rank((open + close) / (high + low)) / (1 + abs(ts_corr(low, volume, 10)))",
+    "score": 0.5933,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0341,
+    "Sharpe": 0.6811,
+    "MDD": -0.1283,
+    "Turnover": 0.7283
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume / adv20, 10)) * (-1 * sign(ts_mean(returns, 5)))",
+    "score": 0.5932,
+    "IC_mean": 0.0081,
+    "ICIR": 0.0628,
+    "Sharpe": -0.0898,
+    "MDD": -0.1742,
+    "Turnover": 0.2889
+  },
+  {
+    "factor": "rank(ts_delta(log(high / low), 5))",
+    "score": 0.5895,
+    "IC_mean": 0.0071,
+    "ICIR": 0.061,
+    "Sharpe": 0.3585,
+    "MDD": -0.1867,
+    "Turnover": 0.7251
+  },
+  {
+    "factor": "rank(ts_std(high - low, 10) / ts_mean(high - low, 10))",
+    "score": 0.5892,
+    "IC_mean": 0.0024,
+    "ICIR": 0.026,
+    "Sharpe": 0.4556,
+    "MDD": -0.142,
+    "Turnover": 0.2572
+  },
+  {
+    "factor": "-1 * rank(ts_delta(high, 5) / ts_std(high, 20))",
+    "score": 0.589,
+    "IC_mean": 0.0066,
+    "ICIR": 0.0407,
+    "Sharpe": 0.2154,
+    "MDD": -0.1462,
+    "Turnover": 0.4227
+  },
+  {
+    "factor": "rank(ts_std(open / close, 15)) / (rank(ts_std(vwap / close, 15)) + 0.1)",
+    "score": 0.5884,
+    "IC_mean": 0.0048,
+    "ICIR": 0.0445,
+    "Sharpe": 0.2017,
+    "MDD": -0.1777,
+    "Turnover": 0.2278
+  },
+  {
+    "factor": "rank(ts_std(returns, 10)) - rank(ts_mean(volume / adv20, 10))",
+    "score": 0.588,
+    "IC_mean": 0.0038,
+    "ICIR": 0.0223,
+    "Sharpe": 0.7213,
+    "MDD": -0.2377,
+    "Turnover": 0.2063
+  },
+  {
+    "factor": "rank(ts_std(vwap - close, 10)) / log(1 + ts_mean(volume, 15))",
+    "score": 0.5872,
+    "IC_mean": 0.0061,
+    "ICIR": 0.0464,
+    "Sharpe": -0.066,
+    "MDD": -0.1712,
+    "Turnover": 0.0685
+  },
+  {
+    "factor": "zscore(ts_corr(close, volume, 5)) * sign(ts_delta(ts_mean(close, 10), 5))",
+    "score": 0.5871,
+    "IC_mean": 0.0037,
+    "ICIR": 0.0585,
+    "Sharpe": 0.1771,
+    "MDD": -0.1324,
+    "Turnover": 0.5449
+  },
+  {
+    "factor": "rank(adv20 / volume) * sign(ts_mean(close, 10) - close)",
+    "score": 0.5865,
+    "IC_mean": 0.0061,
+    "ICIR": 0.0539,
+    "Sharpe": 0.1405,
+    "MDD": -0.1418,
+    "Turnover": 0.5489
+  },
+  {
+    "factor": "zscore(ts_max(returns, 20) - ts_min(returns, 20))",
+    "score": 0.5851,
+    "IC_mean": 0.0059,
+    "ICIR": 0.0308,
+    "Sharpe": 0.6,
+    "MDD": -0.2976,
+    "Turnover": 0.1001
+  },
+  {
+    "factor": "zscore(ts_mean(vwap / close, 5)) * rank(log(volume + 1) - log(adv20 + 1))",
+    "score": 0.5847,
+    "IC_mean": 0.0031,
+    "ICIR": 0.0225,
+    "Sharpe": 0.4739,
+    "MDD": -0.1101,
+    "Turnover": 0.4736
+  },
+  {
+    "factor": "rank(abs(ts_delta(open, 10)) / ts_max(high - low, 20) + rank(volume / adv20))",
+    "score": 0.5843,
+    "IC_mean": 0.0054,
+    "ICIR": 0.0497,
+    "Sharpe": 0.1717,
+    "MDD": -0.1412,
+    "Turnover": 0.5199
+  },
+  {
+    "factor": "rank(ts_corr(vwap - close, volume, 10))",
+    "score": 0.5835,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0445,
+    "Sharpe": 0.0236,
+    "MDD": -0.1191,
+    "Turnover": 0.3039
+  },
+  {
+    "factor": "rank(ts_mean(abs(returns) / (volume / adv20 + 0.0001), 10))",
+    "score": 0.5831,
+    "IC_mean": 0.0056,
+    "ICIR": 0.0264,
+    "Sharpe": 0.7525,
+    "MDD": -0.3057,
+    "Turnover": 0.1924
+  },
+  {
+    "factor": "rank(ts_corr((close - low) / (high - low + 0.001), returns, 20)) * rank(ts_std(close, 5))",
+    "score": 0.5799,
+    "IC_mean": 0.0052,
+    "ICIR": 0.0499,
+    "Sharpe": 0.0459,
+    "MDD": -0.1869,
+    "Turnover": 0.239
+  },
+  {
+    "factor": "rank(ts_std(volume / adv20, 15))",
+    "score": 0.5785,
+    "IC_mean": 0.0003,
+    "ICIR": 0.0047,
+    "Sharpe": 0.4136,
+    "MDD": -0.0899,
+    "Turnover": 0.1661
+  },
+  {
+    "factor": "-1 * ts_corr(sign(ts_delta(close, 1)), rank(volume / adv20), 10) * rank(ts_std(vwap / close, 5))",
+    "score": 0.5782,
+    "IC_mean": 0.0037,
+    "ICIR": 0.0558,
+    "Sharpe": 0.063,
+    "MDD": -0.165,
+    "Turnover": 0.3712
+  },
+  {
+    "factor": "zscore(ts_mean(log(volume / adv20), 5)) * ts_corr(volume, power(returns, 2), 15)",
+    "score": 0.5774,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0599,
+    "Sharpe": -0.1197,
+    "MDD": -0.1645,
+    "Turnover": 0.2562
+  },
+  {
+    "factor": "zscore(power(ts_delta(volume / ts_mean(volume, 20), 5), 2)) / (rank(ts_std(close, 15)) + 0.01)",
+    "score": 0.5761,
+    "IC_mean": 0.0056,
+    "ICIR": 0.0588,
+    "Sharpe": -0.026,
+    "MDD": -0.1736,
+    "Turnover": 0.4187
+  },
+  {
+    "factor": "-1 * zscore(close / ts_mean(close, 20) - 1) * zscore(volume / adv20)",
+    "score": 0.575,
+    "IC_mean": 0.0021,
+    "ICIR": 0.0319,
+    "Sharpe": 0.2977,
+    "MDD": -0.1097,
+    "Turnover": 0.4931
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 5), ts_std(returns, 15), 10))",
+    "score": 0.5749,
+    "IC_mean": 0.0004,
+    "ICIR": 0.0055,
+    "Sharpe": 0.4925,
+    "MDD": -0.0942,
+    "Turnover": 0.3104
+  },
+  {
+    "factor": "sign(ts_mean(open, 5) / ts_mean(open, 20) - ts_mean(close, 5) / ts_mean(close, 20)) * rank(ts_delta(volume, 10))",
+    "score": 0.5748,
+    "IC_mean": 0.0064,
+    "ICIR": 0.0588,
+    "Sharpe": -0.0816,
+    "MDD": -0.1531,
+    "Turnover": 0.5103
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)) * log(volume / adv20))",
+    "score": 0.5741,
+    "IC_mean": 0.003,
+    "ICIR": 0.0326,
+    "Sharpe": 0.3003,
+    "MDD": -0.1417,
+    "Turnover": 0.4374
+  },
+  {
+    "factor": "zscore(ts_min(low, 5) / ts_min(low, 20)) * sign(returns)",
+    "score": 0.5704,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0421,
+    "Sharpe": 0.0202,
+    "MDD": -0.1565,
+    "Turnover": 0.2947
+  },
+  {
+    "factor": "abs(ts_delta(close, 20)) * rank(ts_corr(open, close, 10))",
+    "score": 0.57,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0303,
+    "Sharpe": 0.1713,
+    "MDD": -0.1508,
+    "Turnover": 0.3323
+  },
+  {
+    "factor": "rank(ts_corr(open / close, ts_max(volume, 5), 20) / ts_std(vwap, 10))",
+    "score": 0.5693,
+    "IC_mean": 0.0009,
+    "ICIR": 0.0105,
+    "Sharpe": 0.3058,
+    "MDD": -0.1098,
+    "Turnover": 0.215
+  },
+  {
+    "factor": "zscore(ts_mean((high - close) / (high - low), 5)) - zscore(ts_mean((close - low) / (high - low), 5))",
+    "score": 0.5683,
+    "IC_mean": 0.0016,
+    "ICIR": 0.0118,
+    "Sharpe": 0.3724,
+    "MDD": -0.0926,
+    "Turnover": 0.4402
+  },
+  {
+    "factor": "zscore(abs(close - open) / ts_std(high - low, 15))",
+    "score": 0.5673,
+    "IC_mean": 0.005,
+    "ICIR": 0.0503,
+    "Sharpe": -0.01,
+    "MDD": -0.1629,
+    "Turnover": 0.4611
+  },
+  {
+    "factor": "rank(ts_std(close / vwap, 20))",
+    "score": 0.5669,
+    "IC_mean": 0.0042,
+    "ICIR": 0.0201,
+    "Sharpe": 0.5836,
+    "MDD": -0.2971,
+    "Turnover": 0.1073
+  },
+  {
+    "factor": "-1 * zscore(ts_delta(open, 3) / open) / (rank(ts_corr(high, low, 10)) + 0.01)",
+    "score": 0.5663,
+    "IC_mean": 0.0058,
+    "ICIR": 0.0349,
+    "Sharpe": 0.2286,
+    "MDD": -0.1943,
+    "Turnover": 0.4476
+  },
+  {
+    "factor": "ts_mean((high - close) / (high - low), 5)",
+    "score": 0.5663,
+    "IC_mean": 0.0016,
+    "ICIR": 0.0118,
+    "Sharpe": 0.3476,
+    "MDD": -0.0926,
+    "Turnover": 0.4416
+  },
+  {
+    "factor": "log(abs(vwap - close) + 1) * rank(ts_delta(volume, 5))",
+    "score": 0.566,
+    "IC_mean": 0.0087,
+    "ICIR": 0.0829,
+    "Sharpe": -0.1749,
+    "MDD": -0.2454,
+    "Turnover": 0.6215
+  },
+  {
+    "factor": "rank(ts_mean(close * volume, 5) / ts_mean(close * volume, 20))",
+    "score": 0.5656,
+    "IC_mean": 0.0038,
+    "ICIR": 0.052,
+    "Sharpe": -0.1261,
+    "MDD": -0.173,
+    "Turnover": 0.2624
+  },
+  {
+    "factor": "rank(ts_std(vwap / close, 20))",
+    "score": 0.5651,
+    "IC_mean": 0.0042,
+    "ICIR": 0.0202,
+    "Sharpe": 0.5724,
+    "MDD": -0.3011,
+    "Turnover": 0.1069
+  },
+  {
+    "factor": "zscore(ts_std(ts_delta(close, 1), 20)) * sign(ts_corr(close, ts_std(close, 5), 10))",
+    "score": 0.5642,
+    "IC_mean": 0.0043,
+    "ICIR": 0.0589,
+    "Sharpe": -0.3774,
+    "MDD": -0.185,
+    "Turnover": 0.0701
+  },
+  {
+    "factor": "zscore(ts_corr(high, low, 5)) / abs(ts_delta(vwap, 10))",
+    "score": 0.5617,
+    "IC_mean": -0.0009,
+    "ICIR": -0.0096,
+    "Sharpe": 0.7051,
+    "MDD": -0.0969,
+    "Turnover": 0.4548
+  },
+  {
+    "factor": "rank(ts_mean(high - low, 5) / ts_mean(high - low, 20))",
+    "score": 0.5615,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0406,
+    "Sharpe": 0.1848,
+    "MDD": -0.2157,
+    "Turnover": 0.3591
+  },
+  {
+    "factor": "power(rank(ts_std(close, 10) / ts_mean(close, 10)), 2) / rank(ts_delta(volume, 3))",
+    "score": 0.5605,
+    "IC_mean": 0.0024,
+    "ICIR": 0.0161,
+    "Sharpe": 0.6185,
+    "MDD": -0.2148,
+    "Turnover": 0.4319
+  },
+  {
+    "factor": "power(rank(ts_std(high - low, 10) / ts_std(close, 10)), 2) - rank(ts_corr(returns, abs(returns), 15))",
+    "score": 0.5599,
+    "IC_mean": 0.0036,
+    "ICIR": 0.0293,
+    "Sharpe": 0.1058,
+    "MDD": -0.1711,
+    "Turnover": 0.2924
+  },
+  {
+    "factor": "sign(ts_std(vwap, 5) / ts_std(close, 5) - 1)",
+    "score": 0.5598,
+    "IC_mean": 0.0002,
+    "ICIR": 0.0017,
+    "Sharpe": 0.4544,
+    "MDD": -0.1032,
+    "Turnover": 0.392
+  },
+  {
+    "factor": "rank(ts_corr(close / ts_mean(close, 10), -1 * returns, 20))",
+    "score": 0.5598,
+    "IC_mean": 0.0008,
+    "ICIR": 0.0084,
+    "Sharpe": 0.439,
+    "MDD": -0.1123,
+    "Turnover": 0.4667
+  },
+  {
+    "factor": "rank(ts_max(high, 20) - high) * sign(ts_corr(open / close, volume, 15))",
+    "score": 0.5597,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0451,
+    "Sharpe": -0.2781,
+    "MDD": -0.1528,
+    "Turnover": 0.1702
+  },
+  {
+    "factor": "rank(ts_min(low, 20) / close - 1) * -1 + rank(1 - close / ts_max(high, 20))",
+    "score": 0.5585,
+    "IC_mean": 0.004,
+    "ICIR": 0.0217,
+    "Sharpe": 0.4628,
+    "MDD": -0.259,
+    "Turnover": 0.2692
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 5)) * rank(ts_std(returns, 5))",
+    "score": 0.5579,
+    "IC_mean": 0.0037,
+    "ICIR": 0.0255,
+    "Sharpe": 0.1806,
+    "MDD": -0.168,
+    "Turnover": 0.3744
+  },
+  {
+    "factor": "rank(ts_min(close, 3) / ts_min(close, 15)) / rank(ts_max(close, 5) / ts_max(close, 20))",
+    "score": 0.5575,
+    "IC_mean": 0.0001,
+    "ICIR": 0.001,
+    "Sharpe": 0.4153,
+    "MDD": -0.1169,
+    "Turnover": 0.3088
+  },
+  {
+    "factor": "rank(ts_std(close, 5) / ts_std(close, 20)) * sign(ts_delta(ts_std(returns, 10), 3))",
+    "score": 0.5574,
+    "IC_mean": 0.0055,
+    "ICIR": 0.0569,
+    "Sharpe": -0.1996,
+    "MDD": -0.1874,
+    "Turnover": 0.4119
+  },
+  {
+    "factor": "zscore(ts_corr(ts_mean(close, 3), ts_mean(close, 15), 10)) * rank(ts_delta(volume, 5) / adv20)",
+    "score": 0.557,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0407,
+    "Sharpe": -0.0158,
+    "MDD": -0.1414,
+    "Turnover": 0.5129
+  },
+  {
+    "factor": "sign(ts_std(close, 5) - ts_std(close, 20)) * rank(ts_mean(sign(returns), 15))",
+    "score": 0.5563,
+    "IC_mean": 0.0026,
+    "ICIR": 0.0214,
+    "Sharpe": 0.0789,
+    "MDD": -0.1297,
+    "Turnover": 0.321
+  },
+  {
+    "factor": "zscore(ts_mean(high - low, 5) / ts_mean(high - low, 60))",
+    "score": 0.555,
+    "IC_mean": 0.0049,
+    "ICIR": 0.0449,
+    "Sharpe": 0.1609,
+    "MDD": -0.27,
+    "Turnover": 0.3079
+  },
+  {
+    "factor": "zscore(ts_corr(close, log(volume), 15)) - rank(ts_mean(returns, 10))",
+    "score": 0.555,
+    "IC_mean": -0.0005,
+    "ICIR": -0.0046,
+    "Sharpe": 0.412,
+    "MDD": -0.1063,
+    "Turnover": 0.2733
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10)) - rank(ts_delta(close, 10))",
+    "score": 0.5542,
+    "IC_mean": 0.0043,
+    "ICIR": 0.0365,
+    "Sharpe": 0.1547,
+    "MDD": -0.1493,
+    "Turnover": 0.6715
+  },
+  {
+    "factor": "rank(zscore((high - close) / (high - low + 0.001))) * rank(-ts_delta(volume, 10))",
+    "score": 0.554,
+    "IC_mean": 0.004,
+    "ICIR": 0.0393,
+    "Sharpe": 0.0982,
+    "MDD": -0.1318,
+    "Turnover": 0.7049
+  },
+  {
+    "factor": "-1 * rank(ts_delta(ts_min(returns, 15), 5)) * rank(ts_corr(volume, abs(returns), 3))",
+    "score": 0.5537,
+    "IC_mean": 0.0031,
+    "ICIR": 0.0351,
+    "Sharpe": 0.0598,
+    "MDD": -0.1251,
+    "Turnover": 0.5812
+  },
+  {
+    "factor": "log(ts_std(returns, 15) / ts_std(returns, 3)) * rank(volume / ts_mean(volume, 10))",
+    "score": 0.5534,
+    "IC_mean": 0.002,
+    "ICIR": 0.0203,
+    "Sharpe": 0.2847,
+    "MDD": -0.1161,
+    "Turnover": 0.6086
+  },
+  {
+    "factor": "ts_corr(rank(close), rank(volume), 15) * sign(ts_delta(vwap, 5))",
+    "score": 0.5527,
+    "IC_mean": 0.0025,
+    "ICIR": 0.0409,
+    "Sharpe": -0.1638,
+    "MDD": -0.1543,
+    "Turnover": 0.2602
+  },
+  {
+    "factor": "rank(abs(ts_delta(close, 15)) / ts_std(close, 15)) * sign(ts_corr(high, volume, 10))",
+    "score": 0.5522,
+    "IC_mean": -0.0004,
+    "ICIR": -0.0037,
+    "Sharpe": 0.4175,
+    "MDD": -0.0736,
+    "Turnover": 0.4794
+  },
+  {
+    "factor": "abs(ts_delta(close, 5) / ts_std(close, 5) - ts_delta(close, 20) / ts_std(close, 20)) * rank(volume / adv20)",
+    "score": 0.5517,
+    "IC_mean": 0.0036,
+    "ICIR": 0.0471,
+    "Sharpe": 0.099,
+    "MDD": -0.1579,
+    "Turnover": 0.7171
+  },
+  {
+    "factor": "rank((high - low) / ts_mean(high - low, 20))",
+    "score": 0.5513,
+    "IC_mean": 0.0041,
+    "ICIR": 0.0401,
+    "Sharpe": 0.2784,
+    "MDD": -0.177,
+    "Turnover": 0.7791
+  },
+  {
+    "factor": "rank(ts_max(vwap, 10) - ts_min(vwap, 10)) / zscore(close)",
+    "score": 0.5501,
+    "IC_mean": -0.0006,
+    "ICIR": -0.0081,
+    "Sharpe": 0.21,
+    "MDD": -0.1089,
+    "Turnover": 0.0472
+  },
+  {
+    "factor": "power(zscore(ts_max(vwap, 15) / ts_min(vwap, 15)), 2) * rank(ts_std(returns, 5))",
+    "score": 0.5501,
+    "IC_mean": 0.0011,
+    "ICIR": 0.012,
+    "Sharpe": 0.4438,
+    "MDD": -0.201,
+    "Turnover": 0.3107
+  },
+  {
+    "factor": "ts_corr(rank(vwap - ts_mean(vwap, 20)), returns, 10)",
+    "score": 0.5493,
+    "IC_mean": 0.0026,
+    "ICIR": 0.0247,
+    "Sharpe": -0.0293,
+    "MDD": -0.1035,
+    "Turnover": 0.4606
+  },
+  {
+    "factor": "rank(ts_corr(close, ts_mean(close, 5), 15)) * rank(ts_std(returns, 10) / ts_std(returns, 3))",
+    "score": 0.5478,
+    "IC_mean": 0.0017,
+    "ICIR": 0.0168,
+    "Sharpe": 0.2567,
+    "MDD": -0.1409,
+    "Turnover": 0.4889
+  },
+  {
+    "factor": "-1 * rank(ts_mean(returns, 5)) * rank(ts_std(returns, 5))",
+    "score": 0.5472,
+    "IC_mean": 0.0034,
+    "ICIR": 0.0223,
+    "Sharpe": 0.0854,
+    "MDD": -0.1607,
+    "Turnover": 0.3948
+  },
+  {
+    "factor": "rank(ts_std(ts_std(returns, 5), 10)) / ts_mean(abs(ts_delta(ts_std(close, 10), 3)), 5)",
+    "score": 0.5469,
+    "IC_mean": -0.0013,
+    "ICIR": -0.0121,
+    "Sharpe": 0.3873,
+    "MDD": -0.1075,
+    "Turnover": 0.2089
+  },
+  {
+    "factor": "rank(ts_max(close, 20) / close) * zscore(log(volume / ts_mean(volume, 15))) - 0.3 * zscore(ts_std(returns, 20))",
+    "score": 0.5458,
+    "IC_mean": 0.0069,
+    "ICIR": 0.0515,
+    "Sharpe": -0.2492,
+    "MDD": -0.1952,
+    "Turnover": 0.5039
+  },
+  {
+    "factor": "rank(log(volume / adv20) * sign(ts_delta(close, 5)))",
+    "score": 0.5425,
+    "IC_mean": -0.0004,
+    "ICIR": -0.0044,
+    "Sharpe": 0.5885,
+    "MDD": -0.1154,
+    "Turnover": 0.6363
+  },
+  {
+    "factor": "ts_mean(power((open - close) / (high - low), 2), 20)",
+    "score": 0.5423,
+    "IC_mean": 0.0005,
+    "ICIR": 0.0062,
+    "Sharpe": 0.0926,
+    "MDD": -0.1273,
+    "Turnover": 0.2191
+  },
+  {
+    "factor": "sign(open - ts_mean(close, 3)) * rank(abs(high - low) / ts_mean(high - low, 15))",
+    "score": 0.5423,
+    "IC_mean": 0.0034,
+    "ICIR": 0.0277,
+    "Sharpe": 0.4904,
+    "MDD": -0.226,
+    "Turnover": 0.7356
+  },
+  {
+    "factor": "rank(ts_std(returns, 10)) * sign(ts_delta(close, 3) - ts_delta(close, 10)) / abs(close / open)",
+    "score": 0.5422,
+    "IC_mean": 0.0029,
+    "ICIR": 0.0176,
+    "Sharpe": -0.0521,
+    "MDD": -0.1603,
+    "Turnover": 0.2173
+  },
+  {
+    "factor": "zscore(ts_delta(ts_mean(high - low, 5), 5))",
+    "score": 0.5389,
+    "IC_mean": 0.0029,
+    "ICIR": 0.0298,
+    "Sharpe": 0.1018,
+    "MDD": -0.2322,
+    "Turnover": 0.3131
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 5)) * rank(ts_delta(volume, 5) / adv20)",
+    "score": 0.5385,
+    "IC_mean": 0.0025,
+    "ICIR": 0.0222,
+    "Sharpe": 0.0309,
+    "MDD": -0.1251,
+    "Turnover": 0.5602
+  },
+  {
+    "factor": "rank(abs(returns) / ts_std(returns, 10)) * rank(ts_corr(high, low, 5))",
+    "score": 0.5383,
+    "IC_mean": 0.0018,
+    "ICIR": 0.0195,
+    "Sharpe": 0.2892,
+    "MDD": -0.1409,
+    "Turnover": 0.7147
+  },
+  {
+    "factor": "rank(ts_mean(close, 60) / close - 1)",
+    "score": 0.5382,
+    "IC_mean": 0.0017,
+    "ICIR": 0.0084,
+    "Sharpe": 0.0686,
+    "MDD": -0.1801,
+    "Turnover": 0.1324
+  },
+  {
+    "factor": "zscore(ts_delta(close, 3)) * rank(1 / (ts_std(volume, 20) + 0.001)) * sign(close - ts_mean(close, 15))",
+    "score": 0.538,
+    "IC_mean": 0.0016,
+    "ICIR": 0.0187,
+    "Sharpe": 0.0024,
+    "MDD": -0.13,
+    "Turnover": 0.4114
+  },
+  {
+    "factor": "rank(ts_min(close / ts_mean(high, 10), 15)) * sign(ts_corr(vwap, volume, 5))",
+    "score": 0.5354,
+    "IC_mean": -0.0009,
+    "ICIR": -0.0105,
+    "Sharpe": 0.2234,
+    "MDD": -0.1224,
+    "Turnover": 0.1775
+  },
+  {
+    "factor": "log(ts_mean(high / low, 5) / ts_mean(high / low, 20)) * rank(ts_corr(close, vwap, 3) / ts_corr(close, vwap, 10))",
+    "score": 0.5351,
+    "IC_mean": 0.004,
+    "ICIR": 0.04,
+    "Sharpe": -0.0283,
+    "MDD": -0.2153,
+    "Turnover": 0.5014
+  },
+  {
+    "factor": "rank(power(ts_corr(high - low, ts_mean(returns, 5), 20), 2))",
+    "score": 0.5345,
+    "IC_mean": 0.0002,
+    "ICIR": 0.0019,
+    "Sharpe": 0.1404,
+    "MDD": -0.1157,
+    "Turnover": 0.3645
+  },
+  {
+    "factor": "ts_delta(log(ts_std(returns, 10) + 0.001), 5) * rank(ts_std(volume / adv20, 10))",
+    "score": 0.5331,
+    "IC_mean": 0.0024,
+    "ICIR": 0.0255,
+    "Sharpe": -0.2158,
+    "MDD": -0.1343,
+    "Turnover": 0.3591
+  },
+  {
+    "factor": "-1 * zscore(ts_delta(close, 2)) * zscore(ts_delta(close, 2) - ts_delta(close, 5))",
+    "score": 0.53,
+    "IC_mean": 0.0012,
+    "ICIR": 0.0166,
+    "Sharpe": -0.0206,
+    "MDD": -0.1484,
+    "Turnover": 0.3743
+  },
+  {
+    "factor": "-rank(ts_delta(close, 3) / ts_std(close, 20)) * rank(volume / adv20)",
+    "score": 0.5281,
+    "IC_mean": 0.0007,
+    "ICIR": 0.0058,
+    "Sharpe": 0.208,
+    "MDD": -0.1197,
+    "Turnover": 0.6067
+  },
+  {
+    "factor": "rank(ts_corr(vwap, ts_mean(close, 5), 15)) - rank(ts_corr(close, volume, 15))",
+    "score": 0.5277,
+    "IC_mean": 0.0025,
+    "ICIR": 0.023,
+    "Sharpe": -0.1709,
+    "MDD": -0.1828,
+    "Turnover": 0.2579
+  },
+  {
+    "factor": "rank(ts_mean(abs(returns), 5) / ts_mean(abs(returns), 60))",
+    "score": 0.5274,
+    "IC_mean": 0.0017,
+    "ICIR": 0.0165,
+    "Sharpe": 0.1527,
+    "MDD": -0.2081,
+    "Turnover": 0.3883
+  },
+  {
+    "factor": "ts_corr(ts_mean(close, 3), ts_mean(close, 15), 10) - ts_corr(ts_mean(close, 5), ts_mean(close, 10), 10)",
+    "score": 0.527,
+    "IC_mean": -0.0002,
+    "ICIR": -0.0024,
+    "Sharpe": 0.1699,
+    "MDD": -0.1394,
+    "Turnover": 0.3266
+  },
+  {
+    "factor": "zscore((ts_max(high, 5) - ts_min(low, 5)) / (ts_max(high, 20) - ts_min(low, 20)))",
+    "score": 0.5257,
+    "IC_mean": 0.0021,
+    "ICIR": 0.0201,
+    "Sharpe": -0.1131,
+    "MDD": -0.1682,
+    "Turnover": 0.352
+  },
+  {
+    "factor": "sign(ts_mean(volume - adv20, 10)) * rank(power(abs(returns), 3))",
+    "score": 0.5257,
+    "IC_mean": 0.0008,
+    "ICIR": 0.0098,
+    "Sharpe": 0.2163,
+    "MDD": -0.1286,
+    "Turnover": 0.6781
+  },
+  {
+    "factor": "rank(ts_mean(returns, 3)) - rank(ts_mean(returns, 20)) + zscore(volume / vwap)",
+    "score": 0.5245,
+    "IC_mean": -0.0024,
+    "ICIR": -0.0155,
+    "Sharpe": 0.4325,
+    "MDD": -0.1388,
+    "Turnover": 0.3546
+  },
+  {
+    "factor": "rank(ts_std((open - close) / (high - low), 15)) / rank(ts_mean(volume / adv20, 15))",
+    "score": 0.5245,
+    "IC_mean": 0.0009,
+    "ICIR": 0.0113,
+    "Sharpe": -0.1671,
+    "MDD": -0.1433,
+    "Turnover": 0.2181
+  },
+  {
+    "factor": "ts_corr(rank(ts_delta(close, 10) / ts_std(close, 10)), rank(volume / ts_max(volume, 20)), 15) * zscore(vwap / ts_mean(vwap, 5))",
+    "score": 0.5237,
+    "IC_mean": 0.0019,
+    "ICIR": 0.0346,
+    "Sharpe": -0.2553,
+    "MDD": -0.1646,
+    "Turnover": 0.4265
+  },
+  {
+    "factor": "zscore(ts_mean(high / low, 20)) * rank(-ts_std(returns, 20))",
+    "score": 0.5235,
+    "IC_mean": 0.0039,
+    "ICIR": 0.0176,
+    "Sharpe": 0.1411,
+    "MDD": -0.3183,
+    "Turnover": 0.1122
+  },
+  {
+    "factor": "ts_corr(sign(returns), sign(ts_delta(vwap, 1)), 20)",
+    "score": 0.523,
+    "IC_mean": -0.0017,
+    "ICIR": -0.028,
+    "Sharpe": 0.1693,
+    "MDD": -0.079,
+    "Turnover": 0.1917
+  },
+  {
+    "factor": "zscore(ts_mean(high - close, 10) / ts_mean(close - low, 10))",
+    "score": 0.5201,
+    "IC_mean": 0.0012,
+    "ICIR": 0.0084,
+    "Sharpe": -0.0027,
+    "MDD": -0.18,
+    "Turnover": 0.2956
+  },
+  {
+    "factor": "rank(ts_delta(close, 40)) * rank(ts_delta(volume, 10))",
+    "score": 0.5191,
+    "IC_mean": 0.001,
+    "ICIR": 0.0078,
+    "Sharpe": 0.0842,
+    "MDD": -0.1699,
+    "Turnover": 0.4346
+  },
+  {
+    "factor": "rank(ts_mean(close, 40) - close) / rank(ts_std(close, 40))",
+    "score": 0.5181,
+    "IC_mean": -0.002,
+    "ICIR": -0.0125,
+    "Sharpe": -0.0032,
+    "MDD": -0.122,
+    "Turnover": 0.0867
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 5), ts_delta(close, 5), 20))",
+    "score": 0.5174,
+    "IC_mean": -0.0016,
+    "ICIR": -0.0152,
+    "Sharpe": 0.0754,
+    "MDD": -0.1329,
+    "Turnover": 0.1269
+  },
+  {
+    "factor": "ts_delta(ts_std(volume, 5), 10) / ts_std(volume, 20)",
+    "score": 0.5163,
+    "IC_mean": 0.0008,
+    "ICIR": 0.0121,
+    "Sharpe": -0.1715,
+    "MDD": -0.1349,
+    "Turnover": 0.3793
+  },
+  {
+    "factor": "zscore(ts_std(volume, 10) / ts_mean(volume, 10))",
+    "score": 0.5147,
+    "IC_mean": -0.0006,
+    "ICIR": -0.0087,
+    "Sharpe": -0.0119,
+    "MDD": -0.1278,
+    "Turnover": 0.2404
+  },
+  {
+    "factor": "zscore(ts_mean(power(close / vwap, 2), 15)) * sign(ts_delta(ts_std(volume, 10), 5))",
+    "score": 0.5146,
+    "IC_mean": -0.0007,
+    "ICIR": -0.0101,
+    "Sharpe": 0.1224,
+    "MDD": -0.159,
+    "Turnover": 0.2385
+  },
+  {
+    "factor": "rank(ts_corr(vwap, volume, 15))",
+    "score": 0.512,
+    "IC_mean": -0.0029,
+    "ICIR": -0.0269,
+    "Sharpe": 0.2672,
+    "MDD": -0.1183,
+    "Turnover": 0.2502
+  },
+  {
+    "factor": "rank(ts_delta((high - low) / close, 5)) * zscore(ts_mean(abs(open - vwap), 10))",
+    "score": 0.5115,
+    "IC_mean": 0.0024,
+    "ICIR": 0.0188,
+    "Sharpe": -0.2201,
+    "MDD": -0.157,
+    "Turnover": 0.4916
+  },
+  {
+    "factor": "ts_corr(sign(returns), rank(volume / ts_mean(volume, 20)), 15) * rank(close / ts_max(close, 5))",
+    "score": 0.5082,
+    "IC_mean": -0.0019,
+    "ICIR": -0.0298,
+    "Sharpe": 0.215,
+    "MDD": -0.0891,
+    "Turnover": 0.3899
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(abs(close - open), 5), 5))",
+    "score": 0.508,
+    "IC_mean": 0.0022,
+    "ICIR": 0.0222,
+    "Sharpe": -0.1028,
+    "MDD": -0.2447,
+    "Turnover": 0.3429
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(close, 5), ts_std(volume, 5), 10)) / (1 + abs(ts_delta(close, 3)))",
+    "score": 0.5025,
+    "IC_mean": -0.0013,
+    "ICIR": -0.0143,
+    "Sharpe": 0.1557,
+    "MDD": -0.1369,
+    "Turnover": 0.4594
+  },
+  {
+    "factor": "rank(ts_corr(close / ts_mean(close, 20), volume / adv20, 15)) * sign(ts_delta(close, 10))",
+    "score": 0.5025,
+    "IC_mean": -0.0046,
+    "ICIR": -0.0364,
+    "Sharpe": 0.3013,
+    "MDD": -0.1035,
+    "Turnover": 0.2608
+  },
+  {
+    "factor": "rank(ts_delta(close, 15) / ts_max(close, 15)) * rank(volume)",
+    "score": 0.4992,
+    "IC_mean": -0.0035,
+    "ICIR": -0.025,
+    "Sharpe": 0.2742,
+    "MDD": -0.1706,
+    "Turnover": 0.2213
+  },
+  {
+    "factor": "rank(ts_corr(close, log(volume), 10)) - rank(ts_corr(close, log(volume), 30))",
+    "score": 0.4988,
+    "IC_mean": -0.0015,
+    "ICIR": -0.0152,
+    "Sharpe": -0.0032,
+    "MDD": -0.1412,
+    "Turnover": 0.2896
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 5)) * zscore(ts_mean(volume, 5) / adv20)",
+    "score": 0.4985,
+    "IC_mean": -0.0003,
+    "ICIR": -0.005,
+    "Sharpe": -0.05,
+    "MDD": -0.1608,
+    "Turnover": 0.3726
+  },
+  {
+    "factor": "rank(ts_max(high, 3) / ts_max(high, 10)) * rank(volume / adv20)",
+    "score": 0.497,
+    "IC_mean": 0.0019,
+    "ICIR": 0.0154,
+    "Sharpe": -0.2181,
+    "MDD": -0.1803,
+    "Turnover": 0.5373
+  },
+  {
+    "factor": "ts_corr(ts_mean(vwap, 5), ts_mean(vwap, 20), 10)",
+    "score": 0.4966,
+    "IC_mean": -0.0014,
+    "ICIR": -0.0123,
+    "Sharpe": -0.1125,
+    "MDD": -0.136,
+    "Turnover": 0.265
+  },
+  {
+    "factor": "zscore(ts_std(returns, 20)) * zscore(-ts_delta(close, 20) / close)",
+    "score": 0.496,
+    "IC_mean": -0.0016,
+    "ICIR": -0.0243,
+    "Sharpe": 0.0065,
+    "MDD": -0.1505,
+    "Turnover": 0.1688
+  },
+  {
+    "factor": "ts_corr(abs(vwap - close), returns, 10)",
+    "score": 0.4959,
+    "IC_mean": -0.0037,
+    "ICIR": -0.0309,
+    "Sharpe": 0.3418,
+    "MDD": -0.1644,
+    "Turnover": 0.2809
+  },
+  {
+    "factor": "sign(ts_std(returns, 3) - ts_std(returns, 15)) * rank(ts_corr(close, volume, 5) / ts_corr(close, volume, 20))",
+    "score": 0.4953,
+    "IC_mean": -0.0007,
+    "ICIR": -0.0092,
+    "Sharpe": 0.0205,
+    "MDD": -0.1394,
+    "Turnover": 0.5102
+  },
+  {
+    "factor": "rank(ts_max(ts_std(returns, 5), 15) / ts_std(returns, 20))",
+    "score": 0.4948,
+    "IC_mean": -0.0013,
+    "ICIR": -0.0142,
+    "Sharpe": -0.0674,
+    "MDD": -0.1369,
+    "Turnover": 0.3198
+  },
+  {
+    "factor": "zscore(ts_std(returns, 5) / ts_std(returns, 60))",
+    "score": 0.4941,
+    "IC_mean": 0.0017,
+    "ICIR": 0.0163,
+    "Sharpe": -0.132,
+    "MDD": -0.2599,
+    "Turnover": 0.3428
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 5), ts_delta(volume, 5), 15) * rank(ts_mean(returns, 3))",
+    "score": 0.4938,
+    "IC_mean": -0.003,
+    "ICIR": -0.0268,
+    "Sharpe": 0.1429,
+    "MDD": -0.1212,
+    "Turnover": 0.3667
+  },
+  {
+    "factor": "zscore(ts_std(close, 10)) * rank(volume / adv20)",
+    "score": 0.4934,
+    "IC_mean": -0.0008,
+    "ICIR": -0.0062,
+    "Sharpe": -0.1303,
+    "MDD": -0.1453,
+    "Turnover": 0.3769
+  },
+  {
+    "factor": "rank(ts_std(returns, 5) / ts_std(returns, 20))",
+    "score": 0.4901,
+    "IC_mean": 0.002,
+    "ICIR": 0.0194,
+    "Sharpe": -0.2211,
+    "MDD": -0.254,
+    "Turnover": 0.3881
+  },
+  {
+    "factor": "ts_mean(sign(close - ts_mean(close, 10)), 20) * rank(log(ts_std(close, 5) / ts_std(close, 20)))",
+    "score": 0.4899,
+    "IC_mean": -0.0024,
+    "ICIR": -0.0167,
+    "Sharpe": -0.0828,
+    "MDD": -0.1396,
+    "Turnover": 0.2648
+  },
+  {
+    "factor": "rank(power(abs(ts_delta(close, 3) - ts_delta(close, 15)), 0.8)) * zscore(ts_std(vwap, 5) / ts_std(vwap, 20))",
+    "score": 0.4898,
+    "IC_mean": 0.0005,
+    "ICIR": 0.0044,
+    "Sharpe": -0.1617,
+    "MDD": -0.1995,
+    "Turnover": 0.3922
+  },
+  {
+    "factor": "rank(ts_corr(close - ts_mean(close, 10), volume, 15)) * sign(ts_mean(close, 5) - ts_mean(close, 20))",
+    "score": 0.4884,
+    "IC_mean": -0.0035,
+    "ICIR": -0.0264,
+    "Sharpe": -0.0595,
+    "MDD": -0.1173,
+    "Turnover": 0.2071
+  },
+  {
+    "factor": "rank((close - vwap) / (ts_std(close, 20) + 0.0001)) * rank(volume / adv20)",
+    "score": 0.4876,
+    "IC_mean": 0.0013,
+    "ICIR": 0.0126,
+    "Sharpe": -0.2017,
+    "MDD": -0.1602,
+    "Turnover": 0.7089
+  },
+  {
+    "factor": "-1 * rank(ts_corr(close, volume, 5)) * rank(abs(ts_delta(close, 5)) / close)",
+    "score": 0.4843,
+    "IC_mean": 0.0031,
+    "ICIR": 0.0284,
+    "Sharpe": -0.4859,
+    "MDD": -0.1969,
+    "Turnover": 0.6052
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) / ts_mean(close, 20)) - rank(ts_mean(close, 3) / ts_mean(close, 10))",
+    "score": 0.4841,
+    "IC_mean": 0.0015,
+    "ICIR": 0.0096,
+    "Sharpe": -0.2741,
+    "MDD": -0.2348,
+    "Turnover": 0.3309
+  },
+  {
+    "factor": "ts_mean(sign(ts_delta(close, 1)), 15) * rank(abs(ts_corr(vwap, close, 10) - ts_corr(vwap, close, 5)))",
+    "score": 0.4834,
+    "IC_mean": -0.0034,
+    "ICIR": -0.0274,
+    "Sharpe": 0.1648,
+    "MDD": -0.1413,
+    "Turnover": 0.4315
+  },
+  {
+    "factor": "power(rank(ts_std(returns, 5)), 2) - power(rank(ts_std(returns, 20)), 2)",
+    "score": 0.4831,
+    "IC_mean": 0.0011,
+    "ICIR": 0.0103,
+    "Sharpe": -0.2512,
+    "MDD": -0.2389,
+    "Turnover": 0.342
+  },
+  {
+    "factor": "-1 * rank(log(abs(close - ts_mean(close, 10)) + 1)) / rank(ts_std(close, 20))",
+    "score": 0.4827,
+    "IC_mean": 0.0011,
+    "ICIR": 0.0104,
+    "Sharpe": -0.2331,
+    "MDD": -0.2057,
+    "Turnover": 0.5118
+  },
+  {
+    "factor": "rank(ts_delta(ts_corr(close, volume, 10), 5))",
+    "score": 0.482,
+    "IC_mean": -0.0029,
+    "ICIR": -0.0293,
+    "Sharpe": 0.0755,
+    "MDD": -0.1269,
+    "Turnover": 0.4146
+  },
+  {
+    "factor": "rank(ts_std(volume, 20) / adv20) * sign(-ts_delta(ts_std(returns, 10), 5))",
+    "score": 0.481,
+    "IC_mean": -0.0012,
+    "ICIR": -0.0145,
+    "Sharpe": -0.369,
+    "MDD": -0.1419,
+    "Turnover": 0.1615
+  },
+  {
+    "factor": "-rank(ts_std(returns, 5) / ts_mean(abs(returns), 5))",
+    "score": 0.4796,
+    "IC_mean": -0.0032,
+    "ICIR": -0.0347,
+    "Sharpe": 0.2866,
+    "MDD": -0.1459,
+    "Turnover": 0.5185
+  },
+  {
+    "factor": "rank(log(close) - log(ts_mean(close, 60)))",
+    "score": 0.4775,
+    "IC_mean": -0.0017,
+    "ICIR": -0.0084,
+    "Sharpe": -0.0686,
+    "MDD": -0.2563,
+    "Turnover": 0.1324
+  },
+  {
+    "factor": "sign(ts_mean(returns, 5)) * rank(power(ts_corr(close, rank(volume), 15), 3)) / ts_std(returns, 10)",
+    "score": 0.4766,
+    "IC_mean": -0.0036,
+    "ICIR": -0.0303,
+    "Sharpe": 0.0433,
+    "MDD": -0.1537,
+    "Turnover": 0.289
+  },
+  {
+    "factor": "rank(abs(ts_mean(close, 3) - ts_mean(close, 15))) / ts_std(returns, 10)",
+    "score": 0.4754,
+    "IC_mean": 0.0014,
+    "ICIR": 0.0108,
+    "Sharpe": -0.5091,
+    "MDD": -0.1957,
+    "Turnover": 0.3695
+  },
+  {
+    "factor": "power(rank(ts_delta(close, 5)), 2) * sign(ts_delta(close, 5))",
+    "score": 0.4751,
+    "IC_mean": -0.004,
+    "ICIR": -0.0286,
+    "Sharpe": 0.2125,
+    "MDD": -0.1549,
+    "Turnover": 0.5028
+  },
+  {
+    "factor": "rank(power(ts_std(returns, 5) / ts_std(returns, 20), 3)) * rank(ts_delta(volume, 10))",
+    "score": 0.4748,
+    "IC_mean": 0.0023,
+    "ICIR": 0.025,
+    "Sharpe": -0.5026,
+    "MDD": -0.2315,
+    "Turnover": 0.4881
+  },
+  {
+    "factor": "rank(ts_max(returns, 5))",
+    "score": 0.4746,
+    "IC_mean": -0.0017,
+    "ICIR": -0.0107,
+    "Sharpe": 0.2564,
+    "MDD": -0.3042,
+    "Turnover": 0.3152
+  },
+  {
+    "factor": "rank(ts_corr(close, ts_mean(close, 3), 10))",
+    "score": 0.4746,
+    "IC_mean": -0.0024,
+    "ICIR": -0.0203,
+    "Sharpe": -0.048,
+    "MDD": -0.1612,
+    "Turnover": 0.3947
+  },
+  {
+    "factor": "rank(ts_mean(returns, 10) * ts_mean(returns, 3))",
+    "score": 0.4737,
+    "IC_mean": -0.0008,
+    "ICIR": -0.0067,
+    "Sharpe": 0.125,
+    "MDD": -0.2592,
+    "Turnover": 0.4799
+  },
+  {
+    "factor": "rank(log(ts_max(volume, 15) / ts_min(volume, 15))) / rank(abs(ts_delta(close, 3)))",
+    "score": 0.4725,
+    "IC_mean": -0.0034,
+    "ICIR": -0.0373,
+    "Sharpe": 0.1036,
+    "MDD": -0.1154,
+    "Turnover": 0.4971
+  },
+  {
+    "factor": "ts_corr(sign(close - open), sign(high - ts_mean(high, 3)), 15) * rank(volume / ts_mean(volume, 20))",
+    "score": 0.468,
+    "IC_mean": 0.0022,
+    "ICIR": 0.0284,
+    "Sharpe": -0.6426,
+    "MDD": -0.2424,
+    "Turnover": 0.4257
+  },
+  {
+    "factor": "zscore(ts_corr(ts_delta(volume, 5), abs(returns), 10)) * sign(volume - adv20)",
+    "score": 0.4659,
+    "IC_mean": -0.0031,
+    "ICIR": -0.0513,
+    "Sharpe": 0.0309,
+    "MDD": -0.1168,
+    "Turnover": 0.3269
+  },
+  {
+    "factor": "rank(power(ts_std(returns, 5) / ts_std(returns, 20), 1.5)) * sign(ts_corr(high, low, 3) - ts_corr(high, low, 10))",
+    "score": 0.4654,
+    "IC_mean": -0.0015,
+    "ICIR": -0.0195,
+    "Sharpe": -0.1797,
+    "MDD": -0.1855,
+    "Turnover": 0.3447
+  },
+  {
+    "factor": "-1 * rank(ts_corr(ts_mean(close, 5), ts_mean(volume, 5), 20))",
+    "score": 0.4653,
+    "IC_mean": -0.0011,
+    "ICIR": -0.0105,
+    "Sharpe": -0.4191,
+    "MDD": -0.1982,
+    "Turnover": 0.1666
+  },
+  {
+    "factor": "power(rank(ts_corr(close, ts_mean(close, 10), 15)), 2) * sign(ts_mean(returns, 5))",
+    "score": 0.4633,
+    "IC_mean": -0.0052,
+    "ICIR": -0.0379,
+    "Sharpe": -0.009,
+    "MDD": -0.144,
+    "Turnover": 0.269
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 15)) * sign(ts_delta(close / vwap, 5))",
+    "score": 0.4616,
+    "IC_mean": -0.005,
+    "ICIR": -0.045,
+    "Sharpe": 0.2097,
+    "MDD": -0.1777,
+    "Turnover": 0.316
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(vwap, 5), ts_std(volume, 10), 15))",
+    "score": 0.4606,
+    "IC_mean": -0.0009,
+    "ICIR": -0.0106,
+    "Sharpe": -0.482,
+    "MDD": -0.19,
+    "Turnover": 0.2104
+  },
+  {
+    "factor": "sign(ts_delta(close, 20)) * rank(ts_corr(high - low, volume, 10))",
+    "score": 0.4594,
+    "IC_mean": -0.005,
+    "ICIR": -0.0384,
+    "Sharpe": -0.0915,
+    "MDD": -0.141,
+    "Turnover": 0.2508
+  },
+  {
+    "factor": "rank(power(abs(close - vwap), 2) / ts_mean(volume, 15))",
+    "score": 0.4581,
+    "IC_mean": 0.0032,
+    "ICIR": 0.0298,
+    "Sharpe": -0.6203,
+    "MDD": -0.2751,
+    "Turnover": 0.5413
+  },
+  {
+    "factor": "rank((high - low) / (ts_max(high, 10) - ts_min(low, 10) + 0.001))",
+    "score": 0.4578,
+    "IC_mean": -0.001,
+    "ICIR": -0.009,
+    "Sharpe": -0.2916,
+    "MDD": -0.1435,
+    "Turnover": 0.6878
+  },
+  {
+    "factor": "rank(abs(ts_corr(close, ts_corr(high, volume, 5), 15))) / (1 + ts_std(sign(ts_delta(vwap, 1)), 10))",
+    "score": 0.457,
+    "IC_mean": -0.0003,
+    "ICIR": -0.005,
+    "Sharpe": -0.4729,
+    "MDD": -0.1704,
+    "Turnover": 0.4732
+  },
+  {
+    "factor": "rank(power(ts_mean(returns, 5), 2)) - rank(ts_std(returns, 5))",
+    "score": 0.4552,
+    "IC_mean": -0.0028,
+    "ICIR": -0.0246,
+    "Sharpe": -0.0941,
+    "MDD": -0.156,
+    "Turnover": 0.5744
+  },
+  {
+    "factor": "rank(ts_mean(close / vwap, 10))",
+    "score": 0.4543,
+    "IC_mean": -0.0028,
+    "ICIR": -0.019,
+    "Sharpe": -0.2055,
+    "MDD": -0.2143,
+    "Turnover": 0.2895
+  },
+  {
+    "factor": "zscore(ts_corr(close / open, volume / ts_mean(volume, 20), 15))",
+    "score": 0.4533,
+    "IC_mean": -0.0056,
+    "ICIR": -0.057,
+    "Sharpe": 0.0148,
+    "MDD": -0.1298,
+    "Turnover": 0.2158
+  },
+  {
+    "factor": "zscore(ts_std(high - low, 10)) / zscore(ts_std(returns, 10))",
+    "score": 0.4517,
+    "IC_mean": -0.0042,
+    "ICIR": -0.0575,
+    "Sharpe": -0.0562,
+    "MDD": -0.1208,
+    "Turnover": 0.2716
+  },
+  {
+    "factor": "zscore(ts_corr(power(returns, 2), ts_delta(adv20, 10), 15)) / rank(ts_std(close, 20))",
+    "score": 0.4508,
+    "IC_mean": -0.0037,
+    "ICIR": -0.0552,
+    "Sharpe": -0.1925,
+    "MDD": -0.1169,
+    "Turnover": 0.2071
+  },
+  {
+    "factor": "rank(ts_corr(vwap / close, abs(returns), 10)) / rank(ts_std(close / ts_mean(close, 5), 15))",
+    "score": 0.4501,
+    "IC_mean": 0.0001,
+    "ICIR": 0.0005,
+    "Sharpe": -0.5198,
+    "MDD": -0.2622,
+    "Turnover": 0.2362
+  },
+  {
+    "factor": "zscore(ts_corr(abs(close - vwap), power(volume / adv20 - 1, 2), 10)) * sign(ts_delta(close / ts_mean(close, 20), 5))",
+    "score": 0.4495,
+    "IC_mean": -0.002,
+    "ICIR": -0.0387,
+    "Sharpe": -0.4087,
+    "MDD": -0.1254,
+    "Turnover": 0.2754
+  },
+  {
+    "factor": "power(rank(ts_corr(close, ts_mean(volume, 10), 20)), 2) - rank(ts_std(ts_delta(close, 3), 15))",
+    "score": 0.4452,
+    "IC_mean": -0.0053,
+    "ICIR": -0.0432,
+    "Sharpe": -0.2333,
+    "MDD": -0.1659,
+    "Turnover": 0.1118
+  },
+  {
+    "factor": "rank(ts_std(abs(returns), 10) / ts_mean(abs(returns), 10)) * rank(close / ts_min(close, 20))",
+    "score": 0.4425,
+    "IC_mean": -0.0059,
+    "ICIR": -0.0455,
+    "Sharpe": 0.0255,
+    "MDD": -0.1792,
+    "Turnover": 0.3263
+  },
+  {
+    "factor": "log(1 + abs(ts_delta(volume, 3))) * rank(ts_delta(close, 5) / ts_delta(volume, 5))",
+    "score": 0.4394,
+    "IC_mean": -0.0022,
+    "ICIR": -0.0289,
+    "Sharpe": -0.3852,
+    "MDD": -0.1253,
+    "Turnover": 0.5842
+  },
+  {
+    "factor": "rank(close - ts_min(low, 20))",
+    "score": 0.4391,
+    "IC_mean": -0.0023,
+    "ICIR": -0.0148,
+    "Sharpe": -0.4717,
+    "MDD": -0.2321,
+    "Turnover": 0.2265
+  },
+  {
+    "factor": "rank(ts_mean(volume * sign(returns), 20) / ts_mean(volume, 20))",
+    "score": 0.4389,
+    "IC_mean": -0.0051,
+    "ICIR": -0.0351,
+    "Sharpe": -0.2572,
+    "MDD": -0.186,
+    "Turnover": 0.2207
+  },
+  {
+    "factor": "rank(ts_corr(returns, ts_std(returns, 5), 20))",
+    "score": 0.4386,
+    "IC_mean": -0.0025,
+    "ICIR": -0.0254,
+    "Sharpe": -0.3522,
+    "MDD": -0.2253,
+    "Turnover": 0.2399
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 3)) * rank(ts_corr(high - low, vwap, 15))",
+    "score": 0.4383,
+    "IC_mean": -0.0055,
+    "ICIR": -0.0416,
+    "Sharpe": -0.2697,
+    "MDD": -0.1368,
+    "Turnover": 0.3085
+  },
+  {
+    "factor": "rank(ts_min(returns, 20)) + rank(ts_max(returns, 20)) - 1",
+    "score": 0.4378,
+    "IC_mean": -0.0032,
+    "ICIR": -0.0267,
+    "Sharpe": -0.3935,
+    "MDD": -0.2256,
+    "Turnover": 0.1433
+  },
+  {
+    "factor": "-1 * rank(ts_delta(volume, 5) * ts_delta(close, 5)) * sign(ts_delta(close, 5))",
+    "score": 0.4373,
+    "IC_mean": 0.0009,
+    "ICIR": 0.0071,
+    "Sharpe": -0.4624,
+    "MDD": -0.2709,
+    "Turnover": 0.6008
+  },
+  {
+    "factor": "rank(ts_std(ts_corr(high - low, volume / ts_mean(volume, 20), 5), 10))",
+    "score": 0.4371,
+    "IC_mean": -0.0002,
+    "ICIR": -0.0031,
+    "Sharpe": -0.748,
+    "MDD": -0.2327,
+    "Turnover": 0.2258
+  },
+  {
+    "factor": "rank(ts_delta(close, 10)) * rank(ts_mean(volume, 5) / ts_mean(volume, 20))",
+    "score": 0.4369,
+    "IC_mean": -0.004,
+    "ICIR": -0.034,
+    "Sharpe": -0.3015,
+    "MDD": -0.1854,
+    "Turnover": 0.2834
+  },
+  {
+    "factor": "rank(ts_mean((close - vwap) * volume, 10))",
+    "score": 0.4364,
+    "IC_mean": -0.0025,
+    "ICIR": -0.0186,
+    "Sharpe": -0.3678,
+    "MDD": -0.2606,
+    "Turnover": 0.2019
+  },
+  {
+    "factor": "rank(ts_min(ts_corr(close, volume, 10), 5)) + rank(ts_mean(sign(close - open), 15)) / 2",
+    "score": 0.4356,
+    "IC_mean": -0.0056,
+    "ICIR": -0.0459,
+    "Sharpe": -0.111,
+    "MDD": -0.1874,
+    "Turnover": 0.2512
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 10)) * sign(ts_delta(close, 3) - ts_delta(volume, 3))",
+    "score": 0.4355,
+    "IC_mean": -0.0031,
+    "ICIR": -0.0411,
+    "Sharpe": -0.2634,
+    "MDD": -0.1785,
+    "Turnover": 0.3318
+  },
+  {
+    "factor": "rank(abs(ts_corr(vwap, volume, 20) - ts_corr(close, volume, 20)))",
+    "score": 0.4354,
+    "IC_mean": -0.0007,
+    "ICIR": -0.01,
+    "Sharpe": -0.6977,
+    "MDD": -0.1895,
+    "Turnover": 0.3665
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(close, 1), ts_delta(volume, 1), 20))",
+    "score": 0.435,
+    "IC_mean": -0.0074,
+    "ICIR": -0.0669,
+    "Sharpe": -0.0468,
+    "MDD": -0.1345,
+    "Turnover": 0.1557
+  },
+  {
+    "factor": "sign(ts_std(close, 5) - ts_std(close, 20)) * rank(ts_corr(low, volume, 15))",
+    "score": 0.4334,
+    "IC_mean": -0.0005,
+    "ICIR": -0.0047,
+    "Sharpe": -0.6854,
+    "MDD": -0.235,
+    "Turnover": 0.3041
+  },
+  {
+    "factor": "power(sign(vwap - ts_mean(vwap, 10)), 3) * rank(ts_delta(close, 20))",
+    "score": 0.4327,
+    "IC_mean": -0.0056,
+    "ICIR": -0.0396,
+    "Sharpe": -0.2608,
+    "MDD": -0.1764,
+    "Turnover": 0.2572
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 5), ts_mean(volume, 5), 10) / (1 + ts_std(returns, 15))",
+    "score": 0.4282,
+    "IC_mean": -0.0027,
+    "ICIR": -0.0255,
+    "Sharpe": -0.5034,
+    "MDD": -0.2131,
+    "Turnover": 0.2615
+  },
+  {
+    "factor": "rank(ts_std(close, 20)) * sign(ts_corr(close, volume, 5))",
+    "score": 0.4282,
+    "IC_mean": -0.0049,
+    "ICIR": -0.0547,
+    "Sharpe": -0.2793,
+    "MDD": -0.1812,
+    "Turnover": 0.113
+  },
+  {
+    "factor": "rank(ts_mean(sign(returns) * log(volume / adv20 + 1), 20))",
+    "score": 0.4259,
+    "IC_mean": -0.0051,
+    "ICIR": -0.0343,
+    "Sharpe": -0.3675,
+    "MDD": -0.2053,
+    "Turnover": 0.22
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5)) - rank(ts_mean(returns, 20))",
+    "score": 0.4249,
+    "IC_mean": -0.0059,
+    "ICIR": -0.0369,
+    "Sharpe": -0.1514,
+    "MDD": -0.2075,
+    "Turnover": 0.3915
+  },
+  {
+    "factor": "rank(abs(ts_delta(volume, 5)) / ts_mean(volume, 20))",
+    "score": 0.4236,
+    "IC_mean": -0.0004,
+    "ICIR": -0.0063,
+    "Sharpe": -0.5129,
+    "MDD": -0.2074,
+    "Turnover": 0.7537
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 3)) * sign(close - vwap)",
+    "score": 0.4229,
+    "IC_mean": -0.0063,
+    "ICIR": -0.0513,
+    "Sharpe": -0.0117,
+    "MDD": -0.1829,
+    "Turnover": 0.4599
+  },
+  {
+    "factor": "rank(ts_mean(returns, 20) / ts_std(returns, 20))",
+    "score": 0.4216,
+    "IC_mean": -0.008,
+    "ICIR": -0.0448,
+    "Sharpe": -0.1294,
+    "MDD": -0.2091,
+    "Turnover": 0.2233
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(close, 5), 10) / ts_delta(ts_mean(close, 20), 10)) * sign(ts_corr(high, low, 15))",
+    "score": 0.4213,
+    "IC_mean": -0.0022,
+    "ICIR": -0.0256,
+    "Sharpe": -0.8459,
+    "MDD": -0.1641,
+    "Turnover": 0.2085
+  },
+  {
+    "factor": "zscore(ts_corr(sign(returns), abs(returns), 20)) * rank((ts_max(high, 10) - ts_min(low, 10)) / close)",
+    "score": 0.4194,
+    "IC_mean": -0.0068,
+    "ICIR": -0.0593,
+    "Sharpe": -0.2376,
+    "MDD": -0.1559,
+    "Turnover": 0.2243
+  },
+  {
+    "factor": "rank(log(volume / adv20) * ts_delta(close, 3) / ts_std(returns, 15))",
+    "score": 0.4193,
+    "IC_mean": -0.0033,
+    "ICIR": -0.0344,
+    "Sharpe": -0.3324,
+    "MDD": -0.1923,
+    "Turnover": 0.5224
+  },
+  {
+    "factor": "rank(abs(ts_delta(vwap, 5) - ts_delta(vwap, 20))) / (ts_std(vwap, 10) + 0.001)",
+    "score": 0.4155,
+    "IC_mean": -0.0049,
+    "ICIR": -0.0465,
+    "Sharpe": -0.4332,
+    "MDD": -0.1437,
+    "Turnover": 0.404
+  },
+  {
+    "factor": "sign(ts_corr(high - low, volume, 20)) * rank(ts_delta(close / ts_mean(close, 10), 5))",
+    "score": 0.4152,
+    "IC_mean": -0.006,
+    "ICIR": -0.0376,
+    "Sharpe": -0.204,
+    "MDD": -0.2304,
+    "Turnover": 0.364
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 5)) / power(rank(volume / adv20), 3)",
+    "score": 0.415,
+    "IC_mean": -0.008,
+    "ICIR": -0.0518,
+    "Sharpe": 0.0252,
+    "MDD": -0.1737,
+    "Turnover": 0.5543
+  },
+  {
+    "factor": "ts_delta(close, 20) / (ts_std(close, 60) + 0.001)",
+    "score": 0.4147,
+    "IC_mean": -0.0085,
+    "ICIR": -0.0517,
+    "Sharpe": -0.151,
+    "MDD": -0.192,
+    "Turnover": 0.2487
+  },
+  {
+    "factor": "zscore(ts_corr(returns, sign(volume - ts_mean(volume, 5)), 15))",
+    "score": 0.4137,
+    "IC_mean": -0.0068,
+    "ICIR": -0.0613,
+    "Sharpe": -0.2239,
+    "MDD": -0.169,
+    "Turnover": 0.2432
+  },
+  {
+    "factor": "ts_mean(sign(returns), 15) * rank(ts_std(close, 20))",
+    "score": 0.4124,
+    "IC_mean": -0.0063,
+    "ICIR": -0.0446,
+    "Sharpe": -0.2956,
+    "MDD": -0.2206,
+    "Turnover": 0.2267
+  },
+  {
+    "factor": "ts_mean(rank((close - low) / (open - low)), 10) - ts_mean(rank((high - close) / (high - open)), 10)",
+    "score": 0.4121,
+    "IC_mean": -0.0066,
+    "ICIR": -0.0447,
+    "Sharpe": -0.2299,
+    "MDD": -0.2136,
+    "Turnover": 0.3168
+  },
+  {
+    "factor": "zscore(ts_corr(log(volume), ts_delta(high, 5), 10) * rank(close / vwap))",
+    "score": 0.4119,
+    "IC_mean": -0.0064,
+    "ICIR": -0.0592,
+    "Sharpe": -0.0214,
+    "MDD": -0.159,
+    "Turnover": 0.6005
+  },
+  {
+    "factor": "sign(ts_mean(close, 5) - ts_mean(close, 20)) * ts_corr(high, low, 10)",
+    "score": 0.4113,
+    "IC_mean": -0.0093,
+    "ICIR": -0.0597,
+    "Sharpe": -0.1143,
+    "MDD": -0.1747,
+    "Turnover": 0.2556
+  },
+  {
+    "factor": "log(1 + abs((high - low) / close)) * rank(ts_min(close / ts_mean(close, 20), 10))",
+    "score": 0.4104,
+    "IC_mean": -0.0041,
+    "ICIR": -0.0261,
+    "Sharpe": -0.2461,
+    "MDD": -0.2958,
+    "Turnover": 0.387
+  },
+  {
+    "factor": "-rank(ts_std(ts_std(returns, 10), 20))",
+    "score": 0.4094,
+    "IC_mean": -0.0001,
+    "ICIR": -0.0009,
+    "Sharpe": -0.7825,
+    "MDD": -0.3621,
+    "Turnover": 0.0944
+  },
+  {
+    "factor": "rank(power(ts_corr(returns, volume / ts_mean(volume, 20), 10), 2) * sign(ts_delta(vwap, 5)))",
+    "score": 0.409,
+    "IC_mean": -0.006,
+    "ICIR": -0.0477,
+    "Sharpe": -0.2622,
+    "MDD": -0.2156,
+    "Turnover": 0.3111
+  },
+  {
+    "factor": "zscore(ts_mean(power((high - close) / (close - low), 2), 5)) * sign(ts_delta(open / close, 3))",
+    "score": 0.4086,
+    "IC_mean": -0.0034,
+    "ICIR": -0.0372,
+    "Sharpe": -0.5672,
+    "MDD": -0.1904,
+    "Turnover": 0.3758
+  },
+  {
+    "factor": "abs(ts_delta(close, 10)) / ts_mean(high - low, 10) * rank(ts_corr(returns, volume, 5))",
+    "score": 0.4081,
+    "IC_mean": -0.0051,
+    "ICIR": -0.0476,
+    "Sharpe": -0.2301,
+    "MDD": -0.1893,
+    "Turnover": 0.5285
+  },
+  {
+    "factor": "rank(power(ts_corr(vwap - close, volume - ts_mean(volume, 10), 5), 3)) / ts_std(returns, 20)",
+    "score": 0.4056,
+    "IC_mean": -0.001,
+    "ICIR": -0.0083,
+    "Sharpe": -0.6726,
+    "MDD": -0.2894,
+    "Turnover": 0.4299
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) / ts_mean(abs(returns), 15)) * rank(volume / ts_mean(volume, 5))",
+    "score": 0.4038,
+    "IC_mean": -0.0029,
+    "ICIR": -0.0253,
+    "Sharpe": -0.4313,
+    "MDD": -0.2326,
+    "Turnover": 0.6241
+  },
+  {
+    "factor": "rank(ts_delta(volume, 5) * ts_delta(close, 5))",
+    "score": 0.4033,
+    "IC_mean": -0.0051,
+    "ICIR": -0.0537,
+    "Sharpe": -0.2029,
+    "MDD": -0.2084,
+    "Turnover": 0.4657
+  },
+  {
+    "factor": "rank(ts_min(volume / adv20, 10)) * ts_delta(log(close), 15)",
+    "score": 0.4026,
+    "IC_mean": -0.0092,
+    "ICIR": -0.0558,
+    "Sharpe": -0.102,
+    "MDD": -0.2285,
+    "Turnover": 0.234
+  },
+  {
+    "factor": "zscore(power(ts_std(returns, 15), 2) / ts_mean(power(ts_std(returns, 3), 2), 10))",
+    "score": 0.4015,
+    "IC_mean": -0.0015,
+    "ICIR": -0.0147,
+    "Sharpe": -0.7198,
+    "MDD": -0.2756,
+    "Turnover": 0.3761
+  },
+  {
+    "factor": "rank(close - ts_mean(close, 5)) - rank(close - ts_mean(close, 40))",
+    "score": 0.4014,
+    "IC_mean": -0.0069,
+    "ICIR": -0.0429,
+    "Sharpe": -0.2852,
+    "MDD": -0.2133,
+    "Turnover": 0.4246
+  },
+  {
+    "factor": "zscore(ts_corr(abs(ts_delta(close, 1)), abs(ts_delta(volume, 1)), 5)) * sign(power(returns, 3))",
+    "score": 0.4001,
+    "IC_mean": -0.0038,
+    "ICIR": -0.0689,
+    "Sharpe": -0.253,
+    "MDD": -0.1623,
+    "Turnover": 0.5154
+  },
+  {
+    "factor": "rank(close / ts_max(close, 60))",
+    "score": 0.3998,
+    "IC_mean": -0.0055,
+    "ICIR": -0.0281,
+    "Sharpe": -0.3898,
+    "MDD": -0.3011,
+    "Turnover": 0.2478
+  },
+  {
+    "factor": "ts_corr(log(volume), ts_delta(vwap, 3), 15) * rank(ts_delta(volume, 10))",
+    "score": 0.3997,
+    "IC_mean": -0.0043,
+    "ICIR": -0.0361,
+    "Sharpe": -0.5039,
+    "MDD": -0.2226,
+    "Turnover": 0.4086
+  },
+  {
+    "factor": "rank(abs(ts_corr(returns, power(returns, 3), 20))) / rank(ts_mean(abs(returns), 5))",
+    "score": 0.3996,
+    "IC_mean": -0.0038,
+    "ICIR": -0.0316,
+    "Sharpe": -0.5989,
+    "MDD": -0.239,
+    "Turnover": 0.3252
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) / ts_std(returns, 10)) * rank(volume / ts_mean(volume, 15))",
+    "score": 0.3988,
+    "IC_mean": -0.0018,
+    "ICIR": -0.0153,
+    "Sharpe": -0.5425,
+    "MDD": -0.2797,
+    "Turnover": 0.578
+  },
+  {
+    "factor": "ts_corr(rank(returns), rank(volume / ts_max(volume, 15)), 10) / (1 + ts_std(close / vwap, 5))",
+    "score": 0.3959,
+    "IC_mean": -0.0057,
+    "ICIR": -0.0797,
+    "Sharpe": -0.1976,
+    "MDD": -0.1687,
+    "Turnover": 0.3503
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(volume, 3), ts_delta(close, 3), 15))",
+    "score": 0.3944,
+    "IC_mean": -0.007,
+    "ICIR": -0.0589,
+    "Sharpe": -0.3978,
+    "MDD": -0.2047,
+    "Turnover": 0.2052
+  },
+  {
+    "factor": "zscore(ts_max(volume, 5) / ts_min(volume, 5)) * ts_corr(log(volume / adv20), returns, 20)",
+    "score": 0.3944,
+    "IC_mean": -0.0017,
+    "ICIR": -0.0262,
+    "Sharpe": -0.9173,
+    "MDD": -0.2409,
+    "Turnover": 0.2293
+  },
+  {
+    "factor": "sign(close - ts_max(close, 10)) / rank(ts_corr(vwap, volume, 15))",
+    "score": 0.3929,
+    "IC_mean": -0.0093,
+    "ICIR": -0.0731,
+    "Sharpe": -0.1479,
+    "MDD": -0.1524,
+    "Turnover": 0.4014
+  },
+  {
+    "factor": "rank(abs(ts_mean(returns, 5))) * sign(ts_corr(close, volume, 10))",
+    "score": 0.3906,
+    "IC_mean": -0.0066,
+    "ICIR": -0.0605,
+    "Sharpe": -0.2853,
+    "MDD": -0.2022,
+    "Turnover": 0.4054
+  },
+  {
+    "factor": "ts_mean(sign(returns), 10)",
+    "score": 0.3903,
+    "IC_mean": -0.0085,
+    "ICIR": -0.0592,
+    "Sharpe": -0.2955,
+    "MDD": -0.1993,
+    "Turnover": 0.3157
+  },
+  {
+    "factor": "rank(ts_mean(volume, 20) / ts_mean(volume, 5) - 1) * sign(ts_delta(close, 5))",
+    "score": 0.39,
+    "IC_mean": -0.0088,
+    "ICIR": -0.076,
+    "Sharpe": -0.2206,
+    "MDD": -0.1621,
+    "Turnover": 0.3085
+  },
+  {
+    "factor": "zscore(ts_mean(power(returns, 2), 10) * ts_corr(close, ts_delta(volume, 3), 15))",
+    "score": 0.3888,
+    "IC_mean": -0.0075,
+    "ICIR": -0.0696,
+    "Sharpe": -0.2723,
+    "MDD": -0.2077,
+    "Turnover": 0.2421
+  },
+  {
+    "factor": "power(rank(abs(open - close) / (high - low)), 2) * ts_corr(returns, (high - low) / close, 5)",
+    "score": 0.3883,
+    "IC_mean": -0.0062,
+    "ICIR": -0.0525,
+    "Sharpe": -0.2777,
+    "MDD": -0.1671,
+    "Turnover": 0.7352
+  },
+  {
+    "factor": "rank(ts_delta(close, 20) / close)",
+    "score": 0.3828,
+    "IC_mean": -0.0082,
+    "ICIR": -0.0437,
+    "Sharpe": -0.3127,
+    "MDD": -0.3048,
+    "Turnover": 0.1974
+  },
+  {
+    "factor": "sign(ts_corr(volume, close, 5)) * rank(volume / ts_max(volume, 10))",
+    "score": 0.3815,
+    "IC_mean": -0.008,
+    "ICIR": -0.0894,
+    "Sharpe": 0.0334,
+    "MDD": -0.1599,
+    "Turnover": 0.5999
+  },
+  {
+    "factor": "ts_delta(open, 5) * rank(ts_std(volume, 10) / adv20)",
+    "score": 0.38,
+    "IC_mean": -0.0059,
+    "ICIR": -0.0393,
+    "Sharpe": -0.509,
+    "MDD": -0.278,
+    "Turnover": 0.3265
+  },
+  {
+    "factor": "log(ts_mean(abs(ts_delta(close, 1)), 10)) * ts_mean(sign(ts_delta(close, 1)), 10)",
+    "score": 0.3797,
+    "IC_mean": -0.0029,
+    "ICIR": -0.0322,
+    "Sharpe": -0.8106,
+    "MDD": -0.2756,
+    "Turnover": 0.2725
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 5)) * sign(ts_delta(close, 3))",
+    "score": 0.3769,
+    "IC_mean": -0.0054,
+    "ICIR": -0.0413,
+    "Sharpe": -0.5366,
+    "MDD": -0.2473,
+    "Turnover": 0.4734
+  },
+  {
+    "factor": "ts_corr(close / open, volume, 10) / rank(ts_std(vwap, 5))",
+    "score": 0.3747,
+    "IC_mean": -0.008,
+    "ICIR": -0.0849,
+    "Sharpe": -0.2639,
+    "MDD": -0.1949,
+    "Turnover": 0.2744
+  },
+  {
+    "factor": "log(ts_mean(vwap, 3) / ts_mean(vwap, 20)) * rank(adv20)",
+    "score": 0.374,
+    "IC_mean": -0.0089,
+    "ICIR": -0.0514,
+    "Sharpe": -0.3391,
+    "MDD": -0.3085,
+    "Turnover": 0.1346
+  },
+  {
+    "factor": "zscore(ts_corr(close / ts_mean(close, 5), log(volume), 15)) / (1 + abs(ts_delta(vwap, 10)))",
+    "score": 0.3738,
+    "IC_mean": -0.0065,
+    "ICIR": -0.0593,
+    "Sharpe": -0.5821,
+    "MDD": -0.2088,
+    "Turnover": 0.3116
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) - ts_mean(close, 20))",
+    "score": 0.3735,
+    "IC_mean": -0.0087,
+    "ICIR": -0.0528,
+    "Sharpe": -0.5008,
+    "MDD": -0.2693,
+    "Turnover": 0.1139
+  },
+  {
+    "factor": "rank(ts_std(returns, 5)) * sign(ts_delta(close, 5))",
+    "score": 0.3735,
+    "IC_mean": -0.0104,
+    "ICIR": -0.0673,
+    "Sharpe": -0.1117,
+    "MDD": -0.2611,
+    "Turnover": 0.2926
+  },
+  {
+    "factor": "ts_mean(sign(close - open), 10) / ts_std(sign(close - open), 10)",
+    "score": 0.3727,
+    "IC_mean": -0.0061,
+    "ICIR": -0.0474,
+    "Sharpe": -0.5754,
+    "MDD": -0.2597,
+    "Turnover": 0.3122
+  },
+  {
+    "factor": "rank(ts_std(volume, 10) / ts_mean(volume, 10)) * sign(ts_delta(close, 5))",
+    "score": 0.3724,
+    "IC_mean": -0.0092,
+    "ICIR": -0.0752,
+    "Sharpe": -0.3455,
+    "MDD": -0.2014,
+    "Turnover": 0.2534
+  },
+  {
+    "factor": "sign(open - close) * power(ts_corr((high + low + close) / 3, volume, 10), 3)",
+    "score": 0.3715,
+    "IC_mean": -0.0046,
+    "ICIR": -0.0604,
+    "Sharpe": -0.6092,
+    "MDD": -0.2186,
+    "Turnover": 0.3723
+  },
+  {
+    "factor": "sign(ts_delta(ts_corr(close, volume, 5), 10)) * rank(abs(returns))",
+    "score": 0.3713,
+    "IC_mean": -0.0061,
+    "ICIR": -0.0682,
+    "Sharpe": -0.3245,
+    "MDD": -0.1714,
+    "Turnover": 0.7056
+  },
+  {
+    "factor": "ts_delta(ts_delta(close, 5), 5)",
+    "score": 0.371,
+    "IC_mean": -0.0088,
+    "ICIR": -0.0612,
+    "Sharpe": -0.4352,
+    "MDD": -0.209,
+    "Turnover": 0.3601
+  },
+  {
+    "factor": "rank(ts_mean(vwap / close, 3)) / rank(ts_std(returns, 15))",
+    "score": 0.3694,
+    "IC_mean": -0.0032,
+    "ICIR": -0.019,
+    "Sharpe": -0.6703,
+    "MDD": -0.3682,
+    "Turnover": 0.366
+  },
+  {
+    "factor": "rank((ts_mean(close, 3) - ts_mean(close, 15)) / ts_mean(close, 15)) * ts_corr(returns, volume / adv20, 5)",
+    "score": 0.3693,
+    "IC_mean": -0.0073,
+    "ICIR": -0.0707,
+    "Sharpe": -0.2571,
+    "MDD": -0.2407,
+    "Turnover": 0.4109
+  },
+  {
+    "factor": "rank(ts_corr(close, volume, 5) - ts_corr(close, volume, 15))",
+    "score": 0.368,
+    "IC_mean": -0.0064,
+    "ICIR": -0.0719,
+    "Sharpe": -0.4154,
+    "MDD": -0.1897,
+    "Turnover": 0.5026
+  },
+  {
+    "factor": "abs(ts_delta(rank(volume), 5)) * zscore(ts_mean(returns, 10))",
+    "score": 0.3668,
+    "IC_mean": -0.0105,
+    "ICIR": -0.0631,
+    "Sharpe": -0.2048,
+    "MDD": -0.2211,
+    "Turnover": 0.5103
+  },
+  {
+    "factor": "rank(power(ts_mean(close, 5) / ts_mean(close, 20), 2)) - rank(ts_std(close, 5) / ts_std(close, 20))",
+    "score": 0.3662,
+    "IC_mean": -0.0078,
+    "ICIR": -0.0532,
+    "Sharpe": -0.3998,
+    "MDD": -0.2851,
+    "Turnover": 0.3227
+  },
+  {
+    "factor": "sign(ts_delta(open, 3)) * rank(ts_corr((high + low) / 2, close, 10))",
+    "score": 0.3659,
+    "IC_mean": -0.0096,
+    "ICIR": -0.0663,
+    "Sharpe": -0.2855,
+    "MDD": -0.2489,
+    "Turnover": 0.3209
+  },
+  {
+    "factor": "zscore((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20))) * rank(power(returns, 3))",
+    "score": 0.3654,
+    "IC_mean": -0.0093,
+    "ICIR": -0.0608,
+    "Sharpe": -0.2149,
+    "MDD": -0.2094,
+    "Turnover": 0.6742
+  },
+  {
+    "factor": "zscore(ts_delta(volume / adv20, 5)) * sign(ts_delta(close, 5))",
+    "score": 0.3648,
+    "IC_mean": -0.0047,
+    "ICIR": -0.0755,
+    "Sharpe": -0.2708,
+    "MDD": -0.2152,
+    "Turnover": 0.6594
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) / ts_mean(close, 20))",
+    "score": 0.3644,
+    "IC_mean": -0.0096,
+    "ICIR": -0.0514,
+    "Sharpe": -0.4147,
+    "MDD": -0.3131,
+    "Turnover": 0.1327
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) / ts_mean(close, 20) - 1)",
+    "score": 0.3644,
+    "IC_mean": -0.0096,
+    "ICIR": -0.0514,
+    "Sharpe": -0.4147,
+    "MDD": -0.3131,
+    "Turnover": 0.1327
+  },
+  {
+    "factor": "rank(ts_corr(rank(returns), rank(volume), 10))",
+    "score": 0.3634,
+    "IC_mean": -0.0062,
+    "ICIR": -0.082,
+    "Sharpe": -0.4146,
+    "MDD": -0.2156,
+    "Turnover": 0.3312
+  },
+  {
+    "factor": "zscore(ts_mean(sign(returns), 10)) / (1 + abs(ts_corr(close, volume, 20)))",
+    "score": 0.3628,
+    "IC_mean": -0.0085,
+    "ICIR": -0.0615,
+    "Sharpe": -0.5282,
+    "MDD": -0.2227,
+    "Turnover": 0.3324
+  },
+  {
+    "factor": "zscore(ts_delta(close, 10)) + zscore(ts_delta(close, 20))",
+    "score": 0.3624,
+    "IC_mean": -0.0092,
+    "ICIR": -0.055,
+    "Sharpe": -0.5128,
+    "MDD": -0.2736,
+    "Turnover": 0.1902
+  },
+  {
+    "factor": "rank(ts_corr(low, volume, 10)) - rank(ts_corr(high, volume, 10))",
+    "score": 0.3622,
+    "IC_mean": -0.0029,
+    "ICIR": -0.0376,
+    "Sharpe": -1.0796,
+    "MDD": -0.2285,
+    "Turnover": 0.3508
+  },
+  {
+    "factor": "rank(ts_min(returns, 5)) / rank(ts_std(ts_delta(close, 3), 10)) + rank(volume / ts_mean(volume, 20))",
+    "score": 0.3606,
+    "IC_mean": -0.0098,
+    "ICIR": -0.0639,
+    "Sharpe": -0.4593,
+    "MDD": -0.2243,
+    "Turnover": 0.327
+  },
+  {
+    "factor": "sign(ts_mean(returns, 3) / ts_mean(returns, 10)) * zscore(ts_corr(volume, close, 5) - ts_corr(volume, close, 15))",
+    "score": 0.3601,
+    "IC_mean": -0.0044,
+    "ICIR": -0.0703,
+    "Sharpe": -0.7095,
+    "MDD": -0.1717,
+    "Turnover": 0.5008
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 10)) / (1 + abs(close - vwap))",
+    "score": 0.3596,
+    "IC_mean": -0.0091,
+    "ICIR": -0.0688,
+    "Sharpe": -0.3697,
+    "MDD": -0.1826,
+    "Turnover": 0.5957
+  },
+  {
+    "factor": "zscore(ts_corr(returns, volume, 5)) - zscore(ts_corr(returns, volume, 20)) + rank(ts_std(close, 3) / ts_std(close, 10))",
+    "score": 0.359,
+    "IC_mean": -0.0055,
+    "ICIR": -0.0553,
+    "Sharpe": -0.6343,
+    "MDD": -0.2475,
+    "Turnover": 0.4281
+  },
+  {
+    "factor": "rank(low / ts_min(low, 15)) / ts_std(close, 5)",
+    "score": 0.3588,
+    "IC_mean": -0.0104,
+    "ICIR": -0.079,
+    "Sharpe": -0.3841,
+    "MDD": -0.1952,
+    "Turnover": 0.3168
+  },
+  {
+    "factor": "-rank(ts_mean(power(returns - ts_mean(returns, 20), 2), 20))",
+    "score": 0.3586,
+    "IC_mean": -0.0052,
+    "ICIR": -0.024,
+    "Sharpe": -0.6004,
+    "MDD": -0.4426,
+    "Turnover": 0.1039
+  },
+  {
+    "factor": "rank(ts_delta(ts_delta(close, 5), 5) / close)",
+    "score": 0.3582,
+    "IC_mean": -0.0084,
+    "ICIR": -0.0505,
+    "Sharpe": -0.4145,
+    "MDD": -0.2814,
+    "Turnover": 0.4452
+  },
+  {
+    "factor": "sign(ts_std(close, 10) - ts_max(ts_std(close, 10), 20)) * zscore(ts_std(high / vwap, 15))",
+    "score": 0.3574,
+    "IC_mean": -0.0057,
+    "ICIR": -0.035,
+    "Sharpe": -0.5318,
+    "MDD": -0.4042,
+    "Turnover": 0.1794
+  },
+  {
+    "factor": "sign(ts_delta(close, 1)) * rank((close - ts_mean(low, 10)) / (ts_mean(high, 10) - ts_mean(low, 10)))",
+    "score": 0.3572,
+    "IC_mean": -0.0098,
+    "ICIR": -0.0707,
+    "Sharpe": -0.3874,
+    "MDD": -0.2165,
+    "Turnover": 0.3991
+  },
+  {
+    "factor": "rank(ts_min(returns, 15) + ts_std(close / ts_mean(close, 10), 5))",
+    "score": 0.3547,
+    "IC_mean": -0.0075,
+    "ICIR": -0.0511,
+    "Sharpe": -0.5603,
+    "MDD": -0.3054,
+    "Turnover": 0.2735
+  },
+  {
+    "factor": "rank(ts_delta(high, 5) + ts_delta(low, 5))",
+    "score": 0.3539,
+    "IC_mean": -0.0088,
+    "ICIR": -0.0554,
+    "Sharpe": -0.504,
+    "MDD": -0.2871,
+    "Turnover": 0.2906
+  },
+  {
+    "factor": "sign(ts_delta(close, 15)) * rank(ts_mean(abs(returns), 5) * volume / adv20)",
+    "score": 0.3534,
+    "IC_mean": -0.009,
+    "ICIR": -0.058,
+    "Sharpe": -0.2953,
+    "MDD": -0.3145,
+    "Turnover": 0.3738
+  },
+  {
+    "factor": "rank(ts_max(volume, 20) / adv20) * rank(ts_delta(close, 20))",
+    "score": 0.3529,
+    "IC_mean": -0.0059,
+    "ICIR": -0.0511,
+    "Sharpe": -0.8921,
+    "MDD": -0.2626,
+    "Turnover": 0.1944
+  },
+  {
+    "factor": "zscore(ts_delta(high, 5)) + zscore(ts_delta(low, 5))",
+    "score": 0.3529,
+    "IC_mean": -0.0089,
+    "ICIR": -0.0555,
+    "Sharpe": -0.492,
+    "MDD": -0.2924,
+    "Turnover": 0.2901
+  },
+  {
+    "factor": "rank(close / (ts_max(high, 20) - ts_min(low, 20)))",
+    "score": 0.3525,
+    "IC_mean": -0.0045,
+    "ICIR": -0.0226,
+    "Sharpe": -0.6566,
+    "MDD": -0.4587,
+    "Turnover": 0.1254
+  },
+  {
+    "factor": "sign(ts_delta(ts_max(returns, 5), 3)) * rank(power(abs(returns), 2))",
+    "score": 0.3524,
+    "IC_mean": -0.0064,
+    "ICIR": -0.0537,
+    "Sharpe": -0.4039,
+    "MDD": -0.2645,
+    "Turnover": 0.6921
+  },
+  {
+    "factor": "sign(ts_corr(vwap / close, volume / adv20, 20)) * rank(ts_max(returns, 5))",
+    "score": 0.3507,
+    "IC_mean": -0.0017,
+    "ICIR": -0.0202,
+    "Sharpe": -1.2358,
+    "MDD": -0.3315,
+    "Turnover": 0.2256
+  },
+  {
+    "factor": "-rank(ts_max(abs(returns), 20))",
+    "score": 0.3503,
+    "IC_mean": -0.0059,
+    "ICIR": -0.0329,
+    "Sharpe": -0.744,
+    "MDD": -0.3969,
+    "Turnover": 0.0915
+  },
+  {
+    "factor": "sign(ts_delta(ts_corr(close, volume, 10), 5)) * rank(ts_mean(abs(close - vwap), 20)) / rank(adv20)",
+    "score": 0.3489,
+    "IC_mean": -0.0047,
+    "ICIR": -0.0615,
+    "Sharpe": -1.1464,
+    "MDD": -0.2149,
+    "Turnover": 0.0893
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 5) / ts_mean(close, 15)) * sign(ts_mean(volume, 3) - volume)",
+    "score": 0.3487,
+    "IC_mean": -0.008,
+    "ICIR": -0.0796,
+    "Sharpe": -0.6472,
+    "MDD": -0.1781,
+    "Turnover": 0.3722
+  },
+  {
+    "factor": "rank(ts_corr(close - ts_min(close, 20), log(volume / adv20), 10))",
+    "score": 0.3462,
+    "IC_mean": -0.0103,
+    "ICIR": -0.0978,
+    "Sharpe": -0.1967,
+    "MDD": -0.2284,
+    "Turnover": 0.323
+  },
+  {
+    "factor": "zscore(ts_max(high, 3) / ts_max(high, 15)) * rank(ts_min(low, 5) / ts_min(low, 20))",
+    "score": 0.3459,
+    "IC_mean": -0.0091,
+    "ICIR": -0.0541,
+    "Sharpe": -0.5117,
+    "MDD": -0.3255,
+    "Turnover": 0.2404
+  },
+  {
+    "factor": "sign(ts_corr(ts_delta(close, 3), ts_delta(volume, 3), 10) - ts_mean(ts_corr(returns, volume, 10), 15))",
+    "score": 0.3448,
+    "IC_mean": -0.0093,
+    "ICIR": -0.1078,
+    "Sharpe": -0.5123,
+    "MDD": -0.1661,
+    "Turnover": 0.1628
+  },
+  {
+    "factor": "rank(power(ts_corr(vwap, volume, 20), 3)) * zscore(vwap - ts_mean(close, 20))",
+    "score": 0.343,
+    "IC_mean": -0.0102,
+    "ICIR": -0.0669,
+    "Sharpe": -0.586,
+    "MDD": -0.2674,
+    "Turnover": 0.1989
+  },
+  {
+    "factor": "rank(ts_max(volume, 10) / ts_mean(volume * abs(returns), 20))",
+    "score": 0.3428,
+    "IC_mean": -0.0046,
+    "ICIR": -0.0248,
+    "Sharpe": -0.7957,
+    "MDD": -0.4361,
+    "Turnover": 0.1713
+  },
+  {
+    "factor": "rank(ts_mean(close - open, 5))",
+    "score": 0.3401,
+    "IC_mean": -0.007,
+    "ICIR": -0.0481,
+    "Sharpe": -0.6829,
+    "MDD": -0.3297,
+    "Turnover": 0.3222
+  },
+  {
+    "factor": "ts_mean(returns, 3) / ts_std(ts_delta(close, 5), 15)",
+    "score": 0.3389,
+    "IC_mean": -0.01,
+    "ICIR": -0.0615,
+    "Sharpe": -0.4344,
+    "MDD": -0.2947,
+    "Turnover": 0.4081
+  },
+  {
+    "factor": "-rank(ts_mean(power(returns, 2), 20))",
+    "score": 0.3381,
+    "IC_mean": -0.0059,
+    "ICIR": -0.0275,
+    "Sharpe": -0.6895,
+    "MDD": -0.4697,
+    "Turnover": 0.1064
+  },
+  {
+    "factor": "rank(ts_std(volume / adv20, 20) / ts_mean(volume / adv20, 20)) * sign(ts_delta(close, 10))",
+    "score": 0.3381,
+    "IC_mean": -0.0099,
+    "ICIR": -0.0802,
+    "Sharpe": -0.5629,
+    "MDD": -0.2577,
+    "Turnover": 0.1716
+  },
+  {
+    "factor": "power(zscore(ts_delta(ts_mean(close, 5), 15)), 2) * sign(ts_corr(returns, ts_delta(volume, 3), 10))",
+    "score": 0.3379,
+    "IC_mean": -0.0086,
+    "ICIR": -0.0919,
+    "Sharpe": -0.7103,
+    "MDD": -0.2098,
+    "Turnover": 0.1192
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 5)) / rank(ts_corr(returns, volume, 20))",
+    "score": 0.3365,
+    "IC_mean": -0.0079,
+    "ICIR": -0.0632,
+    "Sharpe": -0.7034,
+    "MDD": -0.2965,
+    "Turnover": 0.2271
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 3), volume, 10) * rank(ts_delta(close, 20))",
+    "score": 0.3362,
+    "IC_mean": -0.0063,
+    "ICIR": -0.0588,
+    "Sharpe": -0.8111,
+    "MDD": -0.2921,
+    "Turnover": 0.2842
+  },
+  {
+    "factor": "-1 * rank(ts_mean(high / close - 1, 10))",
+    "score": 0.3359,
+    "IC_mean": -0.0081,
+    "ICIR": -0.0392,
+    "Sharpe": -0.6029,
+    "MDD": -0.4109,
+    "Turnover": 0.1937
+  },
+  {
+    "factor": "rank((close - open) / (high - low)) * ts_corr(volume, abs(high - low), 10)",
+    "score": 0.3349,
+    "IC_mean": -0.0083,
+    "ICIR": -0.0784,
+    "Sharpe": -0.5599,
+    "MDD": -0.2022,
+    "Turnover": 0.5797
+  },
+  {
+    "factor": "rank(-1 * ts_std(returns, 20))",
+    "score": 0.3338,
+    "IC_mean": -0.0057,
+    "ICIR": -0.0268,
+    "Sharpe": -0.7279,
+    "MDD": -0.4794,
+    "Turnover": 0.1084
+  },
+  {
+    "factor": "-rank(power(ts_std(returns, 20), 2))",
+    "score": 0.3338,
+    "IC_mean": -0.0057,
+    "ICIR": -0.0268,
+    "Sharpe": -0.7279,
+    "MDD": -0.4794,
+    "Turnover": 0.1084
+  },
+  {
+    "factor": "rank(-ts_std(returns, 20))",
+    "score": 0.3338,
+    "IC_mean": -0.0057,
+    "ICIR": -0.0268,
+    "Sharpe": -0.7279,
+    "MDD": -0.4794,
+    "Turnover": 0.1084
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 10))",
+    "score": 0.3332,
+    "IC_mean": -0.0109,
+    "ICIR": -0.0927,
+    "Sharpe": -0.3371,
+    "MDD": -0.2565,
+    "Turnover": 0.2757
+  },
+  {
+    "factor": "sign(ts_delta(close, 10)) * rank(ts_std(volume / adv20, 15) / ts_mean(volume / adv20, 15))",
+    "score": 0.333,
+    "IC_mean": -0.0088,
+    "ICIR": -0.0709,
+    "Sharpe": -0.717,
+    "MDD": -0.2754,
+    "Turnover": 0.1925
+  },
+  {
+    "factor": "rank(close - ts_mean(close, 10)) / (ts_std(close, 10) + 0.001)",
+    "score": 0.3321,
+    "IC_mean": -0.0127,
+    "ICIR": -0.0908,
+    "Sharpe": -0.5262,
+    "MDD": -0.2032,
+    "Turnover": 0.2195
+  },
+  {
+    "factor": "rank(close / ts_min(close, 20))",
+    "score": 0.3316,
+    "IC_mean": -0.011,
+    "ICIR": -0.0639,
+    "Sharpe": -0.3736,
+    "MDD": -0.3383,
+    "Turnover": 0.3106
+  },
+  {
+    "factor": "zscore(volume / adv20) * sign(ts_delta(close, 3))",
+    "score": 0.331,
+    "IC_mean": -0.0049,
+    "ICIR": -0.0748,
+    "Sharpe": -0.6202,
+    "MDD": -0.2457,
+    "Turnover": 0.638
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 10)) * rank(ts_corr(close, volume, 10))",
+    "score": 0.3307,
+    "IC_mean": -0.0091,
+    "ICIR": -0.0528,
+    "Sharpe": -0.5637,
+    "MDD": -0.3527,
+    "Turnover": 0.314
+  },
+  {
+    "factor": "-1 * rank(ts_mean(abs(returns) / (volume / adv20 + 0.0001), 10))",
+    "score": 0.3307,
+    "IC_mean": -0.0056,
+    "ICIR": -0.0264,
+    "Sharpe": -0.7525,
+    "MDD": -0.4669,
+    "Turnover": 0.1924
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(returns, 3), 5) / ts_std(returns, 10))",
+    "score": 0.3286,
+    "IC_mean": -0.0069,
+    "ICIR": -0.0423,
+    "Sharpe": -0.6526,
+    "MDD": -0.3382,
+    "Turnover": 0.5846
+  },
+  {
+    "factor": "ts_delta(ts_mean(close, 5), 5) / ts_std(close, 20)",
+    "score": 0.328,
+    "IC_mean": -0.0106,
+    "ICIR": -0.0646,
+    "Sharpe": -0.5823,
+    "MDD": -0.2998,
+    "Turnover": 0.3028
+  },
+  {
+    "factor": "rank(ts_corr(close, volume, 5))",
+    "score": 0.3271,
+    "IC_mean": -0.0074,
+    "ICIR": -0.0743,
+    "Sharpe": -0.5908,
+    "MDD": -0.2554,
+    "Turnover": 0.5489
+  },
+  {
+    "factor": "rank(ts_corr(returns, ts_delta(volume, 5), 10)) / abs(close - vwap)",
+    "score": 0.327,
+    "IC_mean": -0.0101,
+    "ICIR": -0.0957,
+    "Sharpe": -0.4948,
+    "MDD": -0.1649,
+    "Turnover": 0.5825
+  },
+  {
+    "factor": "rank(ts_delta(high, 10))",
+    "score": 0.3255,
+    "IC_mean": -0.0081,
+    "ICIR": -0.0499,
+    "Sharpe": -0.7916,
+    "MDD": -0.355,
+    "Turnover": 0.2198
+  },
+  {
+    "factor": "rank(ts_min(close, 10) / close - 1) * -1",
+    "score": 0.3245,
+    "IC_mean": -0.0124,
+    "ICIR": -0.0735,
+    "Sharpe": -0.3591,
+    "MDD": -0.2954,
+    "Turnover": 0.3994
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) / ts_mean(abs(returns), 10))",
+    "score": 0.3233,
+    "IC_mean": -0.0106,
+    "ICIR": -0.0677,
+    "Sharpe": -0.5582,
+    "MDD": -0.2895,
+    "Turnover": 0.4016
+  },
+  {
+    "factor": "zscore(ts_min(low, 10) / ts_max(high, 10))",
+    "score": 0.3222,
+    "IC_mean": -0.0079,
+    "ICIR": -0.0416,
+    "Sharpe": -0.6547,
+    "MDD": -0.4382,
+    "Turnover": 0.2039
+  },
+  {
+    "factor": "rank(abs(close - vwap) / ts_std(close - vwap, 15)) * sign(ts_min(returns, 5))",
+    "score": 0.322,
+    "IC_mean": -0.0064,
+    "ICIR": -0.0677,
+    "Sharpe": -0.6767,
+    "MDD": -0.2439,
+    "Turnover": 0.7284
+  },
+  {
+    "factor": "rank(log(abs(ts_delta(close, 5)) + 1)) * sign(ts_mean(returns, 10))",
+    "score": 0.3213,
+    "IC_mean": -0.0097,
+    "ICIR": -0.0669,
+    "Sharpe": -0.6749,
+    "MDD": -0.2973,
+    "Turnover": 0.3289
+  },
+  {
+    "factor": "rank((ts_min(close, 10) - close) / ts_std(close, 10)) * sign(returns)",
+    "score": 0.3205,
+    "IC_mean": -0.0114,
+    "ICIR": -0.0874,
+    "Sharpe": -0.5438,
+    "MDD": -0.2116,
+    "Turnover": 0.4665
+  },
+  {
+    "factor": "rank(ts_corr(returns, ts_delta(volume, 3), 10)) / (1 + abs(ts_mean(returns, 5)))",
+    "score": 0.3201,
+    "IC_mean": -0.01,
+    "ICIR": -0.088,
+    "Sharpe": -0.4546,
+    "MDD": -0.2955,
+    "Turnover": 0.2927
+  },
+  {
+    "factor": "rank(ts_delta(close, 10)) - rank(ts_delta(close, 60))",
+    "score": 0.318,
+    "IC_mean": -0.012,
+    "ICIR": -0.0726,
+    "Sharpe": -0.5776,
+    "MDD": -0.3001,
+    "Turnover": 0.2612
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) * (volume / adv20))",
+    "score": 0.3178,
+    "IC_mean": -0.0093,
+    "ICIR": -0.0571,
+    "Sharpe": -0.7425,
+    "MDD": -0.3472,
+    "Turnover": 0.2536
+  },
+  {
+    "factor": "rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",
+    "score": 0.3176,
+    "IC_mean": -0.0134,
+    "ICIR": -0.08,
+    "Sharpe": -0.4505,
+    "MDD": -0.2438,
+    "Turnover": 0.466
+  },
+  {
+    "factor": "rank(power(ts_mean(close, 3) / ts_mean(close, 10), 2))",
+    "score": 0.3172,
+    "IC_mean": -0.0102,
+    "ICIR": -0.0556,
+    "Sharpe": -0.5529,
+    "MDD": -0.3955,
+    "Turnover": 0.2443
+  },
+  {
+    "factor": "sign(ts_std(close, 5) - ts_std(close, 15)) * rank(volume)",
+    "score": 0.3165,
+    "IC_mean": -0.006,
+    "ICIR": -0.0607,
+    "Sharpe": -0.988,
+    "MDD": -0.3209,
+    "Turnover": 0.2469
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 3) / ts_std(returns, 15)) * rank(ts_corr(volume, close, 5))",
+    "score": 0.3148,
+    "IC_mean": -0.0107,
+    "ICIR": -0.0798,
+    "Sharpe": -0.5388,
+    "MDD": -0.2651,
+    "Turnover": 0.4803
+  },
+  {
+    "factor": "zscore(vwap / ts_mean(close, 20)) * rank(ts_std(vwap, 10))",
+    "score": 0.3145,
+    "IC_mean": -0.0128,
+    "ICIR": -0.0741,
+    "Sharpe": -0.5163,
+    "MDD": -0.3312,
+    "Turnover": 0.1844
+  },
+  {
+    "factor": "rank(ts_max(ts_std(close, 3), 10) / ts_min(ts_std(close, 3), 10)) * zscore(ts_delta(vwap, 5))",
+    "score": 0.3145,
+    "IC_mean": -0.008,
+    "ICIR": -0.0551,
+    "Sharpe": -0.8625,
+    "MDD": -0.3411,
+    "Turnover": 0.297
+  },
+  {
+    "factor": "-1 * rank(ts_std(ts_std(returns, 3), 10))",
+    "score": 0.3134,
+    "IC_mean": -0.007,
+    "ICIR": -0.0436,
+    "Sharpe": -0.9649,
+    "MDD": -0.396,
+    "Turnover": 0.1841
+  },
+  {
+    "factor": "rank(close / ts_mean(close, 10)) * rank(close / ts_mean(close, 40))",
+    "score": 0.313,
+    "IC_mean": -0.0115,
+    "ICIR": -0.0615,
+    "Sharpe": -0.4843,
+    "MDD": -0.3833,
+    "Turnover": 0.2785
+  },
+  {
+    "factor": "sign(ts_delta(close, 5)) * rank(abs(ts_delta(close, 5)))",
+    "score": 0.3127,
+    "IC_mean": -0.011,
+    "ICIR": -0.0694,
+    "Sharpe": -0.6221,
+    "MDD": -0.3174,
+    "Turnover": 0.3229
+  },
+  {
+    "factor": "power(rank(ts_corr(low, ts_mean(vwap, 5), 15)), 2) - rank(ts_std(returns, 10))",
+    "score": 0.3097,
+    "IC_mean": -0.0052,
+    "ICIR": -0.0343,
+    "Sharpe": -1.0913,
+    "MDD": -0.4216,
+    "Turnover": 0.2236
+  },
+  {
+    "factor": "zscore(ts_mean(high / low, 5)) * sign(returns - ts_mean(returns, 10))",
+    "score": 0.3097,
+    "IC_mean": -0.0048,
+    "ICIR": -0.0449,
+    "Sharpe": -0.9252,
+    "MDD": -0.4275,
+    "Turnover": 0.2651
+  },
+  {
+    "factor": "ts_mean(returns, 3) / ts_std(volume, 15) * rank(close / open)",
+    "score": 0.3088,
+    "IC_mean": -0.0105,
+    "ICIR": -0.0691,
+    "Sharpe": -0.6081,
+    "MDD": -0.2958,
+    "Turnover": 0.5239
+  },
+  {
+    "factor": "rank(ts_mean((vwap - open) / (open + 0.0001) * volume, 10))",
+    "score": 0.3079,
+    "IC_mean": -0.0115,
+    "ICIR": -0.0771,
+    "Sharpe": -0.5877,
+    "MDD": -0.3444,
+    "Turnover": 0.182
+  },
+  {
+    "factor": "rank(close - vwap) / ts_std(close - vwap, 10)",
+    "score": 0.3077,
+    "IC_mean": -0.011,
+    "ICIR": -0.0828,
+    "Sharpe": -0.6577,
+    "MDD": -0.2424,
+    "Turnover": 0.4866
+  },
+  {
+    "factor": "zscore(ts_mean(returns * power(volume / adv20, 2), 10))",
+    "score": 0.3064,
+    "IC_mean": -0.012,
+    "ICIR": -0.0775,
+    "Sharpe": -0.5517,
+    "MDD": -0.3513,
+    "Turnover": 0.1817
+  },
+  {
+    "factor": "rank(-1 * ts_mean((high - low) / close, 10))",
+    "score": 0.3062,
+    "IC_mean": -0.0073,
+    "ICIR": -0.0328,
+    "Sharpe": -0.8063,
+    "MDD": -0.5095,
+    "Turnover": 0.1286
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) / vwap)",
+    "score": 0.3052,
+    "IC_mean": -0.0117,
+    "ICIR": -0.0629,
+    "Sharpe": -0.5373,
+    "MDD": -0.3974,
+    "Turnover": 0.244
+  },
+  {
+    "factor": "rank(ts_corr(sign(ts_delta(close, 1)), sign(ts_delta(volume, 1)), 20)) - rank(ts_mean(abs(returns), 15))",
+    "score": 0.3047,
+    "IC_mean": -0.0072,
+    "ICIR": -0.0453,
+    "Sharpe": -0.8945,
+    "MDD": -0.4337,
+    "Turnover": 0.201
+  },
+  {
+    "factor": "rank(ts_corr(log(volume / adv20), returns, 10))",
+    "score": 0.304,
+    "IC_mean": -0.0108,
+    "ICIR": -0.0913,
+    "Sharpe": -0.6106,
+    "MDD": -0.2879,
+    "Turnover": 0.2958
+  },
+  {
+    "factor": "rank(abs(returns - ts_mean(returns, 10)) / ts_std(returns, 10)) / rank(volume / ts_max(volume, 15))",
+    "score": 0.3038,
+    "IC_mean": -0.0056,
+    "ICIR": -0.0707,
+    "Sharpe": -1.0161,
+    "MDD": -0.2344,
+    "Turnover": 0.6593
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 5)) / rank(ts_std(returns, 20))",
+    "score": 0.3038,
+    "IC_mean": -0.0104,
+    "ICIR": -0.0649,
+    "Sharpe": -0.7969,
+    "MDD": -0.3219,
+    "Turnover": 0.3355
+  },
+  {
+    "factor": "rank(ts_max(high, 10) / close) * zscore(adv20 - volume)",
+    "score": 0.3027,
+    "IC_mean": -0.0077,
+    "ICIR": -0.0893,
+    "Sharpe": -0.7734,
+    "MDD": -0.2712,
+    "Turnover": 0.4115
+  },
+  {
+    "factor": "-1 * rank(ts_mean((close - low) / (high - low + 0.0001) * volume, 10))",
+    "score": 0.3013,
+    "IC_mean": -0.0049,
+    "ICIR": -0.0466,
+    "Sharpe": -1.372,
+    "MDD": -0.379,
+    "Turnover": 0.0533
+  },
+  {
+    "factor": "ts_delta(close, 5) * rank(volume / adv20)",
+    "score": 0.3006,
+    "IC_mean": -0.0109,
+    "ICIR": -0.0708,
+    "Sharpe": -0.6301,
+    "MDD": -0.3388,
+    "Turnover": 0.3919
+  },
+  {
+    "factor": "ts_corr(rank((high - open) / (high - low)), rank(volume / adv20), 10) / ts_std(returns, 20)",
+    "score": 0.3005,
+    "IC_mean": -0.0049,
+    "ICIR": -0.0818,
+    "Sharpe": -1.2482,
+    "MDD": -0.2381,
+    "Turnover": 0.3098
+  },
+  {
+    "factor": "rank(ts_mean(close / open, 15)) / rank(abs(ts_delta(ts_corr(close, volume, 5), 10)))",
+    "score": 0.3003,
+    "IC_mean": -0.007,
+    "ICIR": -0.0578,
+    "Sharpe": -0.8901,
+    "MDD": -0.3263,
+    "Turnover": 0.5652
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), ts_std(returns, 5), 10)) * rank((close - vwap) / vwap)",
+    "score": 0.3001,
+    "IC_mean": -0.0071,
+    "ICIR": -0.0596,
+    "Sharpe": -0.7443,
+    "MDD": -0.335,
+    "Turnover": 0.6688
+  },
+  {
+    "factor": "rank(ts_mean(volume * sign(returns), 10) / adv20)",
+    "score": 0.2991,
+    "IC_mean": -0.0108,
+    "ICIR": -0.0751,
+    "Sharpe": -0.7267,
+    "MDD": -0.3248,
+    "Turnover": 0.3082
+  },
+  {
+    "factor": "rank((close - vwap) / ts_std(vwap, 15))",
+    "score": 0.299,
+    "IC_mean": -0.0096,
+    "ICIR": -0.07,
+    "Sharpe": -0.6699,
+    "MDD": -0.2884,
+    "Turnover": 0.673
+  },
+  {
+    "factor": "rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20) + 0.001))",
+    "score": 0.2975,
+    "IC_mean": -0.0134,
+    "ICIR": -0.0805,
+    "Sharpe": -0.5808,
+    "MDD": -0.2803,
+    "Turnover": 0.4598
+  },
+  {
+    "factor": "ts_mean(returns, 5) * rank(volume / ts_mean(volume, 15))",
+    "score": 0.2962,
+    "IC_mean": -0.0121,
+    "ICIR": -0.0737,
+    "Sharpe": -0.4988,
+    "MDD": -0.3464,
+    "Turnover": 0.4654
+  },
+  {
+    "factor": "ts_delta(close, 3) / (ts_max(high, 10) - ts_min(low, 10) + 0.001)",
+    "score": 0.2957,
+    "IC_mean": -0.0113,
+    "ICIR": -0.0651,
+    "Sharpe": -0.5951,
+    "MDD": -0.3356,
+    "Turnover": 0.5782
+  },
+  {
+    "factor": "-zscore(ts_mean(high - low, 5) / close)",
+    "score": 0.2951,
+    "IC_mean": -0.0097,
+    "ICIR": -0.0464,
+    "Sharpe": -0.741,
+    "MDD": -0.4655,
+    "Turnover": 0.2258
+  },
+  {
+    "factor": "rank(ts_mean(returns * volume, 10) / (adv20 + 0.001))",
+    "score": 0.2912,
+    "IC_mean": -0.0116,
+    "ICIR": -0.0683,
+    "Sharpe": -0.6443,
+    "MDD": -0.4065,
+    "Turnover": 0.2242
+  },
+  {
+    "factor": "log(volume / ts_min(volume, 20)) * zscore(ts_delta(high, 3))",
+    "score": 0.29,
+    "IC_mean": -0.008,
+    "ICIR": -0.0551,
+    "Sharpe": -0.9227,
+    "MDD": -0.382,
+    "Turnover": 0.4264
+  },
+  {
+    "factor": "ts_delta(rank(vwap), 5)",
+    "score": 0.2889,
+    "IC_mean": -0.0113,
+    "ICIR": -0.0727,
+    "Sharpe": -0.5848,
+    "MDD": -0.3861,
+    "Turnover": 0.3701
+  },
+  {
+    "factor": "zscore(ts_mean(returns * volume, 10) / ts_mean(volume, 10))",
+    "score": 0.2883,
+    "IC_mean": -0.0118,
+    "ICIR": -0.0688,
+    "Sharpe": -0.6079,
+    "MDD": -0.4207,
+    "Turnover": 0.2312
+  },
+  {
+    "factor": "zscore((high + low) / 2 - ts_mean(vwap, 15)) * rank(1 / ts_corr(close, volume, 5))",
+    "score": 0.2878,
+    "IC_mean": -0.0102,
+    "ICIR": -0.0678,
+    "Sharpe": -0.8134,
+    "MDD": -0.3578,
+    "Turnover": 0.3781
+  },
+  {
+    "factor": "ts_delta(close, 10) / (ts_max(close, 10) - ts_min(close, 10) + 0.001)",
+    "score": 0.2861,
+    "IC_mean": -0.0125,
+    "ICIR": -0.0734,
+    "Sharpe": -0.6223,
+    "MDD": -0.325,
+    "Turnover": 0.5487
+  },
+  {
+    "factor": "ts_mean(sign(returns) * rank(abs(returns)), 10)",
+    "score": 0.2848,
+    "IC_mean": -0.0117,
+    "ICIR": -0.0681,
+    "Sharpe": -0.675,
+    "MDD": -0.3968,
+    "Turnover": 0.3241
+  },
+  {
+    "factor": "rank(ts_delta(ts_corr(open / close, volume / adv20, 10), 5)) * sign(ts_mean(returns, 3))",
+    "score": 0.2815,
+    "IC_mean": -0.0079,
+    "ICIR": -0.0628,
+    "Sharpe": -1.1031,
+    "MDD": -0.3396,
+    "Turnover": 0.4246
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(vwap, 10), 5)) * zscore(ts_mean(returns, 3))",
+    "score": 0.2813,
+    "IC_mean": -0.0116,
+    "ICIR": -0.0674,
+    "Sharpe": -0.6536,
+    "MDD": -0.3879,
+    "Turnover": 0.4556
+  },
+  {
+    "factor": "rank(ts_corr(high - vwap, low - vwap, 10)) * sign(close - open)",
+    "score": 0.2795,
+    "IC_mean": -0.0112,
+    "ICIR": -0.098,
+    "Sharpe": -0.8426,
+    "MDD": -0.2644,
+    "Turnover": 0.3807
+  },
+  {
+    "factor": "ts_delta(close, 10) / ts_std(close, 10)",
+    "score": 0.2788,
+    "IC_mean": -0.013,
+    "ICIR": -0.077,
+    "Sharpe": -0.6502,
+    "MDD": -0.3295,
+    "Turnover": 0.528
+  },
+  {
+    "factor": "rank(ts_mean(returns * (volume / adv20), 5))",
+    "score": 0.2785,
+    "IC_mean": -0.0125,
+    "ICIR": -0.0731,
+    "Sharpe": -0.6185,
+    "MDD": -0.4056,
+    "Turnover": 0.3299
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 3)) * rank(abs(open - close) / ts_std(high - low, 15))",
+    "score": 0.2784,
+    "IC_mean": -0.01,
+    "ICIR": -0.0755,
+    "Sharpe": -0.7491,
+    "MDD": -0.304,
+    "Turnover": 0.7269
+  },
+  {
+    "factor": "rank(vwap / ts_mean(vwap, 20))",
+    "score": 0.2773,
+    "IC_mean": -0.0129,
+    "ICIR": -0.07,
+    "Sharpe": -0.6967,
+    "MDD": -0.4225,
+    "Turnover": 0.2055
+  },
+  {
+    "factor": "ts_delta(rank(close), 10)",
+    "score": 0.277,
+    "IC_mean": -0.0114,
+    "ICIR": -0.0687,
+    "Sharpe": -0.7351,
+    "MDD": -0.4165,
+    "Turnover": 0.2997
+  },
+  {
+    "factor": "rank(ts_mean(returns, 3) / (ts_std(returns, 20) + 0.001))",
+    "score": 0.2751,
+    "IC_mean": -0.0117,
+    "ICIR": -0.067,
+    "Sharpe": -0.7387,
+    "MDD": -0.3695,
+    "Turnover": 0.5296
+  },
+  {
+    "factor": "rank(ts_min(ts_std(returns, 5), 20)) * sign(ts_delta(close, 10))",
+    "score": 0.272,
+    "IC_mean": -0.0104,
+    "ICIR": -0.068,
+    "Sharpe": -0.9934,
+    "MDD": -0.4098,
+    "Turnover": 0.1741
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) + ts_delta(close, 6) + ts_delta(close, 12))",
+    "score": 0.2655,
+    "IC_mean": -0.013,
+    "ICIR": -0.079,
+    "Sharpe": -0.8837,
+    "MDD": -0.3679,
+    "Turnover": 0.2679
+  },
+  {
+    "factor": "rank(ts_min(low, 15) / low) + rank((close - open) / ts_mean(high - low, 5))",
+    "score": 0.2627,
+    "IC_mean": -0.0077,
+    "ICIR": -0.0504,
+    "Sharpe": -0.9652,
+    "MDD": -0.4045,
+    "Turnover": 0.7802
+  },
+  {
+    "factor": "rank(log(volume / adv20) * returns)",
+    "score": 0.2569,
+    "IC_mean": -0.0079,
+    "ICIR": -0.0782,
+    "Sharpe": -0.8642,
+    "MDD": -0.376,
+    "Turnover": 0.702
+  },
+  {
+    "factor": "rank(returns * volume) ",
+    "score": 0.2559,
+    "IC_mean": -0.0124,
+    "ICIR": -0.0801,
+    "Sharpe": -0.6025,
+    "MDD": -0.4325,
+    "Turnover": 0.4847
+  },
+  {
+    "factor": "abs(ts_corr(returns, volume, 10) - ts_corr(returns, volume, 3)) * rank(close / vwap)",
+    "score": 0.2519,
+    "IC_mean": -0.0091,
+    "ICIR": -0.0843,
+    "Sharpe": -0.8825,
+    "MDD": -0.3417,
+    "Turnover": 0.7456
+  },
+  {
+    "factor": "rank(ts_min(volume / adv20, 10)) - rank(ts_max(volume / adv20, 3))",
+    "score": 0.2511,
+    "IC_mean": -0.0071,
+    "ICIR": -0.1061,
+    "Sharpe": -1.2709,
+    "MDD": -0.2707,
+    "Turnover": 0.4209
+  },
+  {
+    "factor": "rank(ts_mean(volume * returns, 10) / ts_std(volume * returns, 10))",
+    "score": 0.2479,
+    "IC_mean": -0.0142,
+    "ICIR": -0.0858,
+    "Sharpe": -0.8834,
+    "MDD": -0.3792,
+    "Turnover": 0.3206
+  },
+  {
+    "factor": "rank((close - vwap) * (volume / adv20))",
+    "score": 0.2473,
+    "IC_mean": -0.0096,
+    "ICIR": -0.0718,
+    "Sharpe": -1.0343,
+    "MDD": -0.3998,
+    "Turnover": 0.5387
+  },
+  {
+    "factor": "rank(ts_delta(close, 5) / close) - rank(ts_std(returns, 5))",
+    "score": 0.2452,
+    "IC_mean": -0.014,
+    "ICIR": -0.0811,
+    "Sharpe": -0.7771,
+    "MDD": -0.4213,
+    "Turnover": 0.383
+  },
+  {
+    "factor": "rank(ts_min(volume, 10) / ts_max(volume, 10)) * rank(returns)",
+    "score": 0.2423,
+    "IC_mean": -0.0101,
+    "ICIR": -0.0778,
+    "Sharpe": -0.9385,
+    "MDD": -0.3914,
+    "Turnover": 0.6475
+  },
+  {
+    "factor": "(vwap - ts_min(vwap, 10)) / (ts_max(close, 10) - ts_min(close, 10))",
+    "score": 0.2417,
+    "IC_mean": -0.012,
+    "ICIR": -0.0733,
+    "Sharpe": -1.0049,
+    "MDD": -0.3931,
+    "Turnover": 0.5236
+  },
+  {
+    "factor": "sign(ts_delta(close, 5)) * rank(abs(ts_delta(close, 1)) / ts_mean(abs(returns), 15))",
+    "score": 0.2409,
+    "IC_mean": -0.0115,
+    "ICIR": -0.0916,
+    "Sharpe": -1.1092,
+    "MDD": -0.3154,
+    "Turnover": 0.5155
+  },
+  {
+    "factor": "sign(ts_std(close, 3) - ts_std(close, 20)) * rank((high + low) / 2 / close)",
+    "score": 0.2389,
+    "IC_mean": -0.0088,
+    "ICIR": -0.0641,
+    "Sharpe": -1.011,
+    "MDD": -0.4447,
+    "Turnover": 0.6589
+  },
+  {
+    "factor": "rank((high - open) / (close - low)) / rank(ts_std(returns, 10))",
+    "score": 0.2385,
+    "IC_mean": -0.0089,
+    "ICIR": -0.0601,
+    "Sharpe": -1.2557,
+    "MDD": -0.3999,
+    "Turnover": 0.624
+  },
+  {
+    "factor": "rank((close - ts_mean(open, 5)) / ts_std(high - low, 20))",
+    "score": 0.2255,
+    "IC_mean": -0.0137,
+    "ICIR": -0.0805,
+    "Sharpe": -0.9839,
+    "MDD": -0.4185,
+    "Turnover": 0.4818
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) / ts_std(vwap, 20)) / (1 + abs(rank(volume) - 0.5))",
+    "score": 0.2193,
+    "IC_mean": -0.0139,
+    "ICIR": -0.0851,
+    "Sharpe": -1.091,
+    "MDD": -0.4205,
+    "Turnover": 0.3677
+  },
+  {
+    "factor": "-1 * rank(ts_max(abs(returns), 15)) * rank((ts_max(close, 20) - close) / ts_std(close, 20))",
+    "score": 0.2189,
+    "IC_mean": -0.0133,
+    "ICIR": -0.0767,
+    "Sharpe": -1.106,
+    "MDD": -0.4742,
+    "Turnover": 0.2828
+  },
+  {
+    "factor": "rank(log(ts_mean(volume, 5)) - log(volume))",
+    "score": 0.2172,
+    "IC_mean": -0.0096,
+    "ICIR": -0.1365,
+    "Sharpe": -0.9732,
+    "MDD": -0.2699,
+    "Turnover": 0.7046
+  },
+  {
+    "factor": "-1 * rank(ts_max(abs(returns), 20)) * rank(volume / adv20)",
+    "score": 0.2167,
+    "IC_mean": -0.0134,
+    "ICIR": -0.1031,
+    "Sharpe": -0.9693,
+    "MDD": -0.3837,
+    "Turnover": 0.4797
+  },
+  {
+    "factor": "rank(close / vwap)",
+    "score": 0.2153,
+    "IC_mean": -0.0114,
+    "ICIR": -0.0734,
+    "Sharpe": -0.8321,
+    "MDD": -0.4999,
+    "Turnover": 0.7041
+  },
+  {
+    "factor": "ts_mean(log(volume / adv20), 10) - log(volume / adv20)",
+    "score": 0.2145,
+    "IC_mean": -0.01,
+    "ICIR": -0.1383,
+    "Sharpe": -0.9529,
+    "MDD": -0.2851,
+    "Turnover": 0.6563
+  },
+  {
+    "factor": "rank(power(close / ts_min(close, 20), 2)) / abs(ts_corr(returns, volume, 5))",
+    "score": 0.2131,
+    "IC_mean": -0.0115,
+    "ICIR": -0.0988,
+    "Sharpe": -1.213,
+    "MDD": -0.3479,
+    "Turnover": 0.5781
+  },
+  {
+    "factor": "rank(log(close / ts_min(close, 15))) / rank(log(ts_max(close, 15) / close))",
+    "score": 0.2119,
+    "IC_mean": -0.0154,
+    "ICIR": -0.0895,
+    "Sharpe": -0.8672,
+    "MDD": -0.4449,
+    "Turnover": 0.4835
+  },
+  {
+    "factor": "sign(ts_delta((close - open) / (high - low), 3)) * rank(volume / adv20)",
+    "score": 0.208,
+    "IC_mean": -0.0107,
+    "ICIR": -0.1022,
+    "Sharpe": -1.1712,
+    "MDD": -0.3734,
+    "Turnover": 0.5957
+  },
+  {
+    "factor": "rank(-ts_corr(ts_delta(close, 5), ts_mean(volume, 5) - volume, 10))",
+    "score": 0.208,
+    "IC_mean": -0.011,
+    "ICIR": -0.1127,
+    "Sharpe": -1.2723,
+    "MDD": -0.3634,
+    "Turnover": 0.3543
+  },
+  {
+    "factor": "sign(ts_delta(close, 3)) * rank(ts_std(vwap / close, 15))",
+    "score": 0.2066,
+    "IC_mean": -0.012,
+    "ICIR": -0.0743,
+    "Sharpe": -1.283,
+    "MDD": -0.5071,
+    "Turnover": 0.2358
+  },
+  {
+    "factor": "zscore((close - vwap) / (high - low + 0.0001))",
+    "score": 0.2043,
+    "IC_mean": -0.0111,
+    "ICIR": -0.082,
+    "Sharpe": -1.1112,
+    "MDD": -0.4194,
+    "Turnover": 0.7872
+  },
+  {
+    "factor": "rank((close - ts_max(close, 15)) / ts_max(close, 15)) / rank(ts_std(returns, 10))",
+    "score": 0.2031,
+    "IC_mean": -0.014,
+    "ICIR": -0.0737,
+    "Sharpe": -1.1511,
+    "MDD": -0.5323,
+    "Turnover": 0.2241
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) / ts_std(close, 20))",
+    "score": 0.2031,
+    "IC_mean": -0.0141,
+    "ICIR": -0.0843,
+    "Sharpe": -1.1714,
+    "MDD": -0.4537,
+    "Turnover": 0.3789
+  },
+  {
+    "factor": "rank(ts_delta(close, 5)) * rank(1 / (ts_std(returns, 10) + 0.001))",
+    "score": 0.2018,
+    "IC_mean": -0.0131,
+    "ICIR": -0.0755,
+    "Sharpe": -1.2341,
+    "MDD": -0.5024,
+    "Turnover": 0.3037
+  },
+  {
+    "factor": "zscore((close - vwap) / close * log(volume / adv20 + 1))",
+    "score": 0.1939,
+    "IC_mean": -0.0113,
+    "ICIR": -0.0748,
+    "Sharpe": -0.9847,
+    "MDD": -0.5357,
+    "Turnover": 0.6868
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 3), ts_delta(close, 10), 20) * rank(close / open)",
+    "score": 0.1846,
+    "IC_mean": -0.0122,
+    "ICIR": -0.0867,
+    "Sharpe": -1.2481,
+    "MDD": -0.4608,
+    "Turnover": 0.6201
+  },
+  {
+    "factor": "rank((close - low) / (high - low + 0.001)) * rank(ts_delta(close, 5))",
+    "score": 0.184,
+    "IC_mean": -0.0138,
+    "ICIR": -0.0975,
+    "Sharpe": -1.1473,
+    "MDD": -0.4193,
+    "Turnover": 0.6755
+  },
+  {
+    "factor": "rank((ts_max(close, 20) - ts_min(close, 20)) / ts_mean(close, 20)) * sign(power(returns, 3))",
+    "score": 0.1824,
+    "IC_mean": -0.0149,
+    "ICIR": -0.0978,
+    "Sharpe": -1.1728,
+    "MDD": -0.4921,
+    "Turnover": 0.2901
+  },
+  {
+    "factor": "-1 * rank(power(ts_delta(close, 5) / ts_std(close, 10), 2)) * zscore(volume / ts_mean(volume, 15))",
+    "score": 0.1663,
+    "IC_mean": -0.012,
+    "ICIR": -0.1734,
+    "Sharpe": -1.0878,
+    "MDD": -0.2733,
+    "Turnover": 0.6671
+  },
+  {
+    "factor": "rank((close - open) / (high - low))",
+    "score": 0.1537,
+    "IC_mean": -0.0148,
+    "ICIR": -0.1003,
+    "Sharpe": -1.2046,
+    "MDD": -0.4621,
+    "Turnover": 0.7888
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(vwap, 3), ts_std(volume, 15), 10)) * zscore(returns)",
+    "score": 0.1517,
+    "IC_mean": -0.0163,
+    "ICIR": -0.0986,
+    "Sharpe": -1.1128,
+    "MDD": -0.5144,
+    "Turnover": 0.6363
+  },
+  {
+    "factor": "rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20) + 0.0001)) - rank((volume - ts_min(volume, 20)) / (ts_max(volume, 20) - ts_min(volume, 20) + 0.0001))",
+    "score": 0.1389,
+    "IC_mean": -0.0165,
+    "ICIR": -0.1269,
+    "Sharpe": -1.3067,
+    "MDD": -0.4319,
+    "Turnover": 0.5467
+  },
+  {
+    "factor": "rank((close - ts_mean(close, 10)) / ts_std(close, 10)) * rank(1 / (volume / adv20))",
+    "score": 0.1388,
+    "IC_mean": -0.0169,
+    "ICIR": -0.1379,
+    "Sharpe": -1.2307,
+    "MDD": -0.3968,
+    "Turnover": 0.6047
+  },
+  {
+    "factor": "rank(close / open) * rank(ts_delta(close, 10))",
+    "score": 0.1347,
+    "IC_mean": -0.0171,
+    "ICIR": -0.1096,
+    "Sharpe": -1.2051,
+    "MDD": -0.5021,
+    "Turnover": 0.6375
+  },
+  {
+    "factor": "rank((ts_mean(close, 3) - ts_mean(close, 15)) / ts_std(close, 20)) * sign(adv20 - volume)",
+    "score": 0.1337,
+    "IC_mean": -0.0149,
+    "ICIR": -0.1569,
+    "Sharpe": -1.7224,
+    "MDD": -0.3184,
+    "Turnover": 0.2994
+  },
+  {
+    "factor": "rank(ts_corr(power(abs(returns), 2), ts_std(volume, 5), 10)) * zscore(returns)",
+    "score": 0.1136,
+    "IC_mean": -0.0178,
+    "ICIR": -0.1092,
+    "Sharpe": -1.3085,
+    "MDD": -0.543,
+    "Turnover": 0.6288
+  },
+  {
+    "factor": "rank(power(returns, 3) / power(ts_std(returns, 20), 3))",
+    "score": 0.1102,
+    "IC_mean": -0.0176,
+    "ICIR": -0.1079,
+    "Sharpe": -1.3702,
+    "MDD": -0.5149,
+    "Turnover": 0.7588
+  },
+  {
+    "factor": "zscore(power(returns, 3)) * rank(ts_corr(abs(returns), volume / adv20, 10))",
+    "score": 0.0619,
+    "IC_mean": -0.0165,
+    "ICIR": -0.1318,
+    "Sharpe": -1.6215,
+    "MDD": -0.582,
+    "Turnover": 0.646
+  }
+]

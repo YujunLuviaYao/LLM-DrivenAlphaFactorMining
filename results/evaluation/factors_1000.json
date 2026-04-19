@@ -1,0 +1,3008 @@
+[
+  {
+    "factor": "rank(ts_mean(close, 5) - ts_mean(close, 20))",
+    "description": "Rank of the difference between 5-day and 20-day closing price moving averages \u2014 captures short-term vs long-term price trend momentum."
+  },
+  {
+    "factor": "rank(ts_mean(returns, 20) / ts_std(returns, 20))",
+    "description": "Rank of 20-day average daily return divided by 20-day standard deviation of returns \u2014 captures volatility-adjusted momentum (Sharpe-ratio like)."
+  },
+  {
+    "factor": "rank(close - ts_min(low, 20))",
+    "description": "Rank of today's closing price relative to the 20-day minimum low price \u2014 identifies stocks consistently closing significantly above their recent lows, indicating upward momentum."
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) * (volume / adv20))",
+    "description": "Rank of 10-day VWAP change multiplied by today's volume relative to its 20-day average volume \u2014 combines VWAP momentum with volume confirmation."
+  },
+  {
+    "factor": "rank(ts_mean(close - open, 5))",
+    "description": "Rank of the 5-day average of (closing price - opening price) \u2014 captures consistent daily intra-day upward momentum (stocks regularly closing higher than they opened)."
+  },
+  {
+    "factor": "rank((ts_mean(close, 20) - close) / ts_std(close, 20))",
+    "description": "Identifies stocks where the current closing price is significantly below its 20-day moving average, normalized by its 20-day volatility. High values suggest a strong downward deviation from the mean, indicating potential for mean reversion upwards."
+  },
+  {
+    "factor": "rank(open / close)",
+    "description": "Ranks stocks based on how much the opening price exceeded the closing price. High values indicate strong intraday selling pressure where the stock closed significantly lower than it opened, suggesting a potential for a short-term bounce or mean reversion in subsequent periods."
+  },
+  {
+    "factor": "rank(ts_mean(returns, 20) - ts_mean(returns, 5))",
+    "description": "Identifies stocks where the average daily return over the past 5 days has been significantly lower than their average daily return over the past 20 days. A higher factor value indicates recent underperformance relative to longer-term trends, suggesting a mean-reverting bounce."
+  },
+  {
+    "factor": "rank((ts_max(high, 20) - close) / (ts_max(high, 20) - ts_min(low, 20)))",
+    "description": "This factor is a modified stochastic oscillator. High values indicate that the current closing price is significantly closer to its 20-day low within its 20-day trading range (i.e., it has fallen substantially), suggesting an oversold condition and potential for a rebound."
+  },
+  {
+    "factor": "rank(log(volume / adv20) * sign(ts_delta(close, 5)))",
+    "description": "Identifies stocks experiencing a significant price drop over 5 days (indicated by a negative ts_delta(close, 5)) accompanied by unusually low trading volume (indicated by a negative log(volume / adv20)). This divergence (price falling on weak volume) suggests a potential for mean reversion as the downtrend may lack conviction."
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 10))",
+    "description": "Rank of 10-day correlation between daily returns and current volume relative to its 20-day average. Positive values suggest that price movements are confirmed by proportionally higher trading activity."
+  },
+  {
+    "factor": "rank((close - vwap) * (volume / adv20))",
+    "description": "Rank of (Close - VWAP) scaled by relative volume. Positive values suggest strong buying pressure as the closing price is above the volume-weighted average price, and this is supported by higher-than-average volume."
+  },
+  {
+    "factor": "rank(ts_mean(volume, 5) / ts_std(close, 5))",
+    "description": "Rank of 5-day average volume divided by 5-day price standard deviation. Higher values suggest high trading activity with relatively low price volatility, which can be indicative of accumulation or balanced supply/demand."
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(close, 1), ts_delta(volume, 1), 20))",
+    "description": "Rank of the 20-day correlation between daily price change and daily volume change. Positive correlation indicates that price movements are confirmed by shifts in trading volume, suggesting a more robust trend."
+  },
+  {
+    "factor": "rank(-ts_corr(ts_delta(close, 5), ts_mean(volume, 5) - volume, 10))",
+    "description": "Rank of the negative 10-day correlation between 5-day price momentum and the recent volume relative to its 5-day average. A high factor value suggests price momentum is increasing while volume is weakening (below average), indicating potential bearish divergence or a weak rally."
+  },
+  {
+    "factor": "rank(ts_std(returns, 5) / ts_std(returns, 20))",
+    "description": "Rank of the ratio of short-term (5-day) historical volatility to long-term (20-day) historical volatility. Higher values suggest a recent increase in volatility relative to its longer-term trend, potentially signaling a change in market conditions or increased uncertainty."
+  },
+  {
+    "factor": "rank(ts_std(close / ts_mean(close, 10), 20))",
+    "description": "Rank of the 20-day standard deviation of the stock's price relative to its 10-day moving average. High values indicate a stock whose price has been experiencing significant and volatile deviations from its short-term mean, potentially signaling increased instability or strong mean-reversion tendencies."
+  },
+  {
+    "factor": "rank((high - low) / ts_mean(high - low, 20))",
+    "description": "Rank of today's intraday price range (high minus low) scaled by its 20-day average. High values suggest unusually high intraday volatility compared to the stock's recent daily fluctuations, which can precede larger price moves or indicate current market stress."
+  },
+  {
+    "factor": "rank(ts_std(returns, 10) * (volume / adv20))",
+    "description": "Rank of the 10-day historical volatility multiplied by today's volume relative to the 20-day average daily volume. This factor identifies stocks with high recent volatility that is also confirmed by unusually high trading activity, potentially indicating significant market interest around price instability."
+  },
+  {
+    "factor": "rank(ts_std(ts_std(returns, 5), 20))",
+    "description": "Rank of the 20-day standard deviation of the 5-day historical volatility. High values suggest that the stock's short-term volatility has been highly unstable, indicating periods of extreme uncertainty in price behavior or frequent shifts in market regimes."
+  },
+  {
+    "factor": "ts_delta(close, 10) / ts_std(close, 10)",
+    "description": "10-day momentum normalized by 10-day volatility \u2014 signal-to-noise momentum"
+  },
+  {
+    "factor": "rank(ts_delta(close, 20) / close)",
+    "description": "Ranked 20-day return \u2014 medium-term cross-sectional momentum"
+  },
+  {
+    "factor": "rank(close / ts_max(close, 60))",
+    "description": "Proximity to 60-day high \u2014 long-term momentum breakout signal"
+  },
+  {
+    "factor": "rank(close - ts_mean(close, 5)) - rank(close - ts_mean(close, 40))",
+    "description": "Short-term vs long-term momentum rank difference \u2014 momentum acceleration"
+  },
+  {
+    "factor": "ts_delta(close, 5) * rank(volume / adv20)",
+    "description": "5-day price change weighted by unusual volume \u2014 volume-confirmed momentum"
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) + ts_delta(close, 6) + ts_delta(close, 12))",
+    "description": "Composite multi-horizon momentum (3/6/12 day) \u2014 blended momentum signal"
+  },
+  {
+    "factor": "ts_delta(ts_delta(close, 5), 5)",
+    "description": "Second-order momentum \u2014 acceleration of 5-day price changes"
+  },
+  {
+    "factor": "rank(returns * volume) ",
+    "description": "Dollar-volume momentum \u2014 single-day return scaled by trading activity"
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5)) - rank(ts_mean(returns, 20))",
+    "description": "Short-term minus medium-term average return rank \u2014 momentum regime shift"
+  },
+  {
+    "factor": "rank(close / ts_min(close, 20))",
+    "description": "Ratio to 20-day low \u2014 upside momentum from recent trough"
+  },
+  {
+    "factor": "rank(vwap / ts_mean(vwap, 20))",
+    "description": "VWAP deviation from 20-day mean VWAP \u2014 institutional-flow-weighted momentum"
+  },
+  {
+    "factor": "ts_delta(close, 10) / (ts_max(close, 10) - ts_min(close, 10) + 0.001)",
+    "description": "10-day return normalized by 10-day range \u2014 momentum efficiency ratio"
+  },
+  {
+    "factor": "rank(ts_mean(returns, 3) / (ts_std(returns, 20) + 0.001))",
+    "description": "3-day Sharpe-like ratio ranked cross-sectionally \u2014 risk-adjusted short-term momentum"
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) / vwap)",
+    "description": "10-day VWAP momentum \u2014 volume-weighted price trend"
+  },
+  {
+    "factor": "sign(ts_delta(close, 5)) * rank(abs(ts_delta(close, 5)))",
+    "description": "Signed rank of 5-day absolute momentum \u2014 directional strength signal"
+  },
+  {
+    "factor": "rank(close / ts_mean(close, 10)) * rank(close / ts_mean(close, 40))",
+    "description": "Product of short and long-term price ratios \u2014 dual-timeframe momentum confirmation"
+  },
+  {
+    "factor": "ts_mean(sign(returns), 10)",
+    "description": "Fraction of positive-return days over 10 days \u2014 momentum consistency"
+  },
+  {
+    "factor": "rank(ts_delta(high, 10))",
+    "description": "10-day change in daily highs ranked \u2014 upper-bound momentum"
+  },
+  {
+    "factor": "rank((close - low) / (high - low + 0.001)) * rank(ts_delta(close, 5))",
+    "description": "Intraday position times 5-day momentum \u2014 closing strength with trend"
+  },
+  {
+    "factor": "ts_delta(close, 20) / (ts_std(close, 60) + 0.001)",
+    "description": "20-day return normalized by long-term vol \u2014 medium-term risk-adjusted momentum"
+  },
+  {
+    "factor": "rank(ts_mean(close * volume, 5) / ts_mean(close * volume, 20))",
+    "description": "Short vs medium-term dollar volume ratio \u2014 turnover momentum"
+  },
+  {
+    "factor": "rank(ts_max(returns, 5))",
+    "description": "Ranked maximum daily return over 5 days \u2014 extreme positive shock momentum"
+  },
+  {
+    "factor": "ts_delta(rank(close), 10)",
+    "description": "Change in cross-sectional price rank over 10 days \u2014 relative momentum shift"
+  },
+  {
+    "factor": "rank(ts_corr(rank(returns), rank(volume), 10))",
+    "description": "Rank correlation of returns and volume ranks \u2014 momentum-volume confirmation"
+  },
+  {
+    "factor": "rank(ts_delta(close, 5)) * sign(ts_delta(volume, 5))",
+    "description": "5-day price momentum zeroed out when volume is declining \u2014 volume-validated momentum"
+  },
+  {
+    "factor": "zscore(ts_delta(close, 10)) + zscore(ts_delta(close, 20))",
+    "description": "Sum of z-scored 10 and 20-day momentum \u2014 multi-period standardized momentum"
+  },
+  {
+    "factor": "rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20) + 0.001))",
+    "description": "Stochastic oscillator over 20 days ranked \u2014 bounded momentum position"
+  },
+  {
+    "factor": "rank(ts_mean(returns * volume, 10) / (adv20 + 0.001))",
+    "description": "Volume-weighted average return over 10 days normalized \u2014 flow-adjusted momentum"
+  },
+  {
+    "factor": "ts_delta(ts_mean(close, 5), 5) / ts_std(close, 20)",
+    "description": "Acceleration of 5-day moving average normalized by volatility \u2014 smoothed momentum trend"
+  },
+  {
+    "factor": "rank(ts_delta(close, 40)) * rank(ts_delta(volume, 10))",
+    "description": "Long-term price momentum with rising volume \u2014 trend confirmation with participation"
+  },
+  {
+    "factor": "rank(close / open) * rank(ts_delta(close, 10))",
+    "description": "Intraday return times 10-day momentum \u2014 gap-and-go momentum"
+  },
+  {
+    "factor": "rank(ts_mean(high - low, 5) / ts_mean(high - low, 20))",
+    "description": "Short vs long-term average range ratio \u2014 expanding volatility momentum"
+  },
+  {
+    "factor": "ts_delta(close, 3) / (ts_max(high, 10) - ts_min(low, 10) + 0.001)",
+    "description": "3-day return over 10-day price range \u2014 short-term momentum relative to channel width"
+  },
+  {
+    "factor": "rank(log(close) - log(ts_mean(close, 60)))",
+    "description": "Log price deviation from 60-day mean ranked \u2014 long-term log momentum"
+  },
+  {
+    "factor": "rank(ts_delta(close, 10)) - rank(ts_delta(close, 60))",
+    "description": "Short minus long-term momentum rank \u2014 momentum reversal detection"
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 5)) * zscore(ts_mean(volume, 5) / adv20)",
+    "description": "Z-scored return times z-scored relative volume \u2014 standardized momentum-activity signal"
+  },
+  {
+    "factor": "rank(ts_mean(close / vwap, 10))",
+    "description": "Average close-to-VWAP ratio over 10 days \u2014 persistent buying pressure momentum"
+  },
+  {
+    "factor": "power(rank(ts_delta(close, 5)), 2) * sign(ts_delta(close, 5))",
+    "description": "Squared momentum rank with sign \u2014 nonlinear emphasis on strongest movers"
+  },
+  {
+    "factor": "rank(ts_delta(close, 5) / close) - rank(ts_std(returns, 5))",
+    "description": "5-day return rank minus volatility rank \u2014 favoring smooth momentum over noisy"
+  },
+  {
+    "factor": "rank(ts_delta(close, 10)) * rank(ts_mean(volume, 5) / ts_mean(volume, 20))",
+    "description": "10-day momentum weighted by volume acceleration \u2014 trend with increasing activity"
+  },
+  {
+    "factor": "ts_delta(rank(vwap), 5)",
+    "description": "5-day change in VWAP cross-sectional rank \u2014 relative institutional momentum"
+  },
+  {
+    "factor": "rank(ts_delta(high, 5) + ts_delta(low, 5))",
+    "description": "Sum of high and low price changes over 5 days \u2014 symmetric price band momentum"
+  },
+  {
+    "factor": "rank(close - ts_mean(close, 10)) / (ts_std(close, 10) + 0.001)",
+    "description": "Bollinger Band z-score \u2014 standardized deviation from moving average"
+  },
+  {
+    "factor": "ts_mean(sign(returns) * rank(abs(returns)), 10)",
+    "description": "Average signed magnitude rank over 10 days \u2014 persistence of large directional moves"
+  },
+  {
+    "factor": "rank(ts_delta(close, 5)) * rank(1 / (ts_std(returns, 10) + 0.001))",
+    "description": "5-day momentum rank times inverse volatility rank \u2014 rewarding low-vol momentum"
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) / ts_mean(close, 20) - 1)",
+    "description": "Short-term vs medium-term moving average ratio \u2014 stocks where short MA is above long MA are overextended and expected to revert"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 3) / close)",
+    "description": "Negated 3-day return rank \u2014 recent short-term winners expected to revert downward"
+  },
+  {
+    "factor": "-1 * zscore(close / ts_mean(close, 10) - 1)",
+    "description": "Z-scored deviation from 10-day mean price \u2014 extreme deviators expected to revert cross-sectionally"
+  },
+  {
+    "factor": "-1 * rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",
+    "description": "Negated Williams %R analog \u2014 stocks near 20-day highs expected to revert downward"
+  },
+  {
+    "factor": "-1 * rank(close / vwap - 1)",
+    "description": "Negated deviation of close from VWAP \u2014 stocks closing far above VWAP are overbought and should revert"
+  },
+  {
+    "factor": "rank(ts_mean(close, 60) / close - 1)",
+    "description": "60-day mean relative to current price \u2014 stocks trading below long-term average expected to revert upward"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 10) / ts_std(close, 20))",
+    "description": "Negated volatility-normalized 10-day momentum \u2014 overextended moves relative to volatility should revert"
+  },
+  {
+    "factor": "-1 * zscore(returns) * rank(volume / adv20)",
+    "description": "Reversal signal amplified by unusual volume \u2014 large moves on high volume tend to overshoot and revert"
+  },
+  {
+    "factor": "rank(ts_mean(vwap, 20) / vwap - 1)",
+    "description": "VWAP deviation from its 20-day mean \u2014 extreme VWAP deviations expected to mean-revert"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 5)) * rank(ts_std(returns, 5))",
+    "description": "Negated short-term trend interacted with recent volatility \u2014 volatile trending stocks revert more"
+  },
+  {
+    "factor": "-1 * rank((close - ts_mean(close, 20)) / ts_std(close, 20))",
+    "description": "Negated Bollinger Band z-score \u2014 stocks beyond upper/lower bands revert to the mean"
+  },
+  {
+    "factor": "-1 * rank((close - ts_mean(close, 5)) / ts_std(close, 5))",
+    "description": "Negated 5-day Bollinger z-score \u2014 short-term statistical extremes revert quickly"
+  },
+  {
+    "factor": "-1 * sign(close - ts_mean(close, 10)) * rank(abs(close - ts_mean(close, 10)) / close)",
+    "description": "Signed magnitude of deviation from 10-day mean \u2014 larger deviations produce stronger reversion"
+  },
+  {
+    "factor": "rank(ts_mean(returns, 20)) * -1",
+    "description": "Negated 20-day average return rank \u2014 sustained winners over a month tend to revert"
+  },
+  {
+    "factor": "-1 * rank(ts_mean(returns, 3))",
+    "description": "Negated 3-day average return \u2014 very short-term momentum reversal signal"
+  },
+  {
+    "factor": "rank(log(ts_mean(volume, 5)) - log(volume))",
+    "description": "Log volume deviation from 5-day mean \u2014 low volume days often precede reversion to normal activity and price"
+  },
+  {
+    "factor": "-1 * rank(close - open) * rank(abs(returns))",
+    "description": "Intraday direction weighted by move magnitude \u2014 large intraday moves tend to revert next day"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(vwap, 5) / ts_std(vwap, 20))",
+    "description": "Negated volatility-adjusted 5-day VWAP change \u2014 VWAP overextension reverts"
+  },
+  {
+    "factor": "rank(ts_mean(close, 40) - close) / rank(ts_std(close, 40))",
+    "description": "Distance below 40-day mean normalized by volatility rank \u2014 deep value reversion adjusted for risk"
+  },
+  {
+    "factor": "-1 * rank((high - low) / close) * sign(returns)",
+    "description": "Negated directional range expansion \u2014 wide-range trending days tend to revert"
+  },
+  {
+    "factor": "-1 * rank(ts_max(close, 10) / close - 1) * sign(ts_delta(close, 10))",
+    "description": "Directional distance from 10-day high \u2014 stocks pulling back from highs or surging from lows revert"
+  },
+  {
+    "factor": "-1 * zscore(close / ts_mean(close, 20) - 1) * zscore(volume / adv20)",
+    "description": "Price deviation \u00d7 volume deviation interaction \u2014 extreme price moves accompanied by extreme volume revert more"
+  },
+  {
+    "factor": "rank(1 - close / ts_max(close, 60))",
+    "description": "Drawdown from 60-day high \u2014 deeply sold-off stocks expected to bounce (mean revert upward)"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 1) / ts_std(close, 10))",
+    "description": "Negated 1-day standardized return \u2014 overnight/intraday outlier moves revert quickly"
+  },
+  {
+    "factor": "-1 * rank(power(returns, 3))",
+    "description": "Negated cubed return rank \u2014 amplifies extreme returns asymmetrically for stronger reversion signal"
+  },
+  {
+    "factor": "rank(ts_min(close, 10) / close - 1) * -1",
+    "description": "Negated proximity to 10-day low \u2014 stocks near recent lows expected to bounce"
+  },
+  {
+    "factor": "-1 * rank(ts_corr(close, volume, 5)) * rank(abs(ts_delta(close, 5)) / close)",
+    "description": "Price-volume correlation \u00d7 move magnitude \u2014 coordinated trending on volume overshoots and reverts"
+  },
+  {
+    "factor": "rank(ts_mean(low, 10) / close - 1)",
+    "description": "Current price vs average of recent lows \u2014 if price is above average low band, downward reversion expected"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 5) + ts_delta(close, 10))",
+    "description": "Negated composite short+medium momentum \u2014 overlapping momentum signals are overextended"
+  },
+  {
+    "factor": "-1 * zscore((high + low + close) / 3 / ts_mean((high + low + close) / 3, 15) - 1)",
+    "description": "Z-scored typical price deviation from 15-day mean \u2014 mean reversion on pivot price"
+  },
+  {
+    "factor": "rank(adv20 / volume) * sign(ts_mean(close, 10) - close)",
+    "description": "Low volume days directionally aligned with being below average price \u2014 quiet dips revert upward"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(high, 5) / ts_std(high, 20))",
+    "description": "Negated normalized change in daily highs \u2014 rapid expansion of highs reverts"
+  },
+  {
+    "factor": "-1 * rank((close - open) / (high - low + 0.0001))",
+    "description": "Negated close location within daily range \u2014 stocks closing near high of day tend to gap down/revert"
+  },
+  {
+    "factor": "-1 * rank(ts_mean(returns, 5)) * rank(ts_std(returns, 5))",
+    "description": "Negated short-term return interacted with short-term vol \u2014 high vol + high return = reversion"
+  },
+  {
+    "factor": "rank(vwap / close - 1) * rank(volume / adv20)",
+    "description": "VWAP above close on high volume days \u2014 selling pressure anomaly that often reverts upward"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close / vwap, 5))",
+    "description": "Negated change in close/VWAP ratio \u2014 increasing premium of close over VWAP reverts"
+  },
+  {
+    "factor": "rank(ts_mean(open, 10) / open - 1)",
+    "description": "Opening price deviation from its 10-day mean \u2014 overnight gap reversion signal"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 20) / close) * rank(1 / ts_std(returns, 20))",
+    "description": "Negated 20-day return penalized for low volatility \u2014 smooth trends in quiet stocks mean-revert"
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume, 10)) * -1",
+    "description": "Negated return-volume correlation \u2014 when returns and volume move together, trend is exhausted and reverts"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(ts_mean(close, 5), 5))",
+    "description": "Negated change in 5-day moving average \u2014 accelerating moving averages revert"
+  },
+  {
+    "factor": "rank(ts_min(low, 20) / close - 1) * -1 + rank(1 - close / ts_max(high, 20))",
+    "description": "Combined distance from 20-day range extremes \u2014 balanced mean-reversion from both sides"
+  },
+  {
+    "factor": "-1 * zscore(ts_delta(close, 2)) * zscore(ts_delta(close, 2) - ts_delta(close, 5))",
+    "description": "Acceleration of short-term price change \u2014 decelerating momentum signals imminent reversal"
+  },
+  {
+    "factor": "rank(ts_mean(volume, 20) / ts_mean(volume, 5) - 1) * sign(ts_delta(close, 5))",
+    "description": "Fading volume in direction of trend \u2014 volume drying up signals exhaustion and reversion"
+  },
+  {
+    "factor": "-1 * rank(ts_mean(high / close - 1, 10))",
+    "description": "Negated average upper shadow ratio \u2014 persistent intraday selling pressure (high >> close) leads to reversion down"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 5)) * rank(ts_delta(volume, 5) / adv20)",
+    "description": "Negated co-movement of price and volume changes \u2014 simultaneous price rise and volume surge often overshoots and reverts"
+  },
+  {
+    "factor": "rank(ts_corr(close, volume, 5))",
+    "description": "5-day short-term price-volume correlation rank \u2014 detects rapid divergence signals"
+  },
+  {
+    "factor": "rank(ts_corr(close, volume, 20)) - rank(ts_corr(close, volume, 5))",
+    "description": "Change in price-volume correlation regime between long and short windows \u2014 structural shift detection"
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume, 10))",
+    "description": "Correlation of absolute returns with volume \u2014 measures volume's role in price discovery"
+  },
+  {
+    "factor": "rank(ts_corr(vwap - close, volume, 10))",
+    "description": "Correlation between VWAP-close spread and volume \u2014 detects institutional accumulation or distribution"
+  },
+  {
+    "factor": "zscore(ts_mean(returns * volume, 10) / ts_mean(volume, 10))",
+    "description": "Volume-weighted average return over 10 days \u2014 captures money-flow direction"
+  },
+  {
+    "factor": "rank(ts_mean(returns * (volume / adv20), 5))",
+    "description": "Short-term volume-intensity weighted returns \u2014 emphasizes moves on unusual volume"
+  },
+  {
+    "factor": "rank(ts_delta(volume, 5) * ts_delta(close, 5))",
+    "description": "Co-movement of volume change and price change over 5 days \u2014 trend confirmation signal"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(volume, 5) * ts_delta(close, 5)) * sign(ts_delta(close, 5))",
+    "description": "Contrarian signal on volume-confirmed price moves \u2014 fading overextended trends"
+  },
+  {
+    "factor": "rank(close / vwap)",
+    "description": "Close relative to VWAP \u2014 intraday buying pressure indicator"
+  },
+  {
+    "factor": "rank(ts_mean(close / vwap, 5))",
+    "description": "5-day average of close-to-VWAP ratio \u2014 persistent intraday demand signal"
+  },
+  {
+    "factor": "rank(ts_mean((close - vwap) * volume, 10))",
+    "description": "Volume-weighted VWAP deviation over 10 days \u2014 smart money flow indicator"
+  },
+  {
+    "factor": "rank(ts_mean((close - vwap) / vwap, 10)) * rank(volume / adv20)",
+    "description": "VWAP deviation trend amplified by relative volume \u2014 high-conviction institutional flow"
+  },
+  {
+    "factor": "zscore((close - vwap) / (high - low + 0.0001))",
+    "description": "VWAP displacement normalized by daily range \u2014 intraday positioning signal"
+  },
+  {
+    "factor": "rank(ts_corr(vwap, volume, 15))",
+    "description": "15-day VWAP-volume correlation \u2014 detects price-volume feedback loops"
+  },
+  {
+    "factor": "-1 * rank(ts_corr(rank(close), rank(volume), 10))",
+    "description": "Negative cross-sectional rank correlation of price and volume \u2014 contrarian divergence signal"
+  },
+  {
+    "factor": "rank(ts_mean(volume * sign(returns), 20) / ts_mean(volume, 20))",
+    "description": "Directional volume ratio \u2014 proportion of volume on up vs down days"
+  },
+  {
+    "factor": "rank(ts_mean(volume * sign(returns), 10) / adv20)",
+    "description": "Signed volume flow relative to average volume \u2014 net buying pressure normalized"
+  },
+  {
+    "factor": "rank(ts_mean(volume * returns, 10) / ts_std(volume * returns, 10))",
+    "description": "Money flow signal-to-noise ratio \u2014 consistency of volume-weighted direction"
+  },
+  {
+    "factor": "rank(log(volume / adv20) * returns)",
+    "description": "Return scaled by log relative volume \u2014 emphasizes moves on anomalous volume"
+  },
+  {
+    "factor": "rank(ts_delta(close, 10)) * rank(ts_delta(volume, 10))",
+    "description": "Joint momentum in price and volume over 10 days \u2014 trend strength composite"
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 10)) * (1 - rank(ts_delta(volume, 10)))",
+    "description": "Price momentum with declining volume \u2014 exhaustion signal for mean reversion"
+  },
+  {
+    "factor": "rank(ts_std(volume, 10) / ts_mean(volume, 10)) * sign(ts_delta(close, 5))",
+    "description": "Volume volatility coefficient directionally weighted \u2014 choppy volume environments"
+  },
+  {
+    "factor": "rank(ts_min(volume, 10) / ts_max(volume, 10)) * rank(returns)",
+    "description": "Volume compression ratio times return \u2014 breakout potential after tight volume"
+  },
+  {
+    "factor": "rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20) + 0.0001)) - rank((volume - ts_min(volume, 20)) / (ts_max(volume, 20) - ts_min(volume, 20) + 0.0001))",
+    "description": "Price stochastic minus volume stochastic \u2014 divergence between price position and volume position in range"
+  },
+  {
+    "factor": "rank(ts_corr((high - low) / close, volume / adv20, 10))",
+    "description": "Correlation between normalized range and relative volume \u2014 volatility-volume linkage"
+  },
+  {
+    "factor": "-1 * rank(ts_corr(ts_mean(close, 5), ts_mean(volume, 5), 20))",
+    "description": "Negative smoothed price-volume correlation \u2014 captures breakdown in trend-following consensus"
+  },
+  {
+    "factor": "rank(ts_mean((high - close) / (high - low + 0.0001) * volume, 10))",
+    "description": "Volume-weighted upper shadow ratio \u2014 selling pressure at highs"
+  },
+  {
+    "factor": "-1 * rank(ts_mean((close - low) / (high - low + 0.0001) * volume, 10))",
+    "description": "Negative volume-weighted lower support ratio \u2014 fading buying at lows"
+  },
+  {
+    "factor": "zscore(ts_delta(volume / adv20, 5)) * sign(ts_delta(close, 5))",
+    "description": "Acceleration of relative volume aligned with price direction \u2014 momentum ignition signal"
+  },
+  {
+    "factor": "rank(ts_corr(close, log(volume), 10)) - rank(ts_corr(close, log(volume), 30))",
+    "description": "Short vs long-term log-volume price correlation shift \u2014 regime change detector"
+  },
+  {
+    "factor": "rank(ts_mean(abs(returns) / (volume / adv20 + 0.0001), 10))",
+    "description": "Price impact ratio \u2014 low liquidity amplifies returns, indicates fragile pricing"
+  },
+  {
+    "factor": "-1 * rank(ts_mean(abs(returns) / (volume / adv20 + 0.0001), 10))",
+    "description": "Negative price impact \u2014 favors stocks with deep liquidity and low impact cost"
+  },
+  {
+    "factor": "rank(ts_corr(power(returns, 2), volume, 15))",
+    "description": "Correlation between squared returns and volume \u2014 variance-volume linkage"
+  },
+  {
+    "factor": "rank(ts_mean(sign(returns) * log(volume / adv20 + 1), 20))",
+    "description": "Directional log-volume flow over 20 days \u2014 long-term accumulation/distribution"
+  },
+  {
+    "factor": "rank(ts_max(volume, 20) / adv20) * rank(ts_delta(close, 20))",
+    "description": "Peak volume ratio combined with price trend \u2014 climax volume trend signal"
+  },
+  {
+    "factor": "-1 * rank(ts_max(volume, 10) / adv20) * rank(close / ts_max(close, 10))",
+    "description": "High volume near price highs \u2014 distribution topping pattern"
+  },
+  {
+    "factor": "rank(ts_corr(low, volume, 10)) - rank(ts_corr(high, volume, 10))",
+    "description": "Asymmetry in low-volume vs high-volume correlation \u2014 accumulation vs distribution tilt"
+  },
+  {
+    "factor": "rank(ts_mean((vwap - open) / (open + 0.0001) * volume, 10))",
+    "description": "Volume-weighted intraday drift from open to VWAP \u2014 early session demand signal"
+  },
+  {
+    "factor": "zscore(ts_mean(returns * power(volume / adv20, 2), 10))",
+    "description": "Returns weighted by squared relative volume \u2014 heavily emphasizes extreme volume events"
+  },
+  {
+    "factor": "rank(ts_delta(ts_corr(close, volume, 10), 5))",
+    "description": "5-day change in price-volume correlation \u2014 momentum in correlation structure"
+  },
+  {
+    "factor": "rank(ts_std(returns * volume, 10) / (ts_std(returns, 10) * ts_std(volume, 10) + 0.0001))",
+    "description": "Normalized variability of money flow \u2014 captures joint tail behavior vs independent tails"
+  },
+  {
+    "factor": "rank((close - vwap) / (ts_std(close, 20) + 0.0001)) * rank(volume / adv20)",
+    "description": "Volatility-normalized VWAP deviation amplified by relative volume \u2014 high-confidence dislocation"
+  },
+  {
+    "factor": "-1 * rank(ts_mean(ts_delta(volume, 1) * ts_delta(close, 1), 10))",
+    "description": "Negative average of daily volume-price co-changes \u2014 contrarian reversal on synchronized spikes"
+  },
+  {
+    "factor": "rank(ts_std(returns, 5) / ts_std(returns, 60))",
+    "description": "Short-term to long-term volatility ratio \u2014 detects volatility regime shifts; high values indicate volatility expansion"
+  },
+  {
+    "factor": "rank(-ts_std(returns, 20))",
+    "description": "Negative 20-day realized volatility rank \u2014 low-volatility anomaly: lower-vol stocks tend to outperform"
+  },
+  {
+    "factor": "zscore(ts_mean(high - low, 5) / ts_mean(high - low, 60))",
+    "description": "Short-term vs long-term intraday range ratio \u2014 captures range expansion/compression regimes"
+  },
+  {
+    "factor": "rank(ts_std(returns, 5)) * sign(ts_delta(close, 5))",
+    "description": "Volatility signed by recent momentum \u2014 distinguishes upside volatility from downside volatility"
+  },
+  {
+    "factor": "rank(ts_delta(ts_std(returns, 20), 10))",
+    "description": "Change in 20-day volatility over the last 10 days \u2014 rising volatility regime signal"
+  },
+  {
+    "factor": "rank(log(high / low))",
+    "description": "Log intraday range as a Parkinson volatility proxy \u2014 single-day volatility estimator"
+  },
+  {
+    "factor": "rank(ts_mean(log(high / low), 10))",
+    "description": "10-day average Parkinson range \u2014 smoothed intraday volatility estimate"
+  },
+  {
+    "factor": "zscore(ts_std(volume, 10) / ts_mean(volume, 10))",
+    "description": "Volume coefficient of variation \u2014 captures irregularity in trading activity as a volatility proxy"
+  },
+  {
+    "factor": "rank(ts_std(returns, 10) - ts_std(returns, 60))",
+    "description": "Volatility term structure slope \u2014 positive means short-term vol exceeds long-term, signaling stress"
+  },
+  {
+    "factor": "rank(ts_max(high, 20) - ts_min(low, 20)) / ts_mean(close, 20)",
+    "description": "20-day price channel width normalized by average price \u2014 captures total range-based volatility"
+  },
+  {
+    "factor": "-rank(ts_std(ts_std(returns, 10), 20))",
+    "description": "Negative volatility-of-volatility \u2014 stocks with more stable volatility may carry lower risk premia"
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 5), volume, 20))",
+    "description": "Correlation between short-term volatility and volume \u2014 detects volume-driven volatility patterns"
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10))",
+    "description": "Mean absolute return over 10 days \u2014 robust realized volatility estimator less sensitive to outliers"
+  },
+  {
+    "factor": "rank(ts_mean(abs(close - vwap), 10) / ts_mean(close, 10))",
+    "description": "Average close-to-VWAP deviation \u2014 measures intraday price dispersion around fair value"
+  },
+  {
+    "factor": "-rank(ts_std(returns, 5) / ts_mean(abs(returns), 5))",
+    "description": "Negative kurtosis-like ratio \u2014 penalizes stocks with fat-tailed return distributions"
+  },
+  {
+    "factor": "rank(ts_min(ts_std(returns, 10), 20))",
+    "description": "Minimum 10-day volatility observed in last 20 days \u2014 captures volatility floor level"
+  },
+  {
+    "factor": "zscore(ts_std(returns, 20)) * zscore(-ts_delta(close, 20) / close)",
+    "description": "Volatility interacted with negative momentum \u2014 high-vol recent losers signal potential mean reversion"
+  },
+  {
+    "factor": "rank((high - low) / (ts_max(high, 10) - ts_min(low, 10) + 0.001))",
+    "description": "Today's range as fraction of 10-day total range \u2014 intraday volatility relative to recent swing"
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume / adv20, 20))",
+    "description": "Correlation of absolute returns with relative volume \u2014 captures liquidity-volatility nexus"
+  },
+  {
+    "factor": "zscore(ts_delta(ts_mean(high - low, 5), 5))",
+    "description": "5-day change in average intraday range \u2014 accelerating or decelerating range-based volatility"
+  },
+  {
+    "factor": "rank(ts_std(close / vwap, 20))",
+    "description": "Volatility of close-to-VWAP ratio \u2014 measures consistency of intraday price behavior"
+  },
+  {
+    "factor": "-rank(power(ts_std(returns, 20), 2))",
+    "description": "Negative realized variance \u2014 directly captures the low-volatility premium"
+  },
+  {
+    "factor": "rank(ts_mean(abs(returns), 5) / ts_mean(abs(returns), 60))",
+    "description": "Short-to-long absolute return ratio \u2014 volatility momentum indicator"
+  },
+  {
+    "factor": "rank(ts_std(high - low, 10) / ts_mean(high - low, 10))",
+    "description": "Coefficient of variation of intraday range \u2014 captures irregularity of daily price swings"
+  },
+  {
+    "factor": "zscore(ts_max(returns, 20) - ts_min(returns, 20))",
+    "description": "Return range over 20 days \u2014 captures extreme move dispersion"
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 5), ts_delta(close, 5), 20))",
+    "description": "Correlation between vol changes and price changes \u2014 detects leverage effect (asymmetric vol)"
+  },
+  {
+    "factor": "-rank(ts_mean(power(returns, 2), 20))",
+    "description": "Negative mean squared return \u2014 second moment measure; low-variance stocks favored"
+  },
+  {
+    "factor": "rank((ts_max(high, 10) - close) / (ts_max(high, 10) - ts_min(low, 10) + 0.001))",
+    "description": "Position within 10-day price channel \u2014 proximity to range extremes signals volatility regime"
+  },
+  {
+    "factor": "zscore(ts_std(open - close, 10) / ts_mean(close, 10))",
+    "description": "Volatility of open-close moves \u2014 captures overnight vs intraday directional uncertainty"
+  },
+  {
+    "factor": "rank(ts_delta(log(high / low), 5))",
+    "description": "5-day change in log range \u2014 trend in Parkinson volatility proxy"
+  },
+  {
+    "factor": "rank(ts_std(returns, 10)) - rank(ts_std(returns, 60))",
+    "description": "Cross-sectional volatility term structure rank difference \u2014 relative vol regime positioning"
+  },
+  {
+    "factor": "rank(ts_corr(high - low, volume, 20))",
+    "description": "Correlation between range and volume \u2014 detects if wider ranges come with higher participation"
+  },
+  {
+    "factor": "zscore(ts_mean(high - close, 10) / ts_mean(close - low, 10))",
+    "description": "Upside vs downside range asymmetry \u2014 volatility skew proxy from intraday data"
+  },
+  {
+    "factor": "-rank(ts_max(abs(returns), 20))",
+    "description": "Negative maximum absolute return \u2014 penalizes stocks with recent extreme daily moves"
+  },
+  {
+    "factor": "rank(ts_std(returns, 10) * ts_mean(volume, 10) / adv20)",
+    "description": "Volatility scaled by relative volume \u2014 active volatility capturing informed trading"
+  },
+  {
+    "factor": "zscore(ts_min(low, 10) / ts_max(high, 10))",
+    "description": "Contraction ratio of 10-day range \u2014 higher values mean tighter ranges and low volatility"
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(abs(close - open), 5), 5))",
+    "description": "Change in average absolute open-to-close move \u2014 acceleration in directional volatility"
+  },
+  {
+    "factor": "rank(ts_corr(returns, ts_std(returns, 5), 20))",
+    "description": "Correlation between returns and their own volatility \u2014 asymmetric volatility feedback detection"
+  },
+  {
+    "factor": "-zscore(ts_mean(high - low, 5) / close)",
+    "description": "Negative normalized 5-day average range \u2014 favors tight-range stocks (low intraday vol)"
+  },
+  {
+    "factor": "rank(ts_std(close - ts_mean(close, 5), 20))",
+    "description": "Volatility of detrended price \u2014 captures noise around short-term moving average"
+  },
+  {
+    "factor": "rank(ts_std(volume, 20) / adv20) * sign(-ts_delta(ts_std(returns, 10), 5))",
+    "description": "Volume instability signed by falling volatility \u2014 stabilizing volume regime signal"
+  },
+  {
+    "factor": "zscore(ts_mean(high / low, 20)) * rank(-ts_std(returns, 20))",
+    "description": "Average daily range scaled by low-vol rank \u2014 quality-adjusted range factor"
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 10), adv20, 20))",
+    "description": "Correlation of volatility with average volume \u2014 structural liquidity-volatility relationship"
+  },
+  {
+    "factor": "rank(ts_std(vwap / close, 20))",
+    "description": "Volatility of VWAP-to-close ratio \u2014 measures instability of intraday price distribution"
+  },
+  {
+    "factor": "-rank(ts_mean(power(returns - ts_mean(returns, 20), 2), 20))",
+    "description": "Negative demeaned variance \u2014 penalizes dispersion around local mean return, pure risk measure"
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) / ts_std(close, 20))",
+    "description": "10-day VWAP momentum normalized by 20-day price volatility \u2014 volume-weighted momentum signal-to-noise ratio, favoring stocks with strong directional moves on meaningful volume"
+  },
+  {
+    "factor": "rank(ts_delta(ts_delta(close, 5), 5) / close)",
+    "description": "Second derivative of 5-day price changes \u2014 momentum acceleration signal that detects whether upward momentum is strengthening or weakening"
+  },
+  {
+    "factor": "rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",
+    "description": "Position within 20-day price range (stochastic-like) \u2014 stocks near the top of their recent range exhibit trend persistence"
+  },
+  {
+    "factor": "rank(ts_mean(returns, 5)) - rank(ts_mean(returns, 60))",
+    "description": "Short-term (5-day) vs medium-term (60-day) momentum rank divergence \u2014 captures momentum regime shifts where recent acceleration diverges from longer-term trend"
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 10)) * rank(ts_corr(close, volume, 10))",
+    "description": "10-day return momentum scaled by price-volume correlation rank \u2014 amplifies momentum when price and volume move in tandem, indicating conviction-backed trends"
+  },
+  {
+    "factor": "-rank((close - ts_min(close, 10)) / (ts_max(close, 10) - ts_min(close, 10)))",
+    "description": "Inverted stochastic oscillator: stocks trading near their 10-day high are expected to revert down, while those near the low revert up"
+  },
+  {
+    "factor": "rank((ts_mean(vwap, 10) - close) / close)",
+    "description": "Deviation of current close from 10-day average VWAP \u2014 when price falls below fair transaction value, buying pressure tends to push it back"
+  },
+  {
+    "factor": "-rank(ts_delta(close, 3) / ts_std(close, 20)) * rank(volume / adv20)",
+    "description": "Short-term 3-day return reversal normalized by volatility, amplified by unusual volume \u2014 high-volume sharp moves overshoot and revert more reliably"
+  },
+  {
+    "factor": "rank(ts_mean(close, 50) / close - 1) * rank(ts_std(returns, 10))",
+    "description": "Long-horizon mean reversion (50-day MA gap) weighted by recent realized volatility \u2014 larger dislocations in volatile regimes signal stronger snap-back potential"
+  },
+  {
+    "factor": "rank(ts_mean(returns * (volume / adv20), 10))",
+    "description": "10-day average of volume-weighted returns \u2014 momentum confirmed by above-average volume carries stronger conviction"
+  },
+  {
+    "factor": "rank(ts_delta(volume, 5) / adv20) * sign(-ts_delta(close, 5))",
+    "description": "Rising volume with falling price (and vice versa) \u2014 captures accumulation/distribution divergence between volume trend and price trend"
+  },
+  {
+    "factor": "zscore((close - vwap) / close * log(volume / adv20 + 1))",
+    "description": "VWAP deviation amplified by relative volume surge \u2014 large deviations from VWAP on abnormally high volume signal institutional participation"
+  },
+  {
+    "factor": "rank(ts_mean((high - low) / vwap, 5) / ts_mean(volume / adv20, 5))",
+    "description": "Normalized price range per unit of relative volume \u2014 high spread on low volume signals fragility and potential mean reversion, low spread on high volume signals absorption"
+  },
+  {
+    "factor": "rank(-1 * ts_std(returns, 20))",
+    "description": "Low-volatility anomaly: stocks with lower 20-day realized volatility ranked higher, exploiting the empirical tendency for low-vol stocks to outperform on a risk-adjusted basis"
+  },
+  {
+    "factor": "zscore(ts_std(returns, 5) / ts_std(returns, 60))",
+    "description": "Short-term to long-term volatility ratio: detects volatility regime shifts \u2014 elevated values signal recent vol spikes likely to mean-revert, depressed values signal calm before potential breakout"
+  },
+  {
+    "factor": "rank(-1 * ts_mean((high - low) / close, 10))",
+    "description": "Average normalized intraday range over 10 days: a proxy for realized intraday volatility \u2014 stocks with tighter ranges are ranked higher, capturing mean-reversion in high-range names"
+  },
+  {
+    "factor": "rank(close / (ts_max(high, 20) - ts_min(low, 20)))",
+    "description": "Inverse Bollinger bandwidth: price level divided by 20-day high-low channel width \u2014 high values indicate volatility compression, often preceding directional moves with favorable risk-reward"
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), volume / adv20, 15))",
+    "description": "Correlation between absolute returns and relative volume over 15 days: high correlation means big moves are volume-confirmed (informed trading), low correlation suggests noise-driven volatility likely to revert"
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) / ts_mean(abs(returns), 10))",
+    "description": "3-day price change normalized by average volatility",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(returns, 5) * rank(volume / ts_mean(volume, 15))",
+    "description": "5-day momentum confirmed by volume surge",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10)) - rank(ts_delta(close, 10))",
+    "description": "Divergence between VWAP and close momentum",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_mean(returns, 3)) * zscore(ts_delta(close, 15))",
+    "description": "Short-term trend direction scaled by medium-term momentum surprise",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 5)) / rank(ts_std(returns, 20))",
+    "description": "Return-volume correlation strength relative to volatility regime",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "ts_delta(close, 5) / ts_delta(close, 20) * rank(ts_mean(volume, 3))",
+    "description": "Momentum acceleration confirmed by recent volume activity",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_mean(returns, 10) * ts_mean(returns, 3))",
+    "description": "Product of short and medium-term momentum consistency",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_delta(high, 5)) + zscore(ts_delta(low, 5))",
+    "description": "Combined high-low momentum for breakout detection",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_mean(returns, 5))) * sign(ts_corr(close, volume, 10))",
+    "description": "Momentum magnitude weighted by price-volume relationship",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(returns, 3) / ts_std(ts_delta(close, 5), 15)",
+    "description": "Recent momentum relative to momentum volatility",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(close, 15) / ts_max(close, 15)) * rank(volume)",
+    "description": "Momentum from recent high confirmed by current volume",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(close, 3) - ts_delta(close, 10)) * rank(ts_mean(volume, 5) / adv20)",
+    "description": "Momentum acceleration signal with volume confirmation",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_mean(returns, 5), 2)) - rank(ts_std(returns, 5))",
+    "description": "Squared momentum strength minus momentum consistency",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 3), volume, 10) * rank(ts_delta(close, 20))",
+    "description": "Short-term price-volume correlation scaled by longer momentum",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(log(abs(ts_delta(close, 5)) + 1)) * sign(ts_mean(returns, 10))",
+    "description": "Logarithmic momentum magnitude in direction of medium-term trend",
+    "theme": "momentum",
+    "round": 0
+  },
+  {
+    "factor": "rank(-1 * (close - ts_mean(close, 20)) / ts_std(close, 20))",
+    "description": "Negative standardized distance from 20-day mean - contrarian signal",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_min(close, 10) / close)",
+    "description": "How close current price is to 10-day low - oversold indicator",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_std(close, 5) / ts_mean(close, 15)) * sign(ts_mean(close, 3) - close)",
+    "description": "Short-term volatility scaled by price level, weighted by recent weakness",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "-1 * rank(ts_delta(close, 3)) * rank((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20)))",
+    "description": "Momentum reversal weighted by position within 20-day range",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close - ts_mean(close, 10), volume, 15)) * sign(ts_mean(close, 5) - ts_mean(close, 20))",
+    "description": "Volume response to price deviations modulated by trend direction",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "zscore(abs(returns) / ts_std(returns, 20)) * rank(ts_mean(close, 10) / close)",
+    "description": "Volatility surprise weighted by mean reversion potential",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank(log(close / ts_min(close, 15))) / rank(log(ts_max(close, 15) / close))",
+    "description": "Ratio of distance from lows to distance from highs",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "-1 * rank(power(ts_delta(close, 5) / ts_std(close, 10), 2)) * zscore(volume / ts_mean(volume, 15))",
+    "description": "Squared normalized momentum with volume anomaly - contrarian signal",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_mean(close, 20) - close) * rank(ts_corr(high - low, volume, 10))",
+    "description": "Mean reversion direction weighted by range-volume correlation",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank((ts_mean(close, 3) - ts_mean(close, 15)) / ts_std(close, 20)) * sign(adv20 - volume)",
+    "description": "Short vs medium-term momentum normalized by volatility, weighted by volume weakness",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_max(close, 5) / close - 1) + zscore(close / ts_min(close, 5) - 1)",
+    "description": "Combined distance from recent highs and lows - range extremes",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "-1 * rank(ts_delta(vwap, 10)) * rank((close - ts_mean(low, 15)) / ts_std(low, 15))",
+    "description": "VWAP momentum reversal weighted by deviation from typical lows",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close / ts_mean(close, 10), -1 * returns, 20))",
+    "description": "Correlation between price level deviation and negative returns - contrarian persistence",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_std(close, 3) - ts_std(close, 20)) * rank((high + low) / 2 / close)",
+    "description": "Volatility regime change weighted by intraday range position",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(close - vwap) / ts_std(close - vwap, 15)) * sign(ts_min(returns, 5))",
+    "description": "Price-VWAP deviation scaled by historical spread, weighted by recent weakness",
+    "theme": "mean reversion",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 5)) * sign(ts_delta(close, 3))",
+    "description": "Short-term return-volume correlation modulated by price momentum direction",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_corr(close, log(volume), 15)) - rank(ts_mean(returns, 10))",
+    "description": "Price-log volume correlation divergence from average returns",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_corr(vwap, volume, 20) - ts_corr(close, volume, 20)))",
+    "description": "Divergence between VWAP-volume and close-volume correlations",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_corr(high - low, volume, 10)) * rank(ts_std(returns, 15))",
+    "description": "Range-volume correlation sign weighted by return volatility",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(returns, ts_delta(volume, 3), 10)) / (1 + abs(ts_mean(returns, 5)))",
+    "description": "Return correlation with volume changes normalized by momentum magnitude",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_corr(close / open, volume / ts_mean(volume, 20), 15))",
+    "description": "Intraday performance correlation with relative volume",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_corr(abs(returns), volume, 5), 2)) - rank(ts_delta(close, 10))",
+    "description": "Squared volatility-volume correlation minus price momentum rank",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_corr(vwap / close, volume / adv20, 20)) * rank(ts_max(returns, 5))",
+    "description": "VWAP efficiency-volume correlation sign times recent peak returns",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(ts_mean(close, 3), volume, 15)) * zscore(ts_std(volume, 10))",
+    "description": "Smoothed price-volume correlation weighted by volume volatility",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "abs(ts_corr(returns, volume, 10) - ts_corr(returns, volume, 3)) * rank(close / vwap)",
+    "description": "Multi-timeframe volume correlation divergence scaled by price efficiency",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close - ts_min(close, 20), log(volume / adv20), 10))",
+    "description": "Correlation between price recovery and log relative volume",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_corr(returns, sign(volume - ts_mean(volume, 5)), 15))",
+    "description": "Return correlation with volume direction relative to recent average",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(high / close, volume / ts_max(volume, 15), 10)) / (1 + ts_std(returns, 20))",
+    "description": "High-close ratio correlation with relative volume normalized by volatility",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(ts_corr(close, volume, 5), 10)) * rank(abs(returns))",
+    "description": "Trend in price-volume correlation weighted by return magnitude",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close / ts_mean(close, 15), power(volume / adv20, 0.5), 20)) - zscore(returns)",
+    "description": "Price momentum-sqrt volume correlation minus standardized returns",
+    "theme": "volume-price divergence",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_std(close, 10)) * rank(volume / adv20)",
+    "description": "Volatility breakout signal weighted by unusual volume",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(returns, 5), ts_std(returns, 15), 10))",
+    "description": "Volatility clustering through correlation of short and medium-term vol",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_std(returns, 3) - ts_mean(ts_std(returns, 3), 15))",
+    "description": "Recent volatility above its historical average",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_std(returns, 10), 2) / power(ts_std(returns, 20), 2))",
+    "description": "Squared volatility ratio for variance clustering detection",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "ts_delta(ts_std(close, 5), 3) * rank(abs(returns))",
+    "description": "Change in volatility weighted by current return magnitude",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max(ts_std(returns, 5), 15) / ts_std(returns, 20))",
+    "description": "Peak recent volatility relative to baseline volatility",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "-1 * rank(ts_std(ts_std(returns, 3), 10))",
+    "description": "Volatility of volatility - second-order volatility clustering",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_std(high - low, 10)) / zscore(ts_std(returns, 10))",
+    "description": "Intraday range volatility relative to return volatility",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_std(vwap, 5) / ts_std(close, 5) - 1)",
+    "description": "VWAP volatility exceeding price volatility signal",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_min(ts_std(returns, 5), 20)) * sign(ts_delta(close, 10))",
+    "description": "Minimum recent volatility modulated by momentum direction",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "log(ts_std(returns, 15) / ts_std(returns, 3)) * rank(volume / ts_mean(volume, 10))",
+    "description": "Log volatility term structure weighted by volume anomaly",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_delta(ts_std(close, 10), 5))) / zscore(ts_std(returns, 20))",
+    "description": "Change in volatility regime normalized by background volatility",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "power(rank(ts_std(returns, 5)), 2) - power(rank(ts_std(returns, 20)), 2)",
+    "description": "Squared difference of volatility ranks across timeframes",
+    "theme": "volatility regimes",
+    "round": 0
+  },
+  {
+    "factor": "rank(log(volume / adv20))",
+    "description": "Relative volume surprise in log space",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_delta(volume, 5) / adv20)",
+    "description": "5-day volume change normalized by average daily volume",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(log(volume / adv20), returns, 10))",
+    "description": "Correlation between volume surprise and returns over 10 days",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(volume, 3)) * rank(abs(returns))",
+    "description": "Volume trend direction weighted by return magnitude",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_std(volume / adv20, 15))",
+    "description": "Volatility of relative volume over 15 days",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "ts_delta(log(volume), 10) / ts_std(log(volume), 20)",
+    "description": "10-day volume momentum normalized by 20-day volume volatility",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max(volume / adv20, 5) - ts_mean(volume / adv20, 5))",
+    "description": "Peak relative volume vs average over 5 days",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "zscore(volume / adv20) * sign(ts_delta(close, 3))",
+    "description": "Volume anomaly modulated by price momentum direction",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(volume, 3), ts_delta(close, 3), 15))",
+    "description": "Correlation between volume and price changes over 15 days",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) * rank(ts_delta(vwap, 5))",
+    "description": "Squared volume rank weighted by VWAP momentum",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(log(volume / adv20), 10) - log(volume / adv20)",
+    "description": "Current volume surprise vs 10-day average surprise",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_delta(volume, 5)) / ts_mean(volume, 20))",
+    "description": "Magnitude of 5-day volume change relative to 20-day average",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_corr(volume, close, 5)) * rank(volume / ts_max(volume, 10))",
+    "description": "Price-volume correlation direction weighted by volume spike intensity",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_delta(volume / adv20, 3)) / (1 + abs(returns))",
+    "description": "3-day change in relative volume scaled by return magnitude",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_min(volume / adv20, 10)) * ts_delta(log(close), 15)",
+    "description": "Minimum relative volume over 10 days weighted by long-term momentum",
+    "theme": "liquidity and flow",
+    "round": 0
+  },
+  {
+    "factor": "rank((close - open) / (high - low))",
+    "description": "Body-to-range ratio: measures how much of the daily range was captured by open-to-close movement",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean((high - close) / (high - low), 5)",
+    "description": "5-day average upper shadow ratio: proportion of range above closing price",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr((open - low) / (high - low), volume, 10))",
+    "description": "Correlation between lower wick positioning and volume over 10 days",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta((close - open) / (high - low), 3)) * rank(volume / adv20)",
+    "description": "3-day change in body ratio direction weighted by relative volume",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "zscore(abs(close - open) / ts_std(high - low, 15))",
+    "description": "Body size normalized by 15-day range volatility",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(high - vwap, low - vwap, 10)) * sign(close - open)",
+    "description": "High-low symmetry around VWAP modulated by bullish/bearish bias",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(power((open - close) / (high - low), 2), 20)",
+    "description": "20-day average squared body-to-range ratio: persistence of intraday directional moves",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank((high - open) / (close - low)) / rank(ts_std(returns, 10))",
+    "description": "Upper-open to close-lower ratio normalized by return volatility",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr((high + low) / 2 - open, close - open, 5)",
+    "description": "5-day correlation between midpoint-open gap and body direction",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max((close - open) / (high - low), 10)) - rank(ts_min((close - open) / (high - low), 10))",
+    "description": "10-day body ratio range: difference between maximum and minimum body-to-range ratios",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "sign(open - ts_mean(close, 3)) * rank(abs(high - low) / ts_mean(high - low, 15))",
+    "description": "Opening gap direction weighted by relative daily range",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "ts_delta(log((high - close) / (close - low + 0.01)), 5)",
+    "description": "5-day change in log upper-to-lower shadow ratio",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_std((open + close) / 2 / vwap, 10)) * zscore((high - low) / close)",
+    "description": "Volatility of open-close midpoint relative to VWAP weighted by normalized range",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(rank(close - open), rank(high - open), 15) * rank(volume)",
+    "description": "15-day correlation of body and upper wick ranks scaled by volume rank",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank((close - ts_mean(open, 5)) / ts_std(high - low, 20))",
+    "description": "Close deviation from 5-day opening average normalized by 20-day range volatility",
+    "theme": "intraday structure",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close, ts_mean(close, 3), 10))",
+    "description": "Correlation between price and its short-term trend",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(sign(returns), 15) * rank(ts_std(close, 20))",
+    "description": "Directional consistency weighted by volatility rank",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) / ts_mean(close, 20)) - rank(ts_mean(close, 3) / ts_mean(close, 10))",
+    "description": "Long-term trend strength minus short-term trend strength",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_corr(close, volume, 5)) * sign(ts_delta(ts_mean(close, 10), 5))",
+    "description": "Price-volume correlation modulated by moving average momentum",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_mean(close, 3) - ts_mean(close, 15))) / ts_std(returns, 10)",
+    "description": "Moving average divergence normalized by return volatility",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "power(ts_mean(sign(ts_delta(close, 1)), 10), 2) * rank(volume / adv20)",
+    "description": "Squared trend persistence weighted by relative volume",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(sign(returns), sign(ts_delta(vwap, 1)), 20)",
+    "description": "Correlation between return direction and VWAP momentum direction",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max(close, 15) / close) - rank(close / ts_min(close, 15))",
+    "description": "Distance from recent high minus inverse distance from recent low",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_mean(close, 5) - ts_mean(close, 20)) * ts_corr(high, low, 10)",
+    "description": "Trend direction weighted by high-low correlation",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(sign(close - open), 10) / ts_std(sign(close - open), 10)",
+    "description": "Intraday direction consistency Sharpe ratio",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(vwap, 10), 5)) * zscore(ts_mean(returns, 3))",
+    "description": "VWAP trend acceleration weighted by short-term return anomaly",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(ts_mean(close, 3), ts_mean(close, 15), 10) - ts_corr(ts_mean(close, 5), ts_mean(close, 10), 10)",
+    "description": "Long vs medium trend correlation difference",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_std(close, 5) - ts_std(close, 20)) * rank(ts_mean(sign(returns), 15))",
+    "description": "Volatility regime change weighted by directional persistence",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "log(ts_mean(abs(ts_delta(close, 1)), 10)) * ts_mean(sign(ts_delta(close, 1)), 10)",
+    "description": "Average daily move magnitude weighted by directional bias",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close / ts_mean(close, 20), volume / adv20, 15)) * sign(ts_delta(close, 10))",
+    "description": "Price deviation-volume correlation weighted by momentum direction",
+    "theme": "trend strength and persistence",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(returns, 3) / power(ts_std(returns, 20), 3))",
+    "description": "Standardized skewness proxy using cubed returns",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank((close - ts_max(close, 15)) / ts_max(close, 15)) * sign(ts_delta(volume, 5))",
+    "description": "Drawdown from 15-day high weighted by volume momentum direction",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(returns) / ts_std(returns, 10)) * rank(ts_corr(high, low, 5))",
+    "description": "Volatility shock scaled by intraday range correlation",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_min(returns, 10) / ts_mean(returns, 10))",
+    "description": "Worst 10-day return relative to average performance",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "-1 * rank(ts_max(abs(returns), 20)) * rank(volume / adv20)",
+    "description": "Maximum absolute return over 20 days weighted by relative volume",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank((ts_max(close, 20) - ts_min(close, 20)) / ts_mean(close, 20)) * sign(power(returns, 3))",
+    "description": "20-day range volatility modulated by return skewness direction",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(log(ts_max(volume, 15) / ts_min(volume, 15))) / rank(abs(ts_delta(close, 3)))",
+    "description": "Volume range expansion relative to 3-day price shock",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(abs(returns), ts_std(returns, 5), 10)) * rank((close - vwap) / vwap)",
+    "description": "Correlation of volatility with rolling volatility weighted by VWAP deviation",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(ts_max(returns, 5), 3)) * rank(power(abs(returns), 2))",
+    "description": "Change in 5-day max return direction scaled by squared absolute returns",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_std(power(returns, 3), 15)) * rank(ts_delta(volume, 10) / adv20)",
+    "description": "Rolling skewness volatility weighted by volume momentum",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank((ts_min(close, 10) - close) / ts_std(close, 10)) * sign(returns)",
+    "description": "Distance from 10-day low in volatility units modulated by return sign",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_corr(returns, power(returns, 3), 20))) / rank(ts_mean(abs(returns), 5))",
+    "description": "Absolute return-skewness correlation relative to short-term volatility",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_max(abs(returns), 10) / ts_mean(abs(returns), 10), 2))",
+    "description": "Squared ratio of maximum to average absolute returns over 10 days",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "-1 * rank(ts_delta(ts_min(returns, 15), 5)) * rank(ts_corr(volume, abs(returns), 3))",
+    "description": "Change in 15-day minimum return weighted by short-term volume-volatility correlation",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "zscore((close - ts_min(close, 20)) / (ts_max(close, 20) - ts_min(close, 20))) * rank(power(returns, 3))",
+    "description": "Standardized position within 20-day range weighted by return skewness proxy",
+    "theme": "tail risk and extreme moves",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) / ts_std(returns, 10)) * rank(volume / ts_mean(volume, 15))",
+    "description": "Short-term momentum standardized by volatility multiplied by volume anomaly",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_corr(high, low, 5)) / abs(ts_delta(vwap, 10))",
+    "description": "High-low correlation normalized divided by VWAP momentum magnitude",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_std(close, 20)) * sign(ts_corr(close, volume, 5))",
+    "description": "Volatility rank modulated by price-volume correlation direction",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "ts_mean(returns, 3) / ts_std(volume, 15) * rank(close / open)",
+    "description": "Short-term returns scaled by volume volatility weighted by intraday strength",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max(high, 10) / close) * zscore(adv20 - volume)",
+    "description": "Distance from recent highs multiplied by volume surprise",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 5)) / rank(ts_corr(returns, volume, 20))",
+    "description": "VWAP momentum direction scaled by inverse price-volume correlation strength",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "power(ts_corr(close, vwap, 10), 2) * rank(ts_delta(volume, 3))",
+    "description": "Squared price-VWAP correlation weighted by volume momentum",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "rank(low / ts_min(low, 15)) / ts_std(close, 5)",
+    "description": "Recovery from recent lows scaled by inverse short-term volatility",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "abs(ts_delta(close, 20)) * rank(ts_corr(open, close, 10))",
+    "description": "Long-term momentum magnitude weighted by intraday correlation strength",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_mean(high / low, 5)) * sign(returns - ts_mean(returns, 10))",
+    "description": "Range expansion signal modulated by relative performance direction",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "rank(volume / vwap) / ts_corr(close, ts_mean(close, 20), 15)",
+    "description": "Volume intensity scaled by inverse trend consistency",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "ts_delta(open, 5) * rank(ts_std(volume, 10) / adv20)",
+    "description": "Opening price momentum weighted by relative volume volatility",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "sign(close - ts_max(close, 10)) / rank(ts_corr(vwap, volume, 15))",
+    "description": "Breakout failure signal scaled by inverse VWAP-volume correlation",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "log(volume / ts_min(volume, 20)) * zscore(ts_delta(high, 3))",
+    "description": "Volume surge measure weighted by high price momentum",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(returns, ts_delta(volume, 5), 10)) / abs(close - vwap)",
+    "description": "Return-volume momentum correlation scaled by price-VWAP deviation",
+    "theme": "cross-signal interactions",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_mean(close, 5) / ts_mean(close, 20))",
+    "description": "Short-term vs long-term price momentum comparison",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_std(returns, 3) / ts_std(returns, 15))",
+    "description": "Relative volatility regime change signal",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(volume, 5) - ts_delta(volume, 20))",
+    "description": "Volume momentum divergence between timeframes",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max(high, 3) / ts_max(high, 10)) * rank(volume / adv20)",
+    "description": "Recent strength vs medium-term strength weighted by volume",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(ts_mean(vwap, 5), ts_mean(vwap, 20), 10)",
+    "description": "Correlation between short and long VWAP trends",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_delta(close, 3) - ts_delta(close, 15)))",
+    "description": "Magnitude of momentum divergence across timeframes",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_min(low, 5) / ts_min(low, 20)) * sign(returns)",
+    "description": "Support level comparison modulated by daily direction",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_mean(close, 3) / ts_mean(close, 10), 2))",
+    "description": "Squared short vs medium-term price ratio",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "ts_delta(ts_std(volume, 5), 10) / ts_std(volume, 20)",
+    "description": "Evolution of short-term volume volatility vs baseline",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(close, volume, 5) - ts_corr(close, volume, 15))",
+    "description": "Price-volume relationship strength divergence",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "log(ts_mean(vwap, 3) / ts_mean(vwap, 20)) * rank(adv20)",
+    "description": "Log price trend ratio weighted by liquidity",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "zscore((ts_max(high, 5) - ts_min(low, 5)) / (ts_max(high, 20) - ts_min(low, 20)))",
+    "description": "Relative trading range comparison across timeframes",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(returns, 3), 5) / ts_std(returns, 10))",
+    "description": "Change in short-term momentum normalized by volatility",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_std(close, 5) - ts_std(close, 15)) * rank(volume)",
+    "description": "Volatility regime shift signal weighted by volume",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 3), ts_delta(close, 10), 20) * rank(close / open)",
+    "description": "Multi-timeframe momentum consistency modulated by intraday strength",
+    "theme": "multi-timeframe",
+    "round": 0
+  },
+  {
+    "factor": "rank(close - vwap) / ts_std(close - vwap, 10)",
+    "description": "Current VWAP deviation normalized by its 10-day volatility",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(vwap, close, 5) - ts_corr(vwap, volume, 5)",
+    "description": "Divergence between VWAP-price vs VWAP-volume correlations over 5 days",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 3)) * sign(close - vwap)",
+    "description": "VWAP momentum direction weighted by current price-VWAP spread sign",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "zscore(vwap / ts_mean(vwap, 15)) - zscore(close / ts_mean(close, 15))",
+    "description": "Relative strength divergence between VWAP and close vs their moving averages",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_std(vwap - close, 20)) * rank(volume / adv20)",
+    "description": "VWAP-close spread volatility amplified by relative volume",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(abs(vwap - close), returns, 10)",
+    "description": "Correlation between VWAP deviation magnitude and daily returns",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "rank(vwap / close) - rank(ts_mean(vwap / close, 5))",
+    "description": "Current VWAP ratio vs its 5-day average ranking",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 10)) / (1 + abs(close - vwap))",
+    "description": "VWAP trend direction scaled inversely by price-VWAP deviation",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_corr(vwap, volume, 20), 3)) * zscore(vwap - ts_mean(close, 20))",
+    "description": "Cubed VWAP-volume correlation weighted by VWAP deviation from price MA",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(rank(vwap), rank(close), 10) - 0.5",
+    "description": "10-day rank correlation between VWAP and close minus neutral level",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "log(abs(vwap - close) + 1) * rank(ts_delta(volume, 5))",
+    "description": "Log VWAP deviation scaled by volume momentum ranking",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "(vwap - ts_min(vwap, 10)) / (ts_max(close, 10) - ts_min(close, 10))",
+    "description": "VWAP position in its range relative to price range width",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_mean(vwap / close, 3)) / rank(ts_std(returns, 15))",
+    "description": "Short-term VWAP ratio strength divided by return volatility ranking",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "ts_corr(ts_delta(vwap, 1), ts_delta(close, 1), 20) * sign(vwap - close)",
+    "description": "VWAP-price change correlation over 20 days modulated by current spread direction",
+    "theme": "VWAP-based signals",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(vwap, 5), ts_std(volume, 10), 15))",
+    "description": "Correlation between 5-day VWAP momentum and 10-day volume volatility over 15 days",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_mean(abs(returns), 10) * rank(volume / adv20))",
+    "description": "Average volatility amplified by relative volume anomaly",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_corr(high - low, ts_mean(returns, 5), 20), 2))",
+    "description": "Squared correlation between daily range and recent momentum trend",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_delta(close, 3)) * rank(ts_std(vwap / close, 15))",
+    "description": "Short-term momentum direction weighted by VWAP-price spread volatility",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_max(volume, 10) / ts_mean(volume * abs(returns), 20))",
+    "description": "Peak volume relative to volatility-weighted average volume",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_corr(log(volume), ts_delta(high, 5), 10) * rank(close / vwap))",
+    "description": "Log-volume correlation with high momentum, scaled by price-VWAP premium",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_min(returns, 15) + ts_std(close / ts_mean(close, 10), 5))",
+    "description": "Worst 15-day return combined with short-term relative price volatility",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_mean(volume - adv20, 10)) * rank(power(abs(returns), 3))",
+    "description": "Volume trend direction weighted by cubed absolute returns",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_corr(open / close, ts_max(volume, 5), 20) / ts_std(vwap, 10))",
+    "description": "Open-close gap correlation with peak volume, normalized by VWAP volatility",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_delta(rank(volume), 3) * ts_mean(high / low, 15))",
+    "description": "Volume rank momentum multiplied by average daily range ratio",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(power(ts_corr(returns, volume / ts_mean(volume, 20), 10), 2) * sign(ts_delta(vwap, 5)))",
+    "description": "Squared return-volume correlation modulated by VWAP momentum direction",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "sign(ts_std(close, 5) - ts_std(close, 20)) * rank(ts_corr(low, volume, 15))",
+    "description": "Volatility regime change weighted by low-price volume correlation",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(abs(ts_delta(open, 10)) / ts_max(high - low, 20) + rank(volume / adv20))",
+    "description": "Opening price momentum relative to maximum range plus volume surprise",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "zscore(ts_mean(power(returns, 2), 10) * ts_corr(close, ts_delta(volume, 3), 15))",
+    "description": "Average squared returns scaled by price correlation with volume momentum",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(log(ts_std(vwap / ts_mean(vwap, 10), 20)) * sign(ts_corr(high, volume, 5)))",
+    "description": "Log relative VWAP volatility weighted by high-volume correlation sign",
+    "theme": "composite and deeply nested",
+    "round": 0
+  },
+  {
+    "factor": "rank(ts_delta(close, 3) / ts_mean(abs(returns), 15)) * rank(volume / ts_mean(volume, 5))",
+    "description": "Short-term momentum normalized by volatility, weighted by volume surge",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 5)) * sign(ts_corr(returns, volume / adv20, 10))",
+    "description": "5-day momentum strength modulated by return-volume correlation direction",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 10) / ts_std(vwap, 20)) / (1 + abs(rank(volume) - 0.5))",
+    "description": "VWAP momentum normalized by volatility, dampened by extreme volume",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 5), ts_delta(volume, 5), 15) * rank(ts_mean(returns, 3))",
+    "description": "Correlation of price and volume changes weighted by recent momentum",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(ts_mean(returns, 10), 2)) - rank(ts_std(returns, 10))",
+    "description": "Squared momentum signal minus volatility rank for consistent trends",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(close, 20)) * rank(ts_corr(high - low, volume, 10))",
+    "description": "Long-term direction multiplied by intraday volatility-volume correlation",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "log(1 + abs(ts_delta(close, 5))) * rank(ts_mean(volume / adv20, 3))",
+    "description": "Log momentum magnitude weighted by short-term relative volume",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_mean(returns, 15) / ts_max(abs(returns), 15)) * zscore(volume)",
+    "description": "Momentum consistency ratio weighted by volume standardization",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(returns), rank(volume), 10) * sign(ts_delta(close, 7) - ts_delta(vwap, 7))",
+    "description": "Return-volume rank correlation modulated by price-VWAP momentum divergence",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(returns, 5)) / rank(ts_std(ts_delta(close, 3), 10)) + rank(volume / ts_mean(volume, 20))",
+    "description": "Minimum momentum stability plus volume anomaly composite",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(ts_corr(close, ts_mean(close, 10), 15)), 2) * sign(ts_mean(returns, 5))",
+    "description": "Squared trend consistency weighted by momentum direction",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "abs(ts_delta(close, 10)) / ts_mean(high - low, 10) * rank(ts_corr(returns, volume, 5))",
+    "description": "Momentum magnitude per range unit weighted by return-volume correlation",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_mean(returns, 3)) - rank(ts_mean(returns, 20)) + zscore(volume / vwap)",
+    "description": "Short minus long momentum spread plus volume-price interaction",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(ts_delta(close, 5), ts_mean(volume, 5), 10) / (1 + ts_std(returns, 15))",
+    "description": "Price change-volume correlation dampened by volatility",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(close, 15)) * rank(ts_mean(abs(returns), 5) * volume / adv20)",
+    "description": "Medium-term direction weighted by volatility-adjusted volume anomaly",
+    "theme": "momentum",
+    "round": 1
+  },
+  {
+    "factor": "rank((close - ts_mean(close, 10)) / ts_std(close, 10)) * rank(1 / (volume / adv20))",
+    "description": "Bollinger band position weighted by inverse relative volume",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "-1 * zscore(ts_delta(close, 3)) * rank(ts_max(high, 15) - close)",
+    "description": "Short-term momentum reversal scaled by distance from recent highs",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "rank(sign(ts_mean(close, 5) - close) * abs(close - ts_mean(close, 20)))",
+    "description": "Mean reversion signal amplified by deviation magnitude",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(close / ts_mean(close, 15)), rank(ts_std(returns, 5)), 10)",
+    "description": "Correlation between price deviation and volatility ranks over 10 days",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "power(rank((ts_min(low, 20) - close) / (ts_max(high, 20) - ts_min(low, 20))), 2)",
+    "description": "Squared rank of position within 20-day trading range",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 5) / ts_mean(close, 15)) * sign(ts_mean(volume, 3) - volume)",
+    "description": "VWAP momentum reversal modulated by recent volume pattern",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "-1 * rank(log(abs(close - ts_mean(close, 10)) + 1)) / rank(ts_std(close, 20))",
+    "description": "Log deviation from 10-day MA normalized by 20-day volatility rank",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "zscore((high + low) / 2 - ts_mean(vwap, 15)) * rank(1 / ts_corr(close, volume, 5))",
+    "description": "Midpoint deviation from VWAP MA weighted by inverse price-volume correlation",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(close, 10) / close) + rank(ts_std(returns, 3) / ts_std(returns, 15))",
+    "description": "Proximity to 10-day lows plus short-term vs long-term volatility ratio",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(close, 1)) * rank((close - ts_mean(low, 10)) / (ts_mean(high, 10) - ts_mean(low, 10)))",
+    "description": "Daily return direction scaled by position in average high-low channel",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(sign(returns), rank(volume / ts_mean(volume, 20)), 15) * rank(close / ts_max(close, 5))",
+    "description": "Return-volume pattern correlation scaled by recent price weakness",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(abs(close - vwap) / ts_std(close, 10), 3)) * sign(ts_mean(close, 20) - close)",
+    "description": "Cubed price-VWAP deviation normalized by volatility, directionally adjusted",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "-1 * zscore(ts_delta(open, 3) / open) / (rank(ts_corr(high, low, 10)) + 0.01)",
+    "description": "Opening gap mean reversion normalized by high-low correlation stability",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "rank((ts_mean(close, 3) - ts_mean(close, 15)) / ts_mean(close, 15)) * ts_corr(returns, volume / adv20, 5)",
+    "description": "Short vs medium MA momentum scaled by return-relative volume correlation",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_max(close, 5) + ts_min(close, 5) - 2 * close) * rank(ts_std(vwap, 10) / ts_mean(vwap, 10))",
+    "description": "5-day range midpoint reversion signal weighted by VWAP coefficient of variation",
+    "theme": "mean reversion",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 10)) * sign(ts_delta(close, 3) - ts_delta(volume, 3))",
+    "description": "Return-volume correlation weighted by price-volume momentum divergence",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(close / ts_mean(close, 5), log(volume), 15)) / (1 + abs(ts_delta(vwap, 10)))",
+    "description": "Price momentum vs log-volume correlation dampened by VWAP stability",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(ts_corr(high - low, volume / ts_mean(volume, 20), 5), 10))",
+    "description": "Volatility of daily range vs relative volume correlation",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "-1 * rank(ts_corr(vwap / close, power(volume / adv20, 2), 20)) * rank(ts_delta(returns, 5))",
+    "description": "VWAP-price ratio vs squared volume correlation weighted by return momentum",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_corr(ts_delta(close, 3), ts_delta(volume, 3), 10) - ts_mean(ts_corr(returns, volume, 10), 15))",
+    "description": "Short-term price-volume momentum correlation vs historical return-volume correlation",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(ts_corr(close, volume, 5) - ts_corr(close, volume, 20))) * zscore(volume / vwap)",
+    "description": "Divergence in short vs long-term price-volume correlation weighted by volume-VWAP ratio",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(returns), rank(volume / ts_max(volume, 15)), 10) / (1 + ts_std(close / vwap, 5))",
+    "description": "Cross-sectional return-volume correlation normalized by price-VWAP stability",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(ts_corr(open / close, volume / adv20, 10), 5)) * sign(ts_mean(returns, 3))",
+    "description": "Change in gap-volume correlation modulated by recent return direction",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(ts_mean(high / low, 3), log(volume / ts_min(volume, 20)), 15))",
+    "description": "Daily range trend vs relative log-volume correlation",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(ts_corr(vwap - close, volume - ts_mean(volume, 10), 5), 3)) / ts_std(returns, 20)",
+    "description": "Cubed VWAP deviation vs volume deviation correlation scaled by volatility",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "-1 * ts_corr(sign(ts_delta(close, 1)), rank(volume / adv20), 10) * rank(ts_std(vwap / close, 5))",
+    "description": "Daily direction vs relative volume correlation weighted by VWAP-price ratio volatility",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(ts_corr(returns, volume / ts_mean(volume, 5), 3), 15)) - rank(ts_min(ts_corr(returns, volume, 10), 20))",
+    "description": "Maximum short-term return-volume correlation vs minimum medium-term correlation",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(abs(close - vwap), power(volume / adv20 - 1, 2), 10)) * sign(ts_delta(close / ts_mean(close, 20), 5))",
+    "description": "Price-VWAP deviation vs squared volume anomaly correlation weighted by trend direction",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(ts_corr(log(close / open), log(volume / ts_mean(volume, 3)), 5), 10)) / (1 + abs(ts_corr(high, low, 15)))",
+    "description": "Volatility of intraday vs volume correlation normalized by high-low correlation",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(ts_delta(close, 10) / ts_std(close, 10)), rank(volume / ts_max(volume, 20)), 15) * zscore(vwap / ts_mean(vwap, 5))",
+    "description": "Momentum-volatility rank vs relative volume rank correlation weighted by VWAP trend",
+    "theme": "volume-price divergence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(close, 5) / ts_std(close, 20)) * sign(ts_delta(ts_std(returns, 10), 3))",
+    "description": "Short-term volatility expansion weighted by volatility momentum direction",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "zscore(power(ts_std(returns, 15), 2) / ts_mean(power(ts_std(returns, 3), 2), 10))",
+    "description": "Volatility clustering: 15-day vol-squared relative to rolling average of 3-day vol-squared",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(ts_std(close, 5), ts_std(volume, 5), 10)) / (1 + abs(ts_delta(close, 3)))",
+    "description": "Price-volume volatility correlation dampened by recent price movement",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_std(returns, 20) - ts_mean(ts_std(returns, 5), 15)) * rank(volume / ts_std(volume, 10))",
+    "description": "Long-term vol deviation from short-term vol average, weighted by volume surprise",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(ts_std(close, 3), 10) / ts_min(ts_std(close, 3), 10)) * zscore(ts_delta(vwap, 5))",
+    "description": "Volatility range expansion over 10 days modulated by price momentum",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(ts_std(high - low, 10) / ts_std(close, 10)), 2) - rank(ts_corr(returns, abs(returns), 15))",
+    "description": "Range-based volatility dominance minus return-volatility correlation",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "ts_delta(log(ts_std(returns, 10) + 0.001), 5) * rank(ts_std(volume / adv20, 10))",
+    "description": "Log-volatility momentum weighted by relative volume volatility",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(open / close, 15)) / (rank(ts_std(vwap / close, 15)) + 0.1)",
+    "description": "Opening gap volatility relative to intraday price volatility",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_std(ts_delta(close, 1), 20)) * sign(ts_corr(close, ts_std(close, 5), 10))",
+    "description": "Daily return volatility scaled by price-volatility relationship",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(ts_std(returns, 5) / ts_std(returns, 20), 3)) * rank(ts_delta(volume, 10))",
+    "description": "Cubed volatility ratio weighted by volume momentum for breakout detection",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(power(ts_std(close, 3), 2), power(ts_std(volume, 3), 2), 15) * rank(abs(ts_delta(close, 5)))",
+    "description": "Volatility clustering correlation between price and volume, scaled by momentum magnitude",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(ts_std(returns, 5), 10)) / ts_mean(abs(ts_delta(ts_std(close, 10), 3)), 5)",
+    "description": "Volatility-of-volatility relative to average volatility change",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_std(close, 10) - ts_max(ts_std(close, 10), 20)) * zscore(ts_std(high / vwap, 15))",
+    "description": "Volatility breakout signal weighted by intraday price dispersion",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(abs(ts_delta(close, 1)), ts_std(volume, 5), 10)) * power(rank(ts_std(returns, 15)), 2)",
+    "description": "Absolute momentum-volume volatility correlation amplified by squared volatility rank",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "ts_delta(power(ts_std(close, 5), 2), 3) / (ts_std(power(returns, 2), 10) + 0.001)",
+    "description": "Volatility-squared momentum normalized by return variance volatility",
+    "theme": "volatility regimes",
+    "round": 1
+  },
+  {
+    "factor": "rank(log(volume / adv20) * ts_delta(close, 3) / ts_std(returns, 15))",
+    "description": "Log relative volume weighted by normalized short-term momentum",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(ts_delta(volume, 5), abs(returns), 10)) * sign(volume - adv20)",
+    "description": "Volume change-volatility correlation modulated by volume anomaly direction",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(volume / adv20, 20) - ts_mean(volume / adv20, 5))",
+    "description": "Peak relative volume vs recent average relative volume",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(volume / adv20), 2) / (1 + ts_std(log(volume / adv20), 10))",
+    "description": "Squared relative volume rank normalized by log volume stability",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(log(volume), ts_delta(vwap, 3), 15) * rank(ts_delta(volume, 10))",
+    "description": "Log volume-price change correlation weighted by volume trend strength",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(volume / adv20, 5)) * rank(abs(ts_delta(close, 3)) / ts_mean(abs(returns), 20))",
+    "description": "Volume trend direction weighted by relative momentum magnitude",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(volume / adv20, 10)) - rank(ts_max(volume / adv20, 3))",
+    "description": "Minimum 10-day relative volume minus maximum 3-day relative volume",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(log(volume / adv20), 5)) * ts_corr(volume, power(returns, 2), 15)",
+    "description": "Average log relative volume scaled by volume-variance correlation",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(volume / adv20, 20) / ts_mean(volume / adv20, 20)) * sign(ts_delta(close, 10))",
+    "description": "Relative volume coefficient of variation modulated by momentum direction",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "ts_delta(rank(volume / adv20), 5) / (1 + abs(ts_corr(volume, close, 10)))",
+    "description": "Change in relative volume rank normalized by price-volume correlation strength",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "log(1 + abs(ts_delta(volume, 3))) * rank(ts_delta(close, 5) / ts_delta(volume, 5))",
+    "description": "Log volume change magnitude weighted by price-to-volume change ratio rank",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(volume / adv20, 0.5) * ts_std(returns, 10)) - rank(ts_mean(volume / adv20, 15))",
+    "description": "Square root relative volume times volatility rank minus average relative volume rank",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_max(volume, 5) / ts_min(volume, 5)) * ts_corr(log(volume / adv20), returns, 20)",
+    "description": "Short-term volume range z-score weighted by long-term log relative volume-return correlation",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "sign(volume - ts_mean(volume, 10)) * rank(ts_corr(ts_delta(volume, 3), ts_delta(close, 3), 15))",
+    "description": "Volume anomaly direction weighted by volume change-price change correlation rank",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(log(volume / adv20), 10) * abs(ts_delta(close, 5))) / (1 + rank(ts_mean(volume / adv20, 20)))",
+    "description": "Log relative volume volatility times momentum magnitude normalized by average relative volume rank",
+    "theme": "liquidity and flow",
+    "round": 1
+  },
+  {
+    "factor": "rank((close - open) / (high - low)) * ts_corr(volume, abs(high - low), 10)",
+    "description": "Body-to-range ratio weighted by volume-volatility correlation",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean((high - close) / (high - low), 5)) - zscore(ts_mean((close - low) / (high - low), 5))",
+    "description": "Difference between upper shadow and lower shadow tendencies",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std((open - close) / (high - low), 15)) / rank(ts_mean(volume / adv20, 15))",
+    "description": "Body ratio volatility normalized by relative volume activity",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(open, 3)) * rank(ts_corr((high + low) / 2, close, 10))",
+    "description": "Gap direction modulated by midpoint-close correlation strength",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(abs(open - close) / (high - low)), 2) * ts_corr(returns, (high - low) / close, 5)",
+    "description": "Squared body ratio interacted with return-range correlation",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "ts_mean(rank((close - low) / (open - low)), 10) - ts_mean(rank((high - close) / (high - open)), 10)",
+    "description": "10-day average rank difference between lower body and upper body ratios",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(high, 20) - high) * sign(ts_corr(open / close, volume, 15))",
+    "description": "Distance from 20-day high modulated by open-close ratio volume correlation",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "zscore(log((high - low) / abs(open - close))) * rank(ts_delta(vwap, 5))",
+    "description": "Log range-to-body ratio scaled by VWAP momentum rank",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank((high - open) / (high - low)), rank(volume / adv20), 10) / ts_std(returns, 20)",
+    "description": "Upper shadow-volume correlation normalized by return volatility",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(low, 15) / low) + rank((close - open) / ts_mean(high - low, 5))",
+    "description": "Proximity to 15-day low plus body-to-average-range ratio",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "sign(open - close) * power(ts_corr((high + low + close) / 3, volume, 10), 3)",
+    "description": "Body direction weighted by cubed typical price-volume correlation",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta((high - low) / close, 5)) * zscore(ts_mean(abs(open - vwap), 10))",
+    "description": "Range momentum interacted with open-VWAP deviation tendency",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(sign(close - open), sign(high - ts_mean(high, 3)), 15) * rank(volume / ts_mean(volume, 20))",
+    "description": "Body-high breakout direction correlation weighted by volume surge",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "rank((open + close) / (high + low)) / (1 + abs(ts_corr(low, volume, 10)))",
+    "description": "Midpoint ratio normalized by absolute low-volume correlation",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(power((high - close) / (close - low), 2), 5)) * sign(ts_delta(open / close, 3))",
+    "description": "Squared shadow ratio imbalance modulated by open-close ratio momentum",
+    "theme": "intraday structure",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(close, ts_mean(close, 5), 15)) * rank(ts_std(returns, 10) / ts_std(returns, 3))",
+    "description": "Trend consistency correlation weighted by volatility regime shift",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(sign(returns), 10)) / (1 + abs(ts_corr(close, volume, 20)))",
+    "description": "Directional persistence normalized by price-volume correlation strength",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(ts_mean(close, 5), 10) / ts_delta(ts_mean(close, 20), 10)) * sign(ts_corr(high, low, 15))",
+    "description": "Short vs long MA momentum ratio modulated by range correlation",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(ts_corr(close, ts_mean(volume, 10), 20)), 2) - rank(ts_std(ts_delta(close, 3), 15))",
+    "description": "Squared trend-volume correlation minus short-term momentum volatility",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "ts_mean(sign(ts_delta(close, 1)), 15) * rank(abs(ts_corr(vwap, close, 10) - ts_corr(vwap, close, 5)))",
+    "description": "Win rate consistency weighted by VWAP correlation regime change",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(close, 10) / ts_min(close, 10)) / (1 + rank(ts_std(sign(returns), 20)))",
+    "description": "Range expansion normalized by directional consistency",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(ts_mean(close, 3), ts_mean(close, 15), 10)) * rank(ts_delta(volume, 5) / adv20)",
+    "description": "Short-long MA correlation Z-score scaled by volume momentum",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_mean(returns, 5)) * rank(power(ts_corr(close, rank(volume), 15), 3)) / ts_std(returns, 10)",
+    "description": "Trend direction times cubed price-volume rank correlation normalized by volatility",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(sign(ts_delta(close, 1)), sign(ts_delta(volume, 1)), 20)) - rank(ts_mean(abs(returns), 15))",
+    "description": "Price-volume direction synchrony minus average volatility rank",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "ts_mean(sign(close - ts_mean(close, 10)), 20) * rank(log(ts_std(close, 5) / ts_std(close, 20)))",
+    "description": "Above-MA persistence weighted by volatility regime log ratio",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(ts_corr(close, ts_corr(high, volume, 5), 15))) / (1 + ts_std(sign(ts_delta(vwap, 1)), 10))",
+    "description": "Price correlation with high-volume correlation normalized by VWAP direction stability",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "power(zscore(ts_delta(ts_mean(close, 5), 15)), 2) * sign(ts_corr(returns, ts_delta(volume, 3), 10))",
+    "description": "Squared short MA momentum Z-score modulated by return-volume change correlation",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(ts_corr(close, volume, 10), 5)) + rank(ts_mean(sign(close - open), 15)) / 2",
+    "description": "Minimum recent price-volume correlation plus intraday direction persistence",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(close), rank(ts_mean(close, 20)), 10) * rank(power(ts_std(returns, 5), 2)) / ts_std(volume, 15)",
+    "description": "Rank-based trend correlation weighted by volatility squared over volume stability",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(ts_corr(close, volume, 10), 5)) * rank(ts_mean(abs(close - vwap), 20)) / rank(adv20)",
+    "description": "Price-volume correlation trend direction weighted by VWAP deviation normalized by liquidity",
+    "theme": "trend strength and persistence",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(returns) / ts_std(returns, 20)) * sign(ts_delta(volume, 3))",
+    "description": "Standardized return shock magnitude weighted by volume momentum direction",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank((close - ts_max(close, 15)) / ts_max(close, 15)) / rank(ts_std(returns, 10))",
+    "description": "Maximum drawdown ratio normalized by volatility ranking",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "zscore(power(returns, 3)) * rank(ts_corr(abs(returns), volume / adv20, 10))",
+    "description": "Return skewness proxy modulated by volatility-volume correlation",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(returns, 20)) + rank(ts_max(returns, 20)) - 1",
+    "description": "Tail risk asymmetry: sum of extreme return percentiles",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(close, 5)) * rank(abs(ts_delta(close, 1)) / ts_mean(abs(returns), 15))",
+    "description": "Momentum direction scaled by normalized daily price shock",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(power(abs(returns), 2), ts_std(volume, 5), 10)) * zscore(returns)",
+    "description": "Volatility-volume stability correlation weighted by return surprise",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "log(1 + abs((high - low) / close)) * rank(ts_min(close / ts_mean(close, 20), 10))",
+    "description": "Intraday volatility amplified by minimum relative price deviation",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "-1 * rank(ts_max(abs(returns), 15)) * rank((ts_max(close, 20) - close) / ts_std(close, 20))",
+    "description": "Maximum volatility shock weighted by standardized price retreat",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(returns - ts_mean(returns, 10)) / ts_std(returns, 10)) / rank(volume / ts_max(volume, 15))",
+    "description": "Return deviation magnitude normalized by relative volume extremeness",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(abs(ts_delta(close, 1)), abs(ts_delta(volume, 1)), 5)) * sign(power(returns, 3))",
+    "description": "Price-volume shock correlation modulated by skewness direction",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(abs(returns), 10) / ts_mean(abs(returns), 10)) * rank(close / ts_min(close, 20))",
+    "description": "Volatility clustering ratio weighted by recovery from minimum price",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 3)) * rank(abs(open - close) / ts_std(high - low, 15))",
+    "description": "VWAP momentum direction scaled by normalized gap-to-close ratio",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(abs((close - vwap) / vwap), 2)) + rank(ts_max(returns, 10)) - rank(ts_min(returns, 10))",
+    "description": "Squared VWAP deviation plus tail risk spread",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(sign(returns), abs(returns), 20)) * rank((ts_max(high, 10) - ts_min(low, 10)) / close)",
+    "description": "Return sign-magnitude correlation weighted by normalized trading range",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(returns) * log(volume / adv20)) / (1 + abs(ts_delta(close, 10) / ts_std(close, 10)))",
+    "description": "Volume-weighted shock magnitude dampened by momentum volatility",
+    "theme": "tail risk and extreme moves",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 3) / ts_std(returns, 15)) * rank(ts_corr(volume, close, 5))",
+    "description": "Short-term VWAP momentum normalized by volatility, weighted by price-volume relationship",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(high / low, 10)) / rank(abs(ts_delta(volume, 20)))",
+    "description": "Intraday range expansion divided by volume change magnitude",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(returns, volume / adv20, 15)) * sign(ts_delta(close / vwap, 5))",
+    "description": "Return-volume anomaly correlation scaled by price-VWAP divergence direction",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(ts_std(close, 10) / ts_mean(close, 10)), 2) / rank(ts_delta(volume, 3))",
+    "description": "Squared volatility-to-price ratio normalized by recent volume momentum",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(close, 20) / close) * zscore(log(volume / ts_mean(volume, 15)))",
+    "description": "Distance from 20-day high multiplied by normalized volume surprise",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(close / open, volume, 10) / rank(ts_std(vwap, 5))",
+    "description": "Intraday return-volume correlation divided by VWAP stability rank",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(ts_delta(close, 15)) / ts_std(close, 15)) * sign(ts_corr(high, volume, 10))",
+    "description": "Volatility-adjusted momentum magnitude scaled by high-volume correlation signal",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(returns, 5)) / power(rank(volume / adv20), 3)",
+    "description": "Short-term return momentum inverse-weighted by cubed relative volume rank",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(low / close, returns, 10)) * rank(ts_delta(vwap / close, 3))",
+    "description": "Low-price correlation with returns multiplied by recent VWAP-price ratio change",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(close, 10)) * rank(ts_std(volume / adv20, 15) / ts_mean(volume / adv20, 15))",
+    "description": "Medium-term momentum direction weighted by coefficient of variation in relative volume",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(close / ts_min(close, 20), 2)) / abs(ts_corr(returns, volume, 5))",
+    "description": "Squared strength above 20-day low inverse-weighted by return-volume correlation strength",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "zscore(high / vwap) * rank(ts_delta(volume, 5) / ts_std(volume, 10))",
+    "description": "High-VWAP ratio anomaly multiplied by volume momentum volatility-adjusted rank",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_mean(close / open, 15)) / rank(abs(ts_delta(ts_corr(close, volume, 5), 10)))",
+    "description": "Intraday strength trend divided by stability of price-volume relationship",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "power(zscore(returns), 2) * sign(ts_delta(volume / ts_mean(volume, 20), 3))",
+    "description": "Squared return surprise scaled by direction of volume trend deviation",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(vwap / close, abs(returns), 10)) / rank(ts_std(close / ts_mean(close, 5), 15))",
+    "description": "VWAP-price relationship with volatility divided by price momentum stability",
+    "theme": "cross-signal interactions",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_mean(volume, 5) / ts_mean(volume, 20)) * zscore(ts_delta(close, 3) - ts_delta(close, 10))",
+    "description": "Short-term volume surge weighted by momentum differential across timeframes",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_std(returns, 3) - ts_std(returns, 15)) * rank(ts_corr(close, volume, 5) / ts_corr(close, volume, 20))",
+    "description": "Volatility regime change modulated by shifting price-volume dynamics",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(ts_mean(close, 5) / ts_mean(close, 20), 2)) - rank(ts_std(close, 5) / ts_std(close, 20))",
+    "description": "Momentum strength versus volatility ratio differential",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_max(high, 3) / ts_max(high, 15)) * rank(ts_min(low, 5) / ts_min(low, 20))",
+    "description": "Multi-timeframe breakout signal weighted by support level dynamics",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank(abs(ts_delta(vwap, 5) - ts_delta(vwap, 20))) / (ts_std(vwap, 10) + 0.001)",
+    "description": "VWAP momentum divergence normalized by intermediate-term volatility",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_mean(returns, 3) / ts_mean(returns, 10)) * zscore(ts_corr(volume, close, 5) - ts_corr(volume, close, 15))",
+    "description": "Return momentum direction weighted by evolving volume-price relationship",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank(log(ts_std(volume, 5) / ts_std(volume, 20))) * rank(ts_delta(close, 3) / ts_delta(close, 20))",
+    "description": "Volume volatility regime change scaled by momentum persistence",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(vwap, 3) / ts_mean(vwap, 15)) - zscore(ts_mean(close, 3) / ts_mean(close, 15))",
+    "description": "VWAP vs close momentum divergence across short and medium timeframes",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(ts_std(returns, 5) / ts_std(returns, 20), 1.5)) * sign(ts_corr(high, low, 3) - ts_corr(high, low, 10))",
+    "description": "Volatility ratio powered by intraday range correlation shift",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "abs(ts_delta(close, 5) / ts_std(close, 5) - ts_delta(close, 20) / ts_std(close, 20)) * rank(volume / adv20)",
+    "description": "Risk-adjusted momentum differential weighted by volume anomaly",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(close, 3) / ts_min(close, 15)) / rank(ts_max(close, 5) / ts_max(close, 20))",
+    "description": "Support level ratio relative to resistance level ratio",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(returns, volume, 5)) - zscore(ts_corr(returns, volume, 20)) + rank(ts_std(close, 3) / ts_std(close, 10))",
+    "description": "Return-volume correlation shift enhanced by volatility ratio",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_mean(open, 5) / ts_mean(open, 20) - ts_mean(close, 5) / ts_mean(close, 20)) * rank(ts_delta(volume, 10))",
+    "description": "Open-close momentum divergence signal weighted by volume trend",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(abs(ts_delta(close, 3) - ts_delta(close, 15)), 0.8)) * zscore(ts_std(vwap, 5) / ts_std(vwap, 20))",
+    "description": "Momentum divergence magnitude scaled by VWAP volatility regime",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "log(ts_mean(high / low, 5) / ts_mean(high / low, 20)) * rank(ts_corr(close, vwap, 3) / ts_corr(close, vwap, 10))",
+    "description": "Range expansion ratio weighted by price-VWAP correlation dynamics",
+    "theme": "multi-timeframe",
+    "round": 1
+  },
+  {
+    "factor": "rank((close - vwap) / ts_std(vwap, 15))",
+    "description": "VWAP deviation standardized by VWAP volatility",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(vwap, close, 10) - ts_corr(vwap, volume, 10)",
+    "description": "Divergence between VWAP-price and VWAP-volume correlations",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(vwap, 5) / ts_delta(close, 5)) * sign(volume - adv20)",
+    "description": "VWAP vs price momentum ratio modulated by volume anomaly",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "zscore(vwap / ts_mean(close, 20)) * rank(ts_std(vwap, 10))",
+    "description": "VWAP relative to price MA weighted by VWAP volatility",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(power(abs(close - vwap), 2) / ts_mean(volume, 15))",
+    "description": "Squared VWAP deviation normalized by average volume",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(vwap - ts_mean(vwap, 20)), returns, 10)",
+    "description": "Correlation between VWAP trend strength and returns",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_delta(vwap, 3)) * rank(ts_corr(high - low, vwap, 15))",
+    "description": "VWAP momentum direction weighted by range-VWAP correlation",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_max(vwap, 10) - ts_min(vwap, 10)) / zscore(close)",
+    "description": "VWAP range normalized by price z-score",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "ts_mean(abs(vwap - close), 5) * rank(volume / ts_std(volume, 20))",
+    "description": "Average VWAP deviation weighted by volume volatility",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(vwap, ts_mean(close, 5), 15)) - rank(ts_corr(close, volume, 15))",
+    "description": "VWAP-smoothed price correlation minus price-volume correlation",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "power(sign(vwap - ts_mean(vwap, 10)), 3) * rank(ts_delta(close, 20))",
+    "description": "Cubic VWAP trend signal modulated by long-term momentum",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "zscore((vwap - open) / (high - low)) * ts_corr(returns, volume, 5)",
+    "description": "Intraday VWAP position weighted by recent return-volume correlation",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_std(vwap - close, 10)) / log(1 + ts_mean(volume, 15))",
+    "description": "VWAP deviation volatility normalized by log volume",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "ts_corr(rank(vwap), rank(close), 20) * sign(ts_delta(volume, 3))",
+    "description": "Long-term VWAP-price rank correlation modulated by volume momentum",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(vwap / close, 15)) * zscore(ts_max(volume, 10) - ts_min(volume, 10))",
+    "description": "Minimum VWAP ratio weighted by volume range z-score",
+    "theme": "VWAP-based signals",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_corr(ts_delta(vwap, 3), ts_std(volume, 15), 10)) * zscore(returns)",
+    "description": "VWAP momentum correlation with volume volatility, weighted by return surprise",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_mean(abs(ts_delta(close, 5)), 10)) * rank(volume / ts_max(volume, 20))",
+    "description": "Average momentum magnitude signal modulated by volume percentile",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_corr(power(returns, 2), ts_delta(adv20, 10), 15)) / rank(ts_std(close, 20))",
+    "description": "Return volatility correlation with volume trend, normalized by price volatility rank",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_min(close / ts_mean(high, 10), 15)) * sign(ts_corr(vwap, volume, 5))",
+    "description": "Price weakness relative to highs, modulated by price-volume relationship",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "abs(ts_delta(rank(volume), 5)) * zscore(ts_mean(returns, 10))",
+    "description": "Volume rank momentum weighted by average return surprise",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "power(rank(ts_corr(low, ts_mean(vwap, 5), 15)), 2) - rank(ts_std(returns, 10))",
+    "description": "Squared low-price correlation strength minus return volatility rank",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_max(returns, 20) - ts_min(returns, 20)) * rank(ts_delta(volume / adv20, 3))",
+    "description": "Return range direction weighted by short-term relative volume momentum",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "log(abs(ts_corr(ts_mean(close, 3), ts_std(vwap, 10), 15)) + 1) * zscore(volume)",
+    "description": "Log-transformed price-volatility correlation weighted by volume surprise",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "rank(ts_delta(high / low, 10)) / (rank(ts_corr(returns, volume, 5)) + 0.1)",
+    "description": "Range expansion momentum divided by return-volume correlation strength",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "zscore(ts_mean(power(close / vwap, 2), 15)) * sign(ts_delta(ts_std(volume, 10), 5))",
+    "description": "Price-VWAP deviation squared, weighted by volume volatility trend",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "abs(rank(ts_corr(open, close, 10)) - 0.5) * ts_delta(log(volume + 1), 3)",
+    "description": "Open-close correlation extremity weighted by log volume momentum",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "power(zscore(ts_max(vwap, 15) / ts_min(vwap, 15)), 2) * rank(ts_std(returns, 5))",
+    "description": "Squared VWAP range surprise weighted by short-term return volatility rank",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "sign(ts_corr(high - low, volume, 20)) * rank(ts_delta(close / ts_mean(close, 10), 5))",
+    "description": "Range-volume relationship direction weighted by relative price momentum",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "ts_mean(rank(abs(returns)), 10) - rank(ts_corr(vwap / close, adv20, 15))",
+    "description": "Average return volatility rank minus VWAP-close ratio correlation with volume",
+    "theme": "composite and deeply nested",
+    "round": 1
+  },
+  {
+    "factor": "zscore(power(ts_delta(volume / ts_mean(volume, 20), 5), 2)) / (rank(ts_std(close, 15)) + 0.01)",
+    "description": "Squared relative volume momentum surprise normalized by price volatility rank",
+    "theme": "composite and deeply nested",
+    "round": 1
+  }
+]
