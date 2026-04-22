@@ -1,92 +1,84 @@
-<<<<<<< HEAD
-# LLM-DrivenAlphaFactorMining
-Final project for DSGA-1019 (Advanced Python for Data Science), focused on optimizing the backtesting of alpha factors generated via the Anthropic Claude API.
-=======
-# LLM Alpha Mining Pipeline
+# LLM-Driven Alpha Factor Mining
 
-The project has been organized into a layered structure of "code / results / reports" for easier development and direct reporting.
+Final project for DSGA-1019 (Advanced Python for Data Science).
+
+---
 
 ## 1. Project Structure
 
 ```text
-project/
-├── README.md
-├── data/                          # raw and cached data
+LLM-DrivenAlphaFactorMining/
+├── data/
 │   ├── sp500_tickers.csv
 │   └── sp500_cache.pkl
-├── notebooks/                     # main experiment entry notebooks
+├── notebooks/
 │   ├── baseline.ipynb
+│   ├── generate_1000.ipynb
+│   ├── evolve_factors.ipynb
 │   ├── opt1.ipynb
 │   ├── opt2.ipynb
-│   ├── opt3.ipynb
-│   └── opt4_colab.ipynb           # GPU version (recommended on Colab)
+│   ├── opt3v.ipynb
+│   ├── opt4.ipynb
+│   ├── opt5.ipynb
+│   ├── opt6.ipynb
+│   └── opt6_full.ipynb
 ├── results/
-│   ├── evaluation/                # factors and evaluation outputs
-│   │   ├── factors.json
-│   │   └── factor_evaluation.csv
-│   ├── timing/                    # performance timing outputs
-│   │   ├── opt1_timing.csv
-│   │   ├── opt2_timing.csv
-│   │   ├── opt3_timing.csv
-│   │   ├── opt3_timing_tuned.csv
-│   │   ├── opt3_thread_sweep.csv
-│   │   ├── opt3_best_thread.csv
-│   │   ├── baseline_opt1_runs.csv
-│   │   ├── baseline_opt1_summary.csv
-│   │   ├── baseline_opt1_opt2_summary.csv
-│   │   ├── baseline_opt1_opt2_opt3_summary.csv
-│   │   └── baseline_opt1_opt2_opt3_tuned_summary.csv
-│   └── plots/                     # visualization plots
-│       ├── plot1_ranking.png
-│       ├── plot2_scatter.png
-│       └── plot3_top_factor.png
+│   ├── evaluation/
+│   ├── timing/
+│   └── plots/
 ├── reports/
-│   └── README_OPT1_EXPERIMENT.md  # Baseline/Opt1/Opt2 experiment report
-└── docs/
-    └── LLM_Alpha_Mining_Proposal.pptx
+└── README.md
 ```
 
-Notes:
+---
 
-- The project root keeps symlinks for `factors.json` and `factor_evaluation.csv` to remain compatible with existing notebook paths.
+## 2. Dependencies
 
-## 2. Quick Start
-
-Python 3.10+ is recommended. Install dependencies first:
+Python 3.10+ recommended.
 
 ```bash
-pip install numpy pandas scipy matplotlib yfinance google-generativeai jupyter line_profiler
+pip install numpy pandas scipy matplotlib yfinance anthropic tqdm bottleneck numba jupyter line_profiler
 ```
 
-Recommended execution order:
+---
+
+## 3. Notebook Run Order
 
 1. `notebooks/baseline.ipynb`
 2. `notebooks/opt1.ipynb`
 3. `notebooks/opt2.ipynb`
-4. `notebooks/opt3.ipynb`
-5. `notebooks/opt4_colab.ipynb`(Colab GPU)
+4. `notebooks/opt3v.ipynb`
+5. `notebooks/opt4.ipynb`
+6. `notebooks/opt5.ipynb`
+7. `notebooks/opt6.ipynb`
+8. `notebooks/opt6_full.ipynb`
 
-Performance results:
+---
 
-- `results/timing/baseline_opt1_opt2_opt3_tuned_summary.csv`
+## 4. Optional Notebook
 
-Experiment reports:
+- `notebooks/generate_1000.ipynb`: generate a larger factor pool (about 1000 factors) for broader search/experiments.
+- `notebooks/evolve_factors.ipynb`: evolve/filter existing factors using complexity constraints and backtest performance.
 
-- `reports/README_OPT1_EXPERIMENT.md`
+These are optional and not required for the main Baseline -> Opt6 reproduction order.
 
-## 3. Pipeline Overview
+---
 
-1. Data Loading：Read `data/sp500_cache.pkl` or download and cache it
-2. Factor Generation：Generate/load factor expressions (`factors.json`)
-3. Backtesting：Compute factor matrices
-4. Evaluation：Compute IC/ICIR/Sharpe/MDD/Turnover
-5. Visualization：Generate ranking/scatter/Top-factor plots
+## 5. Where to Check Results
 
-## 4. Current Stage
+Evaluation output:
+- `results/evaluation/factor_evaluation.csv`
 
-- `baseline.ipynb`: baseline version
-- `opt1.ipynb`: Python best-practices optimization
-- `opt2.ipynb`: NumPy vectorization optimization
-- `opt3.ipynb`: Numba JIT optimization (core kernels use `@njit(parallel=True)`)
-- `opt4_colab.ipynb`: GPU acceleration (CuPy + optional Numba CUDA)
->>>>>>> 1de6795 (first commit)
+Timing outputs:
+- `results/timing/baseline_timing.csv`
+- `results/timing/opt1_timing.csv`
+- `results/timing/opt2_timing.csv`
+- `results/timing/opt3_timing.csv`
+- `results/timing/opt4_timing.csv`
+- `results/timing/opt5_timing.csv`
+- `results/timing/opt6_timing.csv`
+- `results/timing/opt6_full_timing.csv`
+- `results/timing/final_submission_summary.csv`
+
+Report:
+- `reports/README_FINAL_EXPERIMENT.md`

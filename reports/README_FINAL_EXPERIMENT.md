@@ -1,62 +1,50 @@
-# LLM Alpha Mining Final Acceleration Report (Baseline ~ Opt4)
+# LLM Alpha Mining Final Acceleration Report (Latest)
 
-## 1. Reporting Scope
+- Methods: Baseline, Opt1, Opt2, Opt3, Opt4, Opt5, Opt6, Opt6 Full
 
-This report **does not rerun experiments**. All conclusions are compiled from existing historical timing CSV files.
+## 1. Source Files
 
-- Report date: 2026-04-04
-- Goal: provide unified results and conclusions for Baseline / Opt1 / Opt2 / Opt3 / Opt4
-
-## 2. Data and Environment
-
-- Data: `data/sp500_cache.pkl`
-- Factors: first 20 factors from `results/evaluation/factors.json`
-- Scale: 752 days × 483 stocks
-- Metric: total runtime of `compute_all_factors` (seconds)
-
-Notes:
-
-- Baseline~Opt3 mainly come from local runs.
-- Opt4 comes from Colab GPU runs.
-- Because hardware differs, Opt4 comparisons are reference-only, not strict same-machine conclusions.
-
-## 3. Result Files
-
-- `results/timing/baseline_opt1_opt2_opt3_tuned_summary.csv`
+- `results/timing/baseline_timing.csv`
+- `results/timing/opt1_timing.csv`
+- `results/timing/opt2_timing.csv`
+- `results/timing/opt3_timing.csv`
 - `results/timing/opt4_timing.csv`
-- `results/timing/final_submission_summary.csv` (final summary used for submission)
+- `results/timing/opt5_timing.csv`
+- `results/timing/opt6_timing.csv`
+- `results/timing/opt6_full_timing.csv`
+- `results/timing/final_submission_summary.csv`
 
-## 4. Final Result Table
+## 2. Final Results (Same format as final tables)
 
-Source: `results/timing/final_submission_summary.csv`
+### Table 4: Factor computation runtime
 
-| Method | Runtime(s) | Speedup vs Baseline | Improvement vs Baseline | Speedup vs Opt1 | Speedup vs Opt2 | Threads |
-|---|---:|---:|---:|---:|---:|---:|
-| Baseline | 2.5790 | 1.000x | 0.00% | 0.769x | 0.294x | - |
-| Opt1 (Python best practices) | 1.9844 | 1.300x | 23.06% | 1.000x | 0.382x | - |
-| Opt2 (NumPy vectorization) | 0.7575 | 3.405x | 70.63% | 2.620x | 1.000x | - |
-| Opt3 Tuned (Numba + parallel) | 0.1178 | **21.889x** | **95.43%** | **16.843x** | **6.429x** | 8 |
-| Opt4 (GPU/CuPy) | 1.0265 | 2.513x | 60.20% | 1.933x | 0.738x | - |
+| Method | Comp. (s) | Speedup |
+|---|---:|---:|
+| Baseline | 1819.37 | 1.00x |
+| Opt1 | 1814.62 | 1.00x |
+| Opt2 | 10.37 | 175.4x |
+| Opt3 | 3.66 | 497.5x |
+| Opt4 | 3.37 | 539.4x |
+| Opt5 | 3.21 | 567.0x |
+| Opt6 | 0.87 | 2099.2x |
+| Opt6 Full | 0.68 | 2680.2x |
 
-## 5. Conclusions
+### Table 5: Factor evaluation runtime
 
-1. On the CPU path, `Opt3 Tuned` is currently the best solution with a clear speed advantage.
-2. `Opt4` does not outperform `Opt2/Opt3` under this scope, mainly due to GPU startup cost, kernel granularity, expression scheduling, and data movement overhead.
-3. For submission, the strongest main storyline is the continuous speedup path: Opt1 → Opt2 → Opt3; keep Opt4 as a GPU attempt and analysis section.
+| Method | Eval. (s) | Speedup |
+|---|---:|---:|
+| Baseline | 191.40 | 1.00x |
+| Opt1 | 158.36 | 1.21x |
+| Opt2 | 197.35 | 0.97x |
+| Opt3 | 190.80 | 1.00x |
+| Opt4 | 195.51 | 0.98x |
+| Opt5 | 188.24 | 1.02x |
+| Opt6 | 162.34 | 1.18x |
+| Opt6 Full | 35.82 | 5.34x |
 
-## 6. Ready-to-Use Paragraph
+## 4. Note
 
-In this project, we implemented four optimization stages based on the proposal:
-
-- Opt1: Python best practices
-- Opt2: NumPy vectorization
-- Opt3: Numba JIT parallelization (with thread sweep)
-- Opt4: GPU acceleration (CuPy)
-
-Based on historical timing CSV files, Baseline is 2.5790s; Opt1 is 1.9844s (+23.06%); Opt2 is 0.7575s (+70.63%); Opt3 (8 threads) is 0.1178s (+95.43%, 21.889x vs Baseline); Opt4 is 1.0265s and does not exceed Opt2/Opt3 in this environment.
-
-Therefore, the most effective current solution is the CPU-side NumPy + Numba combination (with thread tuning). The GPU path still has room for improvement through better kernel fusion and less small-kernel scheduling overhead.
-
-## 7. Note
-
-To keep the report reproducible, this document references only existing CSV outputs and does not include new reruns in this round.
+- The two speedup columns above are computed separately:
+  - Table 4 speedup = `baseline compute / method compute`
+  - Table 5 speedup = `baseline evaluate / method evaluate`
+- `final_submission_summary.csv` also keeps total runtime (`compute + evaluate`) for reference.
