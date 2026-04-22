@@ -42,7 +42,7 @@
 | Opt6 | 162.34 | 1.18x |
 | Opt6 Full | 35.82 | 5.34x |
 
-## 4. Note
+## 3. Note
 
 - The two speedup columns above are computed separately:
   - Table 4 speedup = `baseline compute / method compute`
