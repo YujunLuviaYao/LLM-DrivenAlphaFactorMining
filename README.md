@@ -5,6 +5,7 @@ Final project for DSGA-1019 (Advanced Python for Data Science).
 This is an implementation of using an LLM to generate alpha factors. The main focus is on computation and evaluation optimization. Additionally, some strategies are applied to improve alpha performance.
 
 To reproduce the whole project, you need access to an LLM API for factor generation. In the notebooks provided, we used the Claude API (Sonnet 4). If you are planning to use Claude as well, you can change the API key variable to your own API key. Other APIs may require minor revisions.
+
 ---
 
 ## 1. Project Structure
